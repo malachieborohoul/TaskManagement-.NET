@@ -1,0 +1,24 @@
+/Users/bsm/Documents/projects/TaskManagement/Domain/bin/Debug/net8.0/Domain.deps.json
+/Users/bsm/Documents/projects/TaskManagement/Domain/bin/Debug/net8.0/Domain.dll
+/Users/bsm/Documents/projects/TaskManagement/Domain/bin/Debug/net8.0/Domain.pdb
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/Domain.csproj.AssemblyReference.cache
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/Domain.dll
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/refint/Domain.dll
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/Domain.pdb
+/Users/bsm/Documents/projects/TaskManagement/Domain/obj/Debug/net8.0/ref/Domain.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/bin/Debug/net8.0/Domain.deps.json
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/bin/Debug/net8.0/Domain.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/bin/Debug/net8.0/Domain.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.csproj.AssemblyReference.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/refint/Domain.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/ref/Domain.dll

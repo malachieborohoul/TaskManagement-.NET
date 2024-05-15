@@ -1,0 +1,30 @@
+/Users/bsm/Documents/projects/TaskManagement/Application/bin/Debug/net8.0/Application.deps.json
+/Users/bsm/Documents/projects/TaskManagement/Application/bin/Debug/net8.0/Application.dll
+/Users/bsm/Documents/projects/TaskManagement/Application/bin/Debug/net8.0/Application.pdb
+/Users/bsm/Documents/projects/TaskManagement/Application/bin/Debug/net8.0/Domain.dll
+/Users/bsm/Documents/projects/TaskManagement/Application/bin/Debug/net8.0/Domain.pdb
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/Application.csproj.AssemblyReference.cache
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/Application.AssemblyInfoInputs.cache
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/Application.AssemblyInfo.cs
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/Application.csproj.CoreCompileInputs.cache
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/Applicat.44B5EDA2.Up2Date
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/Application.dll
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/refint/Application.dll
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/Application.pdb
+/Users/bsm/Documents/projects/TaskManagement/Application/obj/Debug/net8.0/ref/Application.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/bin/Debug/net8.0/Application.deps.json
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/bin/Debug/net8.0/Application.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/bin/Debug/net8.0/Application.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/bin/Debug/net8.0/Domain.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/bin/Debug/net8.0/Domain.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/Application.csproj.AssemblyReference.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/Application.AssemblyInfoInputs.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/Application.AssemblyInfo.cs
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/Application.csproj.CoreCompileInputs.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/Applicat.44B5EDA2.Up2Date
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/Application.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/refint/Application.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/Application.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/Application/obj/Debug/net8.0/ref/Application.dll
