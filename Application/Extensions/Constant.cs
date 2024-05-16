@@ -8,9 +8,9 @@ public static class Constant
     
     
 
-    public const string RegisterRoute = "api/account/identity/create";
-    public const string LoginRoute ="api/account/identity/login";
-    public const string RefreshTokenRoute  = "api/account/identity/refresh-token";
+    public const string RegisterRoute = "api/auth/register";
+    public const string LoginRoute ="api/auth/login";
+    public const string RefreshTokenRoute  = "api/auth/refresh-token";
     public const string GetRolesRoute = "api/account/identity/role/list";
         
     public const string CreateRoleRoute = "api/account/identity/role/create"; 

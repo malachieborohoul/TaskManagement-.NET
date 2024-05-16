@@ -344,6 +344,8 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Mono.TextTemplating.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/NetcodeHub.Packages.Extensions.LocalStorage.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Npgsql.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/NuGet.Common.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/NuGet.Configuration.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/NuGet.DependencyResolver.Core.dll
@@ -549,5 +551,3 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/obj/Debug/net8.0/API.pdb
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/obj/Debug/net8.0/API.genruntimeconfig.cache
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/obj/Debug/net8.0/ref/API.dll
-/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Npgsql.dll
-/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll

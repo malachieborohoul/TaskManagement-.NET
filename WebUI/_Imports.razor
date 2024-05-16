@@ -1,5 +1,6 @@
 ﻿@using System.Net.Http
 @using System.Net.Http.Json
+@using Application.Contracts
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
@@ -9,3 +10,12 @@
 @using WebUI
 @using WebUI.Layout
 @using MudBlazor
+@using Application.DTOs.Request.Account
+@using Application.Extensions
+@using Application.Services
+@using Microsoft.AspNetCore.Components.Authorization
+
+
+@inject IAuthService authService
+@inject NavigationManager NavManager
+@inject AuthenticationStateProvider AuthStateProvider

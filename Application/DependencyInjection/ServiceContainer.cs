@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using MudBlazor.Services;
 using NetcodeHub.Packages.Extensions.LocalStorage;
 
 namespace Application.DependencyInjection;
@@ -23,6 +24,7 @@ public static class ServiceContainer
         services.AddScoped<HttpClientService>();
         services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
         services. AddTransient<CustomHttpHandler>(); services.AddCascadingAuthenticationState();
+        services.AddMudServices();
         services. AddHttpClient(Constant.HttpClientName, client =>
         {
             client.BaseAddress = new Uri("https://localhost:7260/"); }).AddHttpMessageHandler<CustomHttpHandler>();

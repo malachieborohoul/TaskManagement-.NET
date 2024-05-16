@@ -10,12 +10,15 @@
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
         <div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-            <EditForm Model="model" OnValidSubmit="OnSign">
+            <EditForm Model="LoginModel" OnValidSubmit="LoginAsync">
+                
+                <DataAnnotationsValidator />
+                
                 <div class="space-y-6">
                     <div>
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
                         <div class="mt-2">
-                            <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input id="email" name="email" type="email" autocomplete="email" @bind="LoginModel.EmailAddress" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
                         </div>
                     </div>
@@ -23,27 +26,31 @@
                     <div>
                         <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
                         <div class="mt-2">
-                            <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input id="password" name="password" type="password" @bind="LoginModel.Password"  autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="flex items-center justify-between">
-                        
+
 
                         <div class="text-sm leading-6">
                             <a href="#" class="font-semibold text-blue-600 hover:text-blue-500">Forgot password?</a>
                         </div>
                     </div>
+                    
 
                     <div>
-                        
+
                         <button type="submit" class="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
                             Sign in
-                          
+
                         </button>
+
+                        <ValidationSummary class="mt-6 text-sm leading-6 text-red-600" style="list-style:lower-latin; text-align: left"/>
+                        
                     </div>
                 </div>
-             
+
 
             </EditForm>
 
@@ -61,19 +68,43 @@
 </div>
 
 @code {
-    RegisterAccountForm model = new();
+    public LoginDTO LoginModel { get; set; } = new();
 
-    public class RegisterAccountForm
+    private async Task LoginAsync()
     {
-        [Required] [EmailAddress] public string Email { get; set; }
-
-        [Required]
-        [StringLength(30, ErrorMessage = "Password must be at least 8 characters long.", MinimumLength = 8)]
-        public string Password { get; set; }
+        try
+        {
+            var response = await authService.LoginAsync(LoginModel);
+            if (response.Flag)
+            {
+                var customAuthStateProvider = (CustomAuthenticationStateProvider) AuthStateProvider;
+                await customAuthStateProvider.UpdateAuthenticationState(new LocalStorageDTO()
+                    { Token = response.Token, Refresh = response.RefreshToken });
+                NavManager. NavigateTo(uri: "home", true);
+            }
+        }
+        catch 
+        {
+            
+        }
     }
-
-    private void OnSign()
+    
+    [CascadingParameter]
+    public Task<AuthenticationState>? ClientAuthState { get; set; }
+    
+    //When page initializes
+    protected override async Task OnInitializedAsync()
     {
+        try
+        {
+            if ((await ClientAuthState!).User.Identity!.IsAuthenticated == true)
+                NavManager.NavigateTo("home", false, true);
+        }
+        catch { }
+
+        
     }
+    
+
 
 }

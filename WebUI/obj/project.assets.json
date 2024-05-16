@@ -874,6 +874,7 @@
           "Microsoft.AspNetCore.Components.Authorization": "8.0.3",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "Microsoft.Extensions.Http": "8.0.0",
+          "MudBlazor": "6.19.1",
           "NetcodeHub.Packages.Extensions.LocalStorage": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "7.5.0"
         },
@@ -1765,6 +1766,7 @@
           "Microsoft.AspNetCore.Components.Authorization": "8.0.3",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "Microsoft.Extensions.Http": "8.0.0",
+          "MudBlazor": "6.19.1",
           "NetcodeHub.Packages.Extensions.LocalStorage": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "7.5.0"
         },
