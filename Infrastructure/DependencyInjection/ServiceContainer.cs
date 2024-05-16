@@ -1,6 +1,8 @@
 using System.Text;
+using Application.Contracts;
 using Domain.Entity.Authentication;
 using Infrastructure.Data;
+using Infrastructure.Repos;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +17,7 @@ public static class ServiceContainer
 {
     public static IServiceCollection AddInfrastructureService(this IServiceCollection services, IConfiguration config)
     {
-        services.AddDbContext<AppDbContext>(o => o.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+        services.AddDbContext<AppDbContext>(o => o.UseNpgsql(config.GetConnectionString("DefaultConnection")));
         services.AddIdentityCore<ApplicationUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
             .AddSignInManager();
         services.AddAuthentication(options =>
@@ -49,7 +51,7 @@ public static class ServiceContainer
                     .AllowCredentials());
         });
 
-        //services.AddScoped<IAccount, AccountRepository>();
+        services.AddScoped<IAuth, AuthRepository>();
         return services;
     }
 }

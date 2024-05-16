@@ -1,15 +1,15 @@
 using Application.DTOs.Request.Account;
 using Application.DTOs.Response;
 
-namespace Application.Contracts;
+namespace Application.Services;
 
-public interface IAccount
+public interface IAuthService
 {
     Task CreateAdmin();
-    Task<GeneralResponse> RegisterAccountAsync(RegisterDTO model);
-    Task<LoginResponse> LoginAccountAsync(LoginDTO model);
+    Task<GeneralResponse> RegisterAsync(RegisterDTO model);
+    Task<LoginResponse> LoginAsync(LoginDTO model);
     Task<LoginResponse> RefreshTokenAsync(RefreshTokenDTO model);
-    Task<GeneralResponse> CreateRoleAsync(CreateRoleDTO model);
+
     Task<IEnumerable<GetRoleDTO>> GetRolesAsync();
     Task<IEnumerable<GetUsersWithRolesResponseDTO>> GetUsersWithRolesAsync();
     Task<GeneralResponse> ChangeUserRoleAsync(ChangeUserRoleRequestDTO model);
