@@ -18,6 +18,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
 /Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
 /Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.sourcelink.json
 /Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/refint/Domain.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/Domain/obj/Debug/net8.0/Domain.pdb

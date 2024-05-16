@@ -1137,7 +1137,12 @@
 /Users/bsm/Documents/projects/TaskManagement/WebUI/obj/Debug/net8.0/refint/WebUI.dll
 /Users/bsm/Documents/projects/TaskManagement/WebUI/obj/Debug/net8.0/WebUI.pdb
 /Users/bsm/Documents/projects/TaskManagement/WebUI/obj/Debug/net8.0/ref/WebUI.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Application.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Application.wasm
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/blazor.boot.json
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Domain.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Domain.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.js
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.js.map
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.native.8.0.4.6k4527kub6.js
@@ -1175,6 +1180,8 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Http.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Identity.Core.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Identity.Stores.wasm
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Localization.Abstractions.wasm
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Localization.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Logging.Abstractions.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Logging.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Options.ConfigurationExtensions.wasm
@@ -1191,6 +1198,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Win32.Primitives.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Win32.Registry.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/mscorlib.wasm
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/MudBlazor.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/NetcodeHub.Packages.Extensions.LocalStorage.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/netstandard.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.AppContext.wasm
@@ -1355,24 +1363,9 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Xml.XmlSerializer.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Xml.XPath.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Xml.XPath.XDocument.wasm
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/WindowsBase.wasm
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/icudt_no_CJK.dat.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.js.map.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.native.8.0.4.6k4527kub6.js.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.runtime.js.map.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/icudt_EFIGS.dat.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.runtime.8.0.4.icsu04xqzz.js.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/icudt_CJK.dat.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.js.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.native.wasm.gz
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Application.pdb
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Application.wasm
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/blazor.boot.json
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Domain.pdb
-/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Domain.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/WebUI.pdb
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/WebUI.wasm
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/WindowsBase.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Security.Cryptography.OpenSsl.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Text.Encoding.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Domain.pdb.gz
@@ -1385,9 +1378,11 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Reflection.Emit.Lightweight.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Data.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Configuration.Abstractions.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/icudt_no_CJK.dat.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Configuration.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.FileSystem.Watcher.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Threading.Tasks.Extensions.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.js.map.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.AspNetCore.Cryptography.Internal.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Resources.Writer.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Security.Principal.wasm.gz
@@ -1410,6 +1405,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Diagnostics.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Runtime.CompilerServices.VisualC.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Collections.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.native.8.0.4.6k4527kub6.js.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Runtime.InteropServices.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Linq.Expressions.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Net.Primitives.wasm.gz
@@ -1428,6 +1424,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Xml.XmlDocument.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Diagnostics.Tracing.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Application.pdb.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Localization.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.Compression.Brotli.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.FileProviders.Physical.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Text.Encoding.Extensions.wasm.gz
@@ -1435,6 +1432,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Xml.ReaderWriter.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/mscorlib.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Diagnostics.Abstractions.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Localization.Abstractions.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Net.WebProxy.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Resources.Reader.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.AspNetCore.Authorization.wasm.gz
@@ -1447,6 +1445,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Diagnostics.Process.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Diagnostics.TraceSource.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Net.Http.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.runtime.js.map.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.AppContext.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Net.NameResolution.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.Compression.FileSystem.wasm.gz
@@ -1454,6 +1453,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.AspNetCore.Components.Web.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Reflection.DispatchProxy.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.ComponentModel.TypeConverter.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Options.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Diagnostics.Contracts.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.UnmanagedMemoryStream.wasm.gz
@@ -1472,6 +1472,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Linq.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.IsolatedStorage.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Globalization.Calendars.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/icudt_EFIGS.dat.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Runtime.Intrinsics.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Runtime.CompilerServices.Unsafe.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.Compression.ZipFile.wasm.gz
@@ -1491,6 +1492,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Configuration.FileExtensions.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.Pipes.AccessControl.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.JSInterop.WebAssembly.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.runtime.8.0.4.icsu04xqzz.js.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Mapster.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Runtime.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/WebUI.wasm.gz
@@ -1503,6 +1505,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Memory.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Reflection.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.IdentityModel.JsonWebTokens.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/MudBlazor.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.Compression.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.Pipelines.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Security.SecureString.wasm.gz
@@ -1515,6 +1518,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Diagnostics.StackTrace.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Diagnostics.DiagnosticSource.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Configuration.Json.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/icudt_CJK.dat.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Net.Sockets.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Threading.Overlapped.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.AspNetCore.Components.Authorization.wasm.gz
@@ -1562,6 +1566,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.ComponentModel.DataAnnotations.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Net.Requests.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.ObjectModel.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.js.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Net.Security.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Reflection.Extensions.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.IO.FileSystem.AccessControl.wasm.gz
@@ -1570,6 +1575,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Net.WebSockets.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Web.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Runtime.Serialization.Primitives.wasm.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/dotnet.native.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Threading.ThreadPool.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/System.Console.wasm.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Primitives.wasm.gz
@@ -1619,6 +1625,8 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.Extensions.Http.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.Extensions.Localization.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.Extensions.Localization.Abstractions.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
@@ -1630,6 +1638,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.JSInterop.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/Microsoft.JSInterop.WebAssembly.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/MudBlazor.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/NetcodeHub.Packages.Extensions.LocalStorage.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/bin/Debug/net8.0/System.IO.Pipelines.dll
@@ -1820,6 +1829,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/WebUI.AssemblyInfo.cs
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/WebUI.csproj.CoreCompileInputs.cache
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/WebUI.MvcApplicationPartsAssemblyInfo.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/WebUI.sourcelink.json
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Mapster.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Mapster.Core.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.AspNetCore.Authorization.wasm
@@ -1847,6 +1857,8 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.Extensions.Http.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.Extensions.Identity.Core.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.Extensions.Identity.Stores.wasm
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.Extensions.Localization.wasm
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.Extensions.Localization.Abstractions.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.Extensions.Logging.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.Extensions.Logging.Abstractions.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.Extensions.Options.wasm
@@ -1858,6 +1870,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.IdentityModel.Tokens.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.JSInterop.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/Microsoft.JSInterop.WebAssembly.wasm
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/MudBlazor.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/NetcodeHub.Packages.Extensions.LocalStorage.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/System.IdentityModel.Tokens.Jwt.wasm
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/webcil/System.IO.Pipelines.wasm
@@ -2073,6 +2086,8 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/adla06v0mj.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/fea77k2kyz.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/3ctpgv2iyn.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/8om1x4kwm7.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/9vqqw0ap5t.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/890aokfxhe.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/zb5f9o7n2o.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/cpyj2bz64b.gz
@@ -2084,6 +2099,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/1794bit46a.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/hm695wszeu.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/ib7tr9kjj4.gz
+/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/kky8t7476b.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/zn73di22bb.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/51vfktznqt.gz
 /Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/obj/Debug/net8.0/compressed/kuhdquf9ka.gz

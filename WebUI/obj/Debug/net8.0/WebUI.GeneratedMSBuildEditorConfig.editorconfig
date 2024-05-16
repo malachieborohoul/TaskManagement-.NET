@@ -26,6 +26,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Layout/Authentication/AuthenticationLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L0F1dGhlbnRpY2F0aW9uL0F1dGhlbnRpY2F0aW9uTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Pages/Authentication/LoginPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aGVudGljYXRpb24vTG9naW5QYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
