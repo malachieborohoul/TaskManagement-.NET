@@ -1,13 +1,22 @@
 using Application.Contracts;
 using Application.DTOs.Request.Task;
+using Domain.Entity.Authentication;
 using Domain.Entity.Tasks;
 using Infrastructure.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repos;
 
-public class TaskRepository(AppDbContext context):ITasks
+public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> userManager):ITasks
 {
+    #region Add often used methods
+
+    private async Task<Status> FindStatusById(Guid id) =>await context.Status.FindAsync(id);
+    private async Task<Priority> FindPriorityById(Guid id) =>await context.Priorities.FindAsync(id);
+    private async Task<ApplicationUser> FindUserById(string id) => await userManager.FindByIdAsync(id);
+
+    #endregion
     
 
     public async Task<List<Tasks>> GetAllAsync()
@@ -26,7 +35,7 @@ public class TaskRepository(AppDbContext context):ITasks
             return null;
             
         }
-        return await context.Tasks.FindAsync(id);
+        return existingTask;
 
     }
 
@@ -41,16 +50,42 @@ public class TaskRepository(AppDbContext context):ITasks
         }
        return  await context.Tasks.FirstOrDefaultAsync(task => task.Status.Id==id);
     }
-
-    public async Task<Tasks> CreateAsync(Tasks task)
+    
+    
+    public async Task<Tasks?> GetAllByPriorityIdAsync(Guid id)
     {
+        var existingStatus = await context.Priorities.FindAsync(id);
+
+        if (existingStatus == null)
+        {
+            return null;
+            
+        }
+        return  await context.Tasks.FirstOrDefaultAsync(task => task.Priority.Id==id);
+    }
+
+    public async Task<Tasks> CreateAsync(CreateTaskDTO model)
+    {
+        var getStatus = await FindStatusById(model.StatusId);
+        var getPriority = await FindPriorityById(model.PriorityId);
+        var getUser = await FindUserById(model.UserId);
+        var task = new Tasks()
+        {
+            Title = model.Title,
+            Description = model.Description,
+            DueDate = model.DueDate,
+            Status = getStatus,
+            Priority = getPriority,
+            User = getUser
+            
+        };
         await context.Tasks.AddAsync(task);
         await context.SaveChangesAsync();
 
         return task;
     }
 
-    public async Task<Tasks?> UpdateAsync(Guid id, Tasks task)
+    public async Task<Tasks?> UpdateAsync(Guid id, UpdateTaskDTO model)
     {
         var existingTask = await context.Tasks.FindAsync(id);
 
@@ -59,10 +94,15 @@ public class TaskRepository(AppDbContext context):ITasks
             return null;
             
         }
+        
+        var getStatus = await FindStatusById(model.StatusId);
+        var getPriority = await FindPriorityById(model.PriorityId);
 
-        existingTask.Title = task.Title;
-        existingTask.Description = task.Description;
-        existingTask.DueDate = task.DueDate;
+        existingTask.Title = model.Title;
+        existingTask.Description = model.Description;
+        existingTask.DueDate = model.DueDate;
+        existingTask.Priority = getPriority;
+        existingTask.Status = getStatus;
 
         await context.SaveChangesAsync();
         return existingTask;

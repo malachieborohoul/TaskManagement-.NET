@@ -10,10 +10,11 @@ public interface ITasks
     Task<Tasks?> GetByIdAsync(Guid id);
     
     Task<Tasks?> GetAllByStatusIdAsync(Guid id);
+    Task<Tasks?> GetAllByPriorityIdAsync(Guid id);
 
-    Task<Tasks> CreateAsync(Tasks task);
+    Task<Tasks> CreateAsync(CreateTaskDTO task);
 
-    Task<Tasks?> UpdateAsync(Guid id, Tasks task);
+    Task<Tasks?> UpdateAsync(Guid id, UpdateTaskDTO task);
 
     Task<Tasks?> DeleteAsync(Guid id);
 }

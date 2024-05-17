@@ -1,4 +1,5 @@
 using Application.Contracts;
+using Application.DTOs.Request.Task;
 using Domain.Entity.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -36,15 +37,23 @@ namespace API.Controllers
             return Ok(await tasks.GetAllByStatusIdAsync(statusId));
         }
         
+        [HttpGet("priority/{priorityId}")]
+
+        public async Task<IActionResult> GetAllByPriorityId(Guid priorityId)
+        {
+            
+            return Ok(await tasks.GetAllByPriorityIdAsync(priorityId));
+        }
+        
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Tasks task)
+        public async Task<IActionResult> Create([FromBody] CreateTaskDTO task)
         {
             return Ok(await tasks.CreateAsync(task));
         }
         
         [HttpPut]
         [Route("{id:guid}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] Tasks task)
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTaskDTO task)
         {
             return Ok(await tasks.UpdateAsync(id, task));
         }

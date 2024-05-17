@@ -13,6 +13,5 @@ public class Tasks
     // Foreign Keys
     public Status Status { get; set; }
     public Priority Priority { get; set; }
-    public Activity Activity { get; set; }
     public ApplicationUser User { get; set; }
 }
