@@ -1,4 +1,5 @@
 using Domain.Entity.Authentication;
+using Domain.Entity.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,4 +13,8 @@ public class AppDbContext:IdentityDbContext<ApplicationUser>
     }
     
     public DbSet<RefreshToken> RefreshTokens { get; set; }
+    public DbSet<Status> Status { get; set; }
+    public DbSet<Tasks> Tasks { get; set; }
+    public DbSet<SubTask> SubTasks { get; set; }
+    public DbSet<Activity> Activities { get; set; }
 }

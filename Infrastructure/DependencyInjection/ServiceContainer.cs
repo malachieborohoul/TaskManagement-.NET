@@ -52,6 +52,7 @@ public static class ServiceContainer
         });
 
         services.AddScoped<IAuth, AuthRepository>();
+        services.AddScoped<ITasks, TaskRepository>();
         return services;
     }
 }

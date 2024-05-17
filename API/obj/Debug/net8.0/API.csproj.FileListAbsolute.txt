@@ -275,6 +275,7 @@
 /Users/bsm/Documents/projects/TaskManagement/API/obj/Debug/net8.0/ref/API.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/appsettings.Development.json
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/appsettings.json
+/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/API.staticwebassets.runtime.json
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/API
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/API.deps.json
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/API.runtimeconfig.json
@@ -289,6 +290,8 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.AspNetCore.Authorization.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.AspNetCore.Components.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Authorization.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Forms.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Web.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -319,6 +322,8 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Extensions.Localization.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Extensions.Localization.Abstractions.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Identity.Client.dll
@@ -342,6 +347,7 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Mono.TextTemplating.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/MudBlazor.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/NetcodeHub.Packages.Extensions.LocalStorage.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/API/bin/Debug/net8.0/Npgsql.dll
