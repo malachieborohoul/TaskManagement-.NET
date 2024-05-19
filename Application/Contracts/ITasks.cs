@@ -1,20 +1,22 @@
 using Application.DTOs.Request.Task;
+using Application.DTOs.Response;
+using Application.DTOs.Response.Task;
 using Domain.Entity.Tasks;
 
 namespace Application.Contracts;
 
 public interface ITasks
 {
-    Task<List<Tasks>> GetAllAsync();
+    Task<List<GetTaskDTO>> GetAllAsync();
 
-    Task<Tasks?> GetByIdAsync(Guid id);
+    Task<GetTaskDTO?> GetByIdAsync(Guid id);
     
     Task<Tasks?> GetAllByStatusIdAsync(Guid id);
     Task<Tasks?> GetAllByPriorityIdAsync(Guid id);
 
-    Task<Tasks> CreateAsync(CreateTaskDTO task);
+    Task<GeneralResponse> CreateAsync(CreateTaskDTO task);
 
-    Task<Tasks?> UpdateAsync(Guid id, UpdateTaskDTO task);
+    Task<GeneralResponse> UpdateAsync(Guid id, UpdateTaskDTO task);
 
-    Task<Tasks?> DeleteAsync(Guid id);
+    Task<GeneralResponse> DeleteAsync(Guid id);
 }

@@ -1,8 +1,12 @@
 using Application.Contracts;
 using Application.DTOs.Request.Task;
+using Application.DTOs.Response;
+using Application.DTOs.Response.Task;
+using Application.DTOs.Response.User;
 using Domain.Entity.Authentication;
 using Domain.Entity.Tasks;
 using Infrastructure.Data;
+using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,23 +23,55 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
     #endregion
     
 
-    public async Task<List<Tasks>> GetAllAsync()
+    public async Task<List<GetTaskDTO>> GetAllAsync()
     {
-        var tasks = await context.Tasks.ToListAsync();
-       
-        return tasks;
+        var tasks = (await context.Tasks.Include(s=>s.Status).Include(p=>p.Priority).Include(t=>t.User ).ToListAsync());
+        return tasks    .Select(task=> new GetTaskDTO()
+        {
+            Id=task.Id,
+           Title= task.Title,
+           Description=task.Description,
+          CreatedAt = task.CreatedAt,
+          DueDate = task.DueDate,
+           Status = task.Status,
+           Priority = task.Priority,
+            User=new GetUserDTO()
+            {
+                Id = task.User.Id,
+                Name = task.User.Name,
+                Email = task.User.Email,
+            }
+           
+        }).ToList();
     }
 
-    public async Task<Tasks?> GetByIdAsync(Guid id)
+    public async Task<GetTaskDTO?> GetByIdAsync(Guid id)
     {
-        var existingTask = await context.Tasks.FindAsync(id);
+        var existingTask = (await context.Tasks.Include(s=>s.Status).Include(p=>p.Priority).Include(u=>u.User).FirstOrDefaultAsync(x=>x.Id==id));
 
         if (existingTask == null)
         {
             return null;
             
         }
-        return existingTask;
+
+        return new GetTaskDTO()
+        {
+            Id = existingTask.Id,
+            Title = existingTask.Title,
+            Description = existingTask.Description,
+            CreatedAt = existingTask.CreatedAt,
+            DueDate = existingTask.DueDate,
+            Status = existingTask.Status,
+            Priority = existingTask.Priority,
+            User = new GetUserDTO()
+            {
+                Id = existingTask.User.Id,
+                Name = existingTask.User.Name,
+                Email = existingTask.User.Email,
+            }
+
+        };
 
     }
 
@@ -48,7 +84,7 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
             return null;
             
         }
-       return  await context.Tasks.FirstOrDefaultAsync(task => task.Status.Id==id);
+       return  (await context.Tasks.Include(s=>s.Status).Include(p=>p.Priority).Include(u=>u.User).FirstOrDefaultAsync(x=>x.Status.Id==id));;
     }
     
     
@@ -61,31 +97,20 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
             return null;
             
         }
-        return  await context.Tasks.FirstOrDefaultAsync(task => task.Priority.Id==id);
+        return  (await context.Tasks.Include(s=>s.Status).Include(p=>p.Priority).Include(u=>u.User).FirstOrDefaultAsync(x=>x.Priority.Id==id));;
+
     }
 
-    public async Task<Tasks> CreateAsync(CreateTaskDTO model)
+    public async Task<GeneralResponse> CreateAsync(CreateTaskDTO model)
     {
-        var getStatus = await FindStatusById(model.StatusId);
-        var getPriority = await FindPriorityById(model.PriorityId);
-        var getUser = await FindUserById(model.UserId);
-        var task = new Tasks()
-        {
-            Title = model.Title,
-            Description = model.Description,
-            DueDate = model.DueDate,
-            Status = getStatus,
-            Priority = getPriority,
-            User = getUser
-            
-        };
-        await context.Tasks.AddAsync(task);
-        await context.SaveChangesAsync();
+    
+        var task= context.Tasks.Add(model.Adapt(new Tasks()));
+       await context.SaveChangesAsync();
 
-        return task;
+        return new GeneralResponse(true, "Task saved successfully");
     }
 
-    public async Task<Tasks?> UpdateAsync(Guid id, UpdateTaskDTO model)
+    public async Task<GeneralResponse> UpdateAsync(Guid id, UpdateTaskDTO model)
     {
         var existingTask = await context.Tasks.FindAsync(id);
 
@@ -105,10 +130,10 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
         existingTask.Status = getStatus;
 
         await context.SaveChangesAsync();
-        return existingTask;
+        return new GeneralResponse(true, "Task updated successfully");
     }
 
-    public async Task<Tasks?> DeleteAsync(Guid id)
+    public async Task<GeneralResponse> DeleteAsync(Guid id)
     {
         var existingTask = await context.Tasks.FindAsync(id);
 
@@ -119,6 +144,8 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
         }
         
         context.Tasks.Remove(existingTask);
-        return existingTask;
+        await context.SaveChangesAsync();
+
+        return new GeneralResponse(true, "Task deleted successfully");
     }
 }

@@ -1,0 +1,97 @@
+@page "/tasks"
+@inject IDialogService DialogService
+
+@using Application.DTOs.Response.Task
+@using Domain.Entity.Tasks
+@using WebUI.Components.Task
+@using WebUI.Components.Task.Modals
+@using WebUI.Components.Task.Buttons
+<div class="px-4 sm:px-6 lg:px-8 mt-6 ">
+    <div class="sm:flex sm:items-center">
+        <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold leading-6 text-gray-900">Tasks</h1>
+        </div>
+        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            <button @onclick="OpenAddTaskModal" type="button" class="block rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create Task</button>
+           
+        </div>
+    </div>
+    <div class=" flex justify-between mt-4">
+
+
+        <CustomStatusButton ButtonColorClass="bg-blue-600" ButtonText="To Do" OnClick="HandleButtonClick"/>
+        <CustomStatusButton ButtonColorClass="bg-orange-600" ButtonText="In Progress" OnClick="HandleButtonClick"/>
+        <CustomStatusButton ButtonColorClass="bg-green-600" ButtonText="Completed" OnClick="HandleButtonClick"/>
+    </div>
+    @if (tasks != null)
+    {
+        <div class="mt-8 flow-root">
+        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-300">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Task Title</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Priority</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Created At</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Team</th>
+                            <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                                <span class="sr-only">Edit</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                        
+                        @foreach (var task in tasks)
+                        {
+                            <tr>
+                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">@task.Title</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">@task.Priority.Name.ToUpper().First()@task.Priority.Name.ToLower().Substring(1)  Priority</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">@task.CreatedAt</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Team</td>
+                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                    <a href="#" class="text-blue-600 hover:text-blue-600 mr-4">Edit</a>
+                                    <a href="#" class="text-red-600 hover:text-red-600">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+                        <!-- More people... -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+    
+</div>
+
+
+@code {
+    [CascadingParameter]
+    public Task<AuthenticationState>? ClientAuthState { get; set; }
+
+    private IEnumerable<GetTaskDTO>? tasks;
+
+   
+    protected override async Task OnInitializedAsync()
+    {
+        tasks = await taskService.GetTasksAsync();
+        Console.Write(tasks.Count());
+    }
+    
+    private void HandleButtonClick()
+    {
+        // Votre logique ici
+        Console.WriteLine("Bouton cliqué !");
+    }
+    
+    private void OpenAddTaskModal()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.ExtraSmall,FullWidth = true, NoHeader = true};
+        DialogService.Show<AddTaskModal>("Add Task", options);
+    }
+
+}

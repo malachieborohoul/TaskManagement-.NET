@@ -18,6 +18,7 @@ public static class ServiceContainer
     public static IServiceCollection AddApplicationService(this IServiceCollection services)
     {
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<ITaskService, TaskService>();
         services.AddAuthorizationCore();
         services.AddNetcodeHubLocalStorageService();
         services.AddScoped<Extensions.LocalStorageService>();

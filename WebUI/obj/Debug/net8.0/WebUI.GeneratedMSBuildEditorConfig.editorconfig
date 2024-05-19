@@ -26,6 +26,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Components/Task/Buttons/CustomStatusButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL0J1dHRvbnMvQ3VzdG9tU3RhdHVzQnV0dG9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Components/Task/Modals/AddTaskModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9BZGRUYXNrTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Layout/Authentication/AuthenticationLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L0F1dGhlbnRpY2F0aW9uL0F1dGhlbnRpY2F0aW9uTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,8 +62,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Pages/Task/TaskListPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGFzay9UYXNrTGlzdFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/_Imports.razor]

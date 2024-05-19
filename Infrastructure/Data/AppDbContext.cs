@@ -18,4 +18,6 @@ public class AppDbContext:IdentityDbContext<ApplicationUser>
     public DbSet<SubTask> SubTasks { get; set; }
     public DbSet<Activity> Activities { get; set; }
     public DbSet<Priority> Priorities { get; set; }
+    
+
 }

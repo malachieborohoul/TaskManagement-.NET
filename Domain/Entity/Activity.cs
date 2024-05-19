@@ -7,6 +7,5 @@ public class Activity
     public string Message { get; set; }
  
     
-    // Foreign Keys
-    public Tasks Tasks { get; set; }
+  
 }

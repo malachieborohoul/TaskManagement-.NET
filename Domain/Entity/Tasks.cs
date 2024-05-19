@@ -11,7 +11,12 @@ public class Tasks
     public DateTime DueDate { get; set; }
     
     // Foreign Keys
+    public Guid StatusId { get; set; }
     public Status Status { get; set; }
+
+    public Guid PriorityId { get; set; }
     public Priority Priority { get; set; }
+
+    public string UserId { get; set; }
     public ApplicationUser User { get; set; }
 }
