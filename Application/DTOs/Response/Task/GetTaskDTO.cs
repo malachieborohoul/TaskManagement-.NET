@@ -18,4 +18,5 @@ public class GetTaskDTO
     public Priority Priority { get; set; }
 
     public GetUserDTO User { get; set; }
+    public List<GetUserDTO> Assignees { get; set; }
 }

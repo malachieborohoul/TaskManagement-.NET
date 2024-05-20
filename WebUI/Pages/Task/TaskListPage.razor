@@ -49,10 +49,17 @@
                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">@task.Title</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">@task.Priority.Name.ToUpper().First()@task.Priority.Name.ToLower().Substring(1)  Priority</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">@task.CreatedAt</td>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Team</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                    @foreach (var item in task.Assignees)
+                                    {
+                                        <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-500 mr-2">
+                                            <span class="text-xs font-medium leading-none text-white">@item.Name.ToUpper().First()@item.Name.ToUpper().Substring(1, 1)</span>
+                                        </span>
+                                    }
+                                </td>
                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                    <a href="#" class="text-blue-600 hover:text-blue-600 mr-4">Edit</a>
-                                    <a href="#" class="text-red-600 hover:text-red-600">Delete</a>
+                                    <a @onclick="()=>OpenEditTaskModal(task)"  class="text-blue-600 hover:text-blue-600 mr-4" style="cursor: pointer">Edit</a>
+                                    <a @onclick="()=>OpenDeleteTaskModal(task)"  class="text-red-600 hover:text-red-600 " style="cursor: pointer">Delete</a>
                                 </td>
                             </tr>
                         }
@@ -64,6 +71,10 @@
             </div>
         </div>
     </div>
+    }else{
+        <MudSkeleton />
+        <MudSkeleton Animation="Animation.False" />
+        <MudSkeleton  Animation="Animation.Wave" />
     }
     
 </div>
@@ -78,8 +89,14 @@
    
     protected override async Task OnInitializedAsync()
     {
-        tasks = await taskService.GetTasksAsync();
+        await GetTasks();
         Console.Write(tasks.Count());
+    }
+    
+    private async Task GetTasks()
+    {
+        tasks = await taskService.GetTasksAsync();
+        StateHasChanged();
     }
     
     private void HandleButtonClick()
@@ -91,7 +108,37 @@
     private void OpenAddTaskModal()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.ExtraSmall,FullWidth = true, NoHeader = true};
-        DialogService.Show<AddTaskModal>("Add Task", options);
+        var parameters = new DialogParameters();
+       parameters.Add("Callback", new Func<Task>(GetTasks));
+       var res= DialogService.Show<AddTaskModal>("Add Task",parameters, options);
+       
+       
+    }
+    
+    private void OpenEditTaskModal(GetTaskDTO task)
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("task",task);
+        parameters.Add("Callback",new Func<Task>(GetTasks));
+
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.ExtraSmall,FullWidth = true, NoHeader = true};
+
+
+        DialogService.Show<EditTaskModal>("Update", parameters, options);
+    }
+    
+    private void OpenDeleteTaskModal(GetTaskDTO task)
+    {
+        var parameters = new DialogParameters<DeleteTaskModal>();
+        parameters.Add(x => x.ContentText, "Do you really want to delete this task ? ");
+        parameters.Add(x => x.ButtonText, "Delete");
+        parameters.Add(x => x.Color, Color.Error);
+        parameters.Add("task",task);
+        parameters.Add("Callback",new Func<Task>(GetTasks));
+
+        var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Medium, };
+
+        DialogService.Show<DeleteTaskModal>("Delete", parameters, options);
     }
 
 }

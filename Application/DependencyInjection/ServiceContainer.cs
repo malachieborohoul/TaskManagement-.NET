@@ -19,6 +19,10 @@ public static class ServiceContainer
     {
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<ITaskService, TaskService>();
+        services.AddScoped<IStatusService, StatusService>();
+        services.AddScoped<IPriorityService, PriorityService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IAssigneeService, AssigneeService>();
         services.AddAuthorizationCore();
         services.AddNetcodeHubLocalStorageService();
         services.AddScoped<Extensions.LocalStorageService>();

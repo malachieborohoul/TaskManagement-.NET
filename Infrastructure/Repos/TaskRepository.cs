@@ -25,12 +25,12 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
 
     public async Task<List<GetTaskDTO>> GetAllAsync()
     {
-        var tasks = (await context.Tasks.Include(s=>s.Status).Include(p=>p.Priority).Include(t=>t.User ).ToListAsync());
+        var tasks = (await context.Tasks.Include(s=>s.Status).Include(p=>p.Priority).Include(t=>t.User ).Include(t => t.Assignees)
+            .ThenInclude(a => a.User).ToListAsync());
         return tasks    .Select(task=> new GetTaskDTO()
         {
             Id=task.Id,
            Title= task.Title,
-           Description=task.Description,
           CreatedAt = task.CreatedAt,
           DueDate = task.DueDate,
            Status = task.Status,
@@ -40,7 +40,13 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
                 Id = task.User.Id,
                 Name = task.User.Name,
                 Email = task.User.Email,
-            }
+            },
+            Assignees = task.Assignees.Select(assignee => new GetUserDTO()
+            {
+            Id = assignee.User.Id,
+            Name = assignee.User.Name,
+            Email = assignee.User.Email
+        }).ToList()
            
         }).ToList();
     }
@@ -59,7 +65,6 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
         {
             Id = existingTask.Id,
             Title = existingTask.Title,
-            Description = existingTask.Description,
             CreatedAt = existingTask.CreatedAt,
             DueDate = existingTask.DueDate,
             Status = existingTask.Status,
@@ -103,35 +108,86 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
 
     public async Task<GeneralResponse> CreateAsync(CreateTaskDTO model)
     {
+        using var transaction = await context.Database.BeginTransactionAsync();
     
-        var task= context.Tasks.Add(model.Adapt(new Tasks()));
-       await context.SaveChangesAsync();
-
-        return new GeneralResponse(true, "Task saved successfully");
-    }
-
-    public async Task<GeneralResponse> UpdateAsync(Guid id, UpdateTaskDTO model)
-    {
-        var existingTask = await context.Tasks.FindAsync(id);
-
-        if (existingTask == null)
+        try
         {
-            return null;
-            
+            // Créer la tâche
+            var taskEntity = model.Adapt<Tasks>();
+            var task = context.Tasks.Add(taskEntity);
+            await context.SaveChangesAsync();
+
+            // Ajouter les assignations
+            foreach (var assignee in model.assignees)
+            {
+                context.Assignees.Add(new Assignee()
+                {
+                    UserId = assignee, 
+                    TaskId = task.Entity.Id
+                });
+            }
+
+            await context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+
+            return new GeneralResponse(true, "Task saved successfully");
         }
-        
-        var getStatus = await FindStatusById(model.StatusId);
-        var getPriority = await FindPriorityById(model.PriorityId);
-
-        existingTask.Title = model.Title;
-        existingTask.Description = model.Description;
-        existingTask.DueDate = model.DueDate;
-        existingTask.Priority = getPriority;
-        existingTask.Status = getStatus;
-
-        await context.SaveChangesAsync();
-        return new GeneralResponse(true, "Task updated successfully");
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            // Log the exception
+            return new GeneralResponse(false, "An error occurred while saving the task: " + ex.Message);
+        }
     }
+
+
+    public async Task<GeneralResponse> UpdateAsync(Guid taskId, UpdateTaskDTO model)
+    {
+        using var transaction = await context.Database.BeginTransactionAsync();
+
+        try
+        {
+            // Récupérer la tâche existante
+            var taskEntity = await context.Tasks.FindAsync(taskId);
+            if (taskEntity == null)
+            {
+                return new GeneralResponse(false, "Task not found");
+            }
+
+            // Mettre à jour les propriétés de la tâche
+            taskEntity = model.Adapt(taskEntity);
+            context.Tasks.Update(taskEntity);
+
+            // Supprimer les assignés existants pour cette tâche
+            var existingAssignees = context.Assignees.Where(a => a.TaskId == taskId);
+            context.Assignees.RemoveRange(existingAssignees);
+            await context.SaveChangesAsync();
+
+            // Ajouter les nouveaux assignés
+            foreach (var assignee in model.assignees)
+            {
+                context.Assignees.Add(new Assignee()
+                {
+                    UserId = assignee,
+                    TaskId = taskId
+                });
+            }
+
+            await context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+
+            return new GeneralResponse(true, "Task updated successfully");
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            // Log the exception
+            return new GeneralResponse(false, "An error occurred while updating the task: " + ex.Message);
+        }
+    }
+
 
     public async Task<GeneralResponse> DeleteAsync(Guid id)
     {
@@ -148,4 +204,6 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
 
         return new GeneralResponse(true, "Task deleted successfully");
     }
+    
+
 }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Priorities")]
     [ApiController]
     public class PriorityController(IPriority priority) : ControllerBase
     {

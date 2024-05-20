@@ -48,14 +48,26 @@ namespace API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateTaskDTO task)
         {
-            return Ok(await tasks.CreateAsync(task));
+           var response= await tasks.CreateAsync(task);
+           if (response.Flag)
+           {
+               return Created();
+
+           }
+                    return StatusCode(500, response.Message);
         }
         
         [HttpPut]
         [Route("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTaskDTO task)
         {
-            return Ok(await tasks.UpdateAsync(id, task));
+            var result = await tasks.UpdateAsync(id, task);
+            if (result.Flag)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
         }
         
         [HttpDelete]
@@ -63,7 +75,7 @@ namespace API.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             var task = await tasks.DeleteAsync(id);
-            return Ok(task);
+            return NoContent();
         }
     }
 }

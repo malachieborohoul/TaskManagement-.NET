@@ -18,6 +18,24 @@ public class AppDbContext:IdentityDbContext<ApplicationUser>
     public DbSet<SubTask> SubTasks { get; set; }
     public DbSet<Activity> Activities { get; set; }
     public DbSet<Priority> Priorities { get; set; }
+    public DbSet<Assignee> Assignees { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Configure Assignee many-to-many relationship
+        modelBuilder.Entity<Assignee>()
+            .HasOne(a => a.User)
+            .WithMany(u => u.Assignees)
+            .HasForeignKey(a => a.UserId);
+
+        modelBuilder.Entity<Assignee>()
+            .HasOne(a => a.Tasks)
+            .WithMany(t => t.Assignees)
+            .HasForeignKey(a => a.TaskId);
+    }
+
     
 
 }

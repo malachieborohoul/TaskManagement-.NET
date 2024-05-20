@@ -123,6 +123,28 @@ namespace Infrastructure.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("Domain.Entity.Tasks.Assignee", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("TaskId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TaskId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Assignees");
+                });
+
             modelBuilder.Entity("Domain.Entity.Tasks.Status", b =>
                 {
                     b.Property<Guid>("Id")
@@ -183,10 +205,6 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("timestamp with time zone");
@@ -355,6 +373,25 @@ namespace Infrastructure.Migrations
                     b.HasDiscriminator().HasValue("Priority");
                 });
 
+            modelBuilder.Entity("Domain.Entity.Tasks.Assignee", b =>
+                {
+                    b.HasOne("Domain.Entity.Tasks.Tasks", "Tasks")
+                        .WithMany("Assignees")
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entity.Authentication.ApplicationUser", "User")
+                        .WithMany("Assignees")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tasks");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Domain.Entity.Tasks.SubTask", b =>
                 {
                     b.HasOne("Domain.Entity.Tasks.Tasks", "Tasks")
@@ -446,12 +483,19 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entity.Authentication.ApplicationUser", b =>
                 {
+                    b.Navigation("Assignees");
+
                     b.Navigation("Tasks");
                 });
 
             modelBuilder.Entity("Domain.Entity.Tasks.Status", b =>
                 {
                     b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("Domain.Entity.Tasks.Tasks", b =>
+                {
+                    b.Navigation("Assignees");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,6 +13,11 @@ public static class Constant
     public const string RefreshTokenRoute  = "api/auth/refresh-token";
     public const string GetRolesRoute = "api/account/identity/role/list";
     public const string GetTasksRoute = "api/tasks";
+    public const string GetStatusRoute = "api/status";
+    public const string GetPrioritiesRoute = "api/priorities";
+    public const string GetUsersRoute = "api/users";
+    public const string CreateTaskRoute = "api/tasks";
+    public const string DeleteAssigneeRoute = "api/assignees";
         
     public const string CreateRoleRoute = "api/account/identity/role/create"; 
     public const string CreateAdminRoute = "setting";

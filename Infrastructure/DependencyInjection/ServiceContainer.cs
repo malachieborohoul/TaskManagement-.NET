@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
+using IUser = Application.Contracts.IUser;
 
 namespace Infrastructure.DependencyInjection;
 
@@ -55,6 +56,8 @@ public static class ServiceContainer
         services.AddScoped<ITasks, TaskRepository>();
         services.AddScoped<IStatus, StatusRepository>();
         services.AddScoped<IPriority, PriorityRepository>();
+        services.AddScoped<IUser, UserRepository>();
+        services.AddScoped<IAssignee, AssigneeRepository>();
         return services;
     }
 }

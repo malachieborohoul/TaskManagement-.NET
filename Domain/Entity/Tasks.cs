@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Domain.Entity.Authentication;
 
 namespace Domain.Entity.Tasks;
@@ -6,7 +7,6 @@ public class Tasks
 {
     public Guid Id { get; set; }
     public string Title { get; set; }
-    public string Description { get; set; }
     public DateTime CreatedAt { get; set; }=DateTime.UtcNow;
     public DateTime DueDate { get; set; }
     
@@ -19,4 +19,7 @@ public class Tasks
 
     public string UserId { get; set; }
     public ApplicationUser User { get; set; }
+    
+    [JsonIgnore]
+    public ICollection<Assignee> Assignees { get; set; } = new List<Assignee>();
 }
