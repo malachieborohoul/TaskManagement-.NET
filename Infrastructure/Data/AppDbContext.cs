@@ -34,6 +34,13 @@ public class AppDbContext:IdentityDbContext<ApplicationUser>
             .HasOne(a => a.Tasks)
             .WithMany(t => t.Assignees)
             .HasForeignKey(a => a.TaskId);
+        
+        // One To Many
+        modelBuilder.Entity<SubTask>()
+            .HasOne(a => a.Tasks)
+            .WithMany(t => t.SubTasks)
+            .HasForeignKey(a => a.TaskId);
+        
     }
 
     

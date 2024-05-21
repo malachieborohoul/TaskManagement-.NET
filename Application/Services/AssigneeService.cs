@@ -1,4 +1,6 @@
+using System.Net.Http.Json;
 using Application.DTOs.Response;
+using Application.DTOs.Response.SubTask;
 using Application.Extensions;
 using Domain.Entity.Tasks;
 
@@ -43,6 +45,25 @@ public class AssigneeService(HttpClientService httpClientService):IAssigneeServi
         
         var result = new GeneralResponse(true, "Assignee exist");
         return result!;
+    }
+    
+    public async Task<IEnumerable<Assignee>> GetAssigneesByTaskIdAsync(Guid taskId)
+    {
+        try
+        {
+            var privateClient = await httpClientService.GetPrivateClient();
+            var response = await privateClient.GetAsync($"{Constant.DeleteAssigneeRoute}/{taskId}"); 
+            string error = CheckResponseStatus(response);
+            if (!string.IsNullOrEmpty(error))
+                throw new Exception(error);
+            var result = await response.Content.ReadFromJsonAsync<IEnumerable<Assignee>>(); 
+            return result!;
+           
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
 
 

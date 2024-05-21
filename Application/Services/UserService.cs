@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using Application.DTOs.Request.Account;
 using Application.DTOs.Response;
 using Application.DTOs.Response.User;
 using Application.Extensions;
@@ -32,6 +33,25 @@ public class UserService(HttpClientService httpClientService):IUserService
         catch (Exception ex)
         {
             throw new Exception(ex.Message);
+        }
+    }
+
+    public async Task<GeneralResponse> CreateUserAsync(RegisterDTO model)
+    {
+        try
+        {
+            var privateClient = await httpClientService.GetPrivateClient();
+            var response = await privateClient.PostAsJsonAsync(Constant.GetUsersRoute, model);
+            string error = CheckResponseStatus(response);
+            if (!string.IsNullOrEmpty(error))
+                return new GeneralResponse(Flag: false, Message: error);
+            var result =  new GeneralResponse(true, "User saved successfully");
+            return result!;
+            
+        }
+        catch (Exception ex)
+        {
+            return new GeneralResponse(Flag: false, Message: ex.Message);
         }
     }
 }

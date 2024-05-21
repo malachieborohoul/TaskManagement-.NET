@@ -4,8 +4,16 @@
         <MudText>@ContentText</MudText>
     </DialogContent>
     <DialogActions>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="@Color" Variant="Variant.Filled" OnClick="Submit">@ButtonText</MudButton>
+        @if (isLoading)
+        {
+        <MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true"/>
+        }
+        else
+        {
+            <MudButton OnClick="Cancel">Cancel</MudButton>
+            <MudButton Color="@Color" Variant="Variant.Filled" OnClick="Submit">@ButtonText</MudButton>
+        }
+      
     </DialogActions>
 </MudDialog>
 
@@ -27,8 +35,9 @@ private async Task Submit()
 {
     try
     {
-        var response = await taskService.DeleteTaskAsync(task);
         isLoading = true;
+
+        var response = await taskService.DeleteTaskAsync(task);
         if (response.Flag)
         {
             isLoading = false;

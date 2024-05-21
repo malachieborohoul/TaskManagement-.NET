@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL0J1dHRvbnMvQ3VzdG9tU3RhdHVzQnV0dG9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Components/Task/Modals/AddSubTaskModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9BZGRTdWJUYXNrTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Components/Task/Modals/AddTaskModal.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9BZGRUYXNrTW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Components/Task/Modals/EditTaskModal.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9FZGl0VGFza01vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Components/User/Modals/AddUserModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Vc2VyL01vZGFscy9BZGRVc2VyTW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Layout/Authentication/AuthenticationLayout.razor]
@@ -70,8 +78,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Pages/Task/TaskDetailPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGFzay9UYXNrRGV0YWlsUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Pages/Task/TaskListPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGFzay9UYXNrTGlzdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Pages/User/UserListPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlci9Vc2VyTGlzdFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/_Imports.razor]

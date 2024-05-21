@@ -22,4 +22,5 @@ public class Tasks
     
     [JsonIgnore]
     public ICollection<Assignee> Assignees { get; set; } = new List<Assignee>();
+    public ICollection<SubTask> SubTasks { get; set; }
 }

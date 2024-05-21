@@ -145,16 +145,30 @@ namespace Infrastructure.Migrations
                     b.ToTable("Assignees");
                 });
 
-            modelBuilder.Entity("Domain.Entity.Tasks.Status", b =>
+            modelBuilder.Entity("Domain.Entity.Tasks.Priority", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Discriminator")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("character varying(8)");
+                        .HasColumnType("text");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Priorities");
+                });
+
+            modelBuilder.Entity("Domain.Entity.Tasks.Status", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -167,10 +181,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Status");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Status");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Domain.Entity.Tasks.SubTask", b =>
@@ -179,11 +189,14 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Tag")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("TasksId")
+                    b.Property<Guid>("TaskId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Title")
@@ -192,7 +205,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TasksId");
+                    b.HasIndex("TaskId");
 
                     b.ToTable("SubTasks");
                 });
@@ -366,13 +379,6 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entity.Tasks.Priority", b =>
-                {
-                    b.HasBaseType("Domain.Entity.Tasks.Status");
-
-                    b.HasDiscriminator().HasValue("Priority");
-                });
-
             modelBuilder.Entity("Domain.Entity.Tasks.Assignee", b =>
                 {
                     b.HasOne("Domain.Entity.Tasks.Tasks", "Tasks")
@@ -395,8 +401,8 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entity.Tasks.SubTask", b =>
                 {
                     b.HasOne("Domain.Entity.Tasks.Tasks", "Tasks")
-                        .WithMany()
-                        .HasForeignKey("TasksId")
+                        .WithMany("SubTasks")
+                        .HasForeignKey("TaskId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -406,7 +412,7 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entity.Tasks.Tasks", b =>
                 {
                     b.HasOne("Domain.Entity.Tasks.Priority", "Priority")
-                        .WithMany()
+                        .WithMany("Tasks")
                         .HasForeignKey("PriorityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -488,6 +494,11 @@ namespace Infrastructure.Migrations
                     b.Navigation("Tasks");
                 });
 
+            modelBuilder.Entity("Domain.Entity.Tasks.Priority", b =>
+                {
+                    b.Navigation("Tasks");
+                });
+
             modelBuilder.Entity("Domain.Entity.Tasks.Status", b =>
                 {
                     b.Navigation("Tasks");
@@ -496,6 +507,8 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entity.Tasks.Tasks", b =>
                 {
                     b.Navigation("Assignees");
+
+                    b.Navigation("SubTasks");
                 });
 #pragma warning restore 612, 618
         }

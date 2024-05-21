@@ -66,7 +66,7 @@ public class PriorityRepository(AppDbContext context):IPriority
             
         }
         
-        context.Status.Remove(existingPriority);
+        context.Priorities.Remove(existingPriority);
         await context.SaveChangesAsync();
 
         return existingPriority;

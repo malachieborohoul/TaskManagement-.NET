@@ -17,12 +17,11 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure.Repos;
 
-public class AuthRepository(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, IConfiguration config, SignInManager<ApplicationUser> signInManager, AppDbContext context):IAuth
+public class AuthRepository( UserManager<ApplicationUser> userManager, IConfiguration config, SignInManager<ApplicationUser> signInManager, AppDbContext context):IAuth
 {
      #region Add often used methods
 
         private async Task<ApplicationUser> FindUserByEmailAsync(string email) => await userManager.FindByEmailAsync(email);
-        private async Task<IdentityRole> FindRoleByNameAsync(string roleName) => await roleManager.FindByNameAsync(roleName);
         private static string GenerateRefreshToken() => Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
         
         private async Task<string> GenerateToken(ApplicationUser user)
@@ -56,20 +55,7 @@ public class AuthRepository(RoleManager<IdentityRole> roleManager, UserManager<A
         }
 
 
-        private async Task<GeneralResponse> AssignUserToRole(ApplicationUser user, IdentityRole role)
-        {
-            if (user is null || role is null) return new GeneralResponse(false, "Model state cannot be empty");
-            if (await FindRoleByNameAsync(role.Name) == null)
-                //Mapter to map
-                await CreateRoleAsync(role.Adapt(new CreateRoleDTO()));
-            IdentityResult result = await userManager.AddToRoleAsync(user, role.Name);
-            string error = CheckResponse(result);
-            if (!string.IsNullOrEmpty(error))
-                return new GeneralResponse(false, error);
-            else
-                return new GeneralResponse(true, $"{user.Name} assigned to {role.Name} role");
-        }
-
+     
 
         private static string CheckResponse(IdentityResult result)
         {
@@ -84,55 +70,9 @@ public class AuthRepository(RoleManager<IdentityRole> roleManager, UserManager<A
 
 
     #endregion
-    
-    
-    public async Task CreateAdmin()
-    {
-        try
-        {
-            if (await FindRoleByNameAsync(Constant.Role.Admin) != null) return;
-            var admin = new RegisterDTO()
-            {
-                Name = "Admin",
-                Password = "Admin@123",
-                EmailAddress = "admin@admin.com",
-                Role = Constant.Role.Admin
-            };
-            await RegisterAsync(admin);
-        }
-        catch 
-        {
 
-        }
-    }
 
-    public async Task<GeneralResponse> RegisterAsync(RegisterDTO model)
-    {
-        try
-        {
-            if (await FindUserByEmailAsync(model.EmailAddress) != null)
-                return new GeneralResponse(false, "Sorry, user is already created");
-            var user = new ApplicationUser()
-            {
-                Name = model.Name,
-                UserName = model.EmailAddress,
-                Email = model.EmailAddress,
-                PasswordHash = model.Password
-            };
-            var result = await userManager.CreateAsync(user, model.Password);
-            string error = CheckResponse(result);
-            if (!string.IsNullOrEmpty(error))
-                return new GeneralResponse(false, error);
-            var (flag, message) = await AssignUserToRole(user, new IdentityRole() { Name = model.Role });
-
-            return new GeneralResponse(flag, message);
-        }
-        catch (Exception e)
-        {
-            return new GeneralResponse(false, e.Message); 
-        }
-    }
-
+ 
     public async Task<LoginResponse> LoginAsync(LoginDTO model)
     {
         try
@@ -205,64 +145,11 @@ public class AuthRepository(RoleManager<IdentityRole> roleManager, UserManager<A
             return new LoginResponse();
     }
 
-    public async Task<GeneralResponse> CreateRoleAsync(CreateRoleDTO model)
-    {
-        try
-        {
-            if (await FindRoleByNameAsync(model.Name) == null)
-            {
-                //Create role
-                var response = await roleManager.CreateAsync(new IdentityRole(model.Name));
-                var error = CheckResponse(response);
-                if (!string.IsNullOrEmpty(error))
-                    throw new Exception(error);
-                else
-                    return new GeneralResponse(true, $"{model.Name} created");
-            }
-            return new GeneralResponse(false, $"{model.Name} already created");
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }
-
-    public async Task<IEnumerable<GetRoleDTO>> GetRolesAsync()
-    {
-        return (await roleManager.Roles.ToListAsync()).Adapt<IEnumerable<GetRoleDTO>>();
-    }
-
-    
-
-    public async Task<GeneralResponse> ChangeUserRoleAsync(ChangeUserRoleRequestDTO model)
-    {
-        // Verify if role and email exist
-        if (await FindRoleByNameAsync(model.RoleName) is null) return new GeneralResponse(false, "Role not found");
-        if (await FindUserByEmailAsync(model.UserEmail) is null) return new GeneralResponse(false, "User not found");
-        
-        var user = await FindUserByEmailAsync(model.UserEmail);
-        var previousRole = (await userManager.GetRolesAsync(user)).FirstOrDefault();
-        // Remove previous role of the user
-        var removeOldRole = await userManager.RemoveFromRoleAsync(user, previousRole);
-        //Check error
-        var error = CheckResponse(removeOldRole);
-        if (!string.IsNullOrEmpty(error))
-            return new GeneralResponse(false, error);
-        
-        //No error add assign role to user
-        var result = await userManager.AddToRoleAsync(user, model.RoleName);
-        //Check response
-        var response = CheckResponse(result);
-        if (!string.IsNullOrEmpty(response))
-            return new GeneralResponse(false, response);
-        else
-            return new GeneralResponse(true, "Role Changed");
+  
 
 
-    }
 
+   
     private async Task<GeneralResponse> SaveRefreshToken(string userId, string token)
     {
         try

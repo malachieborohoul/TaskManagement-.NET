@@ -30,4 +30,22 @@ public class AssigneeRepository(AppDbContext context):IAssignee
         return (await context.Assignees
             .FirstOrDefaultAsync(a => a.UserId == userId && a.TaskId == taskId))!;
     }
+    
+    public async Task<List<Assignee>> GetAllByTaskIdAsync(Guid id)
+    {
+        var existingTask = await context.Tasks.FindAsync(id);
+
+        if (existingTask == null)
+        {
+            return null;
+            
+        }
+        var assignees = await context.Assignees
+            .Include(a => a.User)
+            .Where(st => st.TaskId == id)
+            .ToListAsync();
+
+   
+        return assignees;
+    }
 }

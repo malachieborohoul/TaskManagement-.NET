@@ -23,6 +23,8 @@ public static class ServiceContainer
         services.AddScoped<IPriorityService, PriorityService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAssigneeService, AssigneeService>();
+        services.AddScoped<ISubTaskService, SubTaskService>();
+        services.AddScoped<IRoleService, RoleService>();
         services.AddAuthorizationCore();
         services.AddNetcodeHubLocalStorageService();
         services.AddScoped<Extensions.LocalStorageService>();

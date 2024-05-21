@@ -19,6 +19,7 @@
 
     <ItemGroup>
       <Folder Include="Components\Task\Forms\" />
+      <Folder Include="Pages\SubTask\" />
     </ItemGroup>
 
 </Project>

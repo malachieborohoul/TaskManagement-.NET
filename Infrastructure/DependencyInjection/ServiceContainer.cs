@@ -58,6 +58,8 @@ public static class ServiceContainer
         services.AddScoped<IPriority, PriorityRepository>();
         services.AddScoped<IUser, UserRepository>();
         services.AddScoped<IAssignee, AssigneeRepository>();
+        services.AddScoped<ISubTask, SubTaskRepository>();
+        services.AddScoped<IRole, RoleRepository>();
         return services;
     }
 }

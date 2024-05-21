@@ -75,7 +75,14 @@ namespace API.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             var task = await tasks.DeleteAsync(id);
-            return NoContent();
+
+            if (!task.Flag)
+            {
+                return BadRequest(task);
+                
+            }
+            return Ok(task);
+           
         }
     }
 }

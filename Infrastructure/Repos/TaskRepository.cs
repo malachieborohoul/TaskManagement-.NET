@@ -27,7 +27,8 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
     {
         var tasks = (await context.Tasks.Include(s=>s.Status).Include(p=>p.Priority).Include(t=>t.User ).Include(t => t.Assignees)
             .ThenInclude(a => a.User).ToListAsync());
-        return tasks    .Select(task=> new GetTaskDTO()
+        return tasks    .Select(task=> 
+            new GetTaskDTO()
         {
             Id=task.Id,
            Title= task.Title,
@@ -191,18 +192,35 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
 
     public async Task<GeneralResponse> DeleteAsync(Guid id)
     {
-        var existingTask = await context.Tasks.FindAsync(id);
+        using var transaction = await context.Database.BeginTransactionAsync();
 
-        if (existingTask == null)
+        try
         {
-            return null;
-            
-        }
-        
-        context.Tasks.Remove(existingTask);
-        await context.SaveChangesAsync();
+            var existingTask = await context.Tasks.FindAsync(id);
 
-        return new GeneralResponse(true, "Task deleted successfully");
+            if (existingTask == null)
+            {
+                return new GeneralResponse(false, "Task not found");
+            }
+
+            // Retirer les assignees associés à cette tâche
+            var assignees = context.Assignees.Where(a => a.TaskId == id).ToList();
+            context.Assignees.RemoveRange(assignees);
+
+            // Retirer la tâche
+            context.Tasks.Remove(existingTask);
+            await context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+
+            return new GeneralResponse(true, "Task and its assignees deleted successfully");
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            // Log the exception
+            return new GeneralResponse(false, "An error occurred while deleting the task: " + ex.Message);
+        }
     }
     
 

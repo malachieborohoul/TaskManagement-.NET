@@ -1,4 +1,6 @@
 using Application.Contracts;
+using Application.DTOs.Request.Account;
+using Application.DTOs.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,5 +16,32 @@ namespace API.Controllers
             
             return Ok(await user.GetUsersWithRolesAsync());
         }
+        
+        [HttpPost()]
+        public async Task<ActionResult<GeneralResponse>> Register(RegisterDTO model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Model cannot be null");
+            await user.RegisterAsync(model);
+            return Created();
+        }
+        
+        [HttpPost("/setting")]
+        public async Task<ActionResult> CreateAdmin()
+        {
+            await user.CreateAdmin();
+            return Ok();
+        }
+        /*
+        [HttpPost("identity/change-role")]
+        public async Task<ActionResult<GeneralResponse>> ChangeUserRole(ChangeUserRoleRequestDTO model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Model cannot be null");
+            return Ok(await user.ChangeUserRoleAsync(model));
+        }*/
+
     }
+    
+  
 }

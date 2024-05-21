@@ -38,6 +38,25 @@ public class TaskService(HttpClientService httpClientService):ITaskService
         }
     }
 
+    public async Task<GetTaskDTO> GetTaskAsync(Guid taskId)
+    {
+        try
+        {
+            var privateClient = await httpClientService.GetPrivateClient();
+            var response = await privateClient.GetAsync($"{Constant.GetTasksRoute}/{taskId}"); 
+            string error = CheckResponseStatus(response);
+            if (!string.IsNullOrEmpty(error))
+                throw new Exception(error);
+            var result = await response.Content.ReadFromJsonAsync<GetTaskDTO>(); 
+            return result!;
+           
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
     public async Task<GeneralResponse> CreateTaskAsync(CreateTaskDTO model)
     {
         try

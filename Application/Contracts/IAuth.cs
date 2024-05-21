@@ -5,11 +5,7 @@ namespace Application.Contracts;
 
 public interface IAuth
 {
-    Task CreateAdmin();
-    Task<GeneralResponse> RegisterAsync(RegisterDTO model);
     Task<LoginResponse> LoginAsync(LoginDTO model);
     Task<LoginResponse> RefreshTokenAsync(RefreshTokenDTO model);
-    Task<GeneralResponse> CreateRoleAsync(CreateRoleDTO model);
-    Task<IEnumerable<GetRoleDTO>> GetRolesAsync();
-    Task<GeneralResponse> ChangeUserRoleAsync(ChangeUserRoleRequestDTO model);
+   
 }

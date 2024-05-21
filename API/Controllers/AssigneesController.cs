@@ -36,5 +36,18 @@ namespace API.Controllers
         
             return Ok(result);
         }
+        [HttpGet("{taskId:guid}")]
+        public async Task<IActionResult> GetAllByTaskId(Guid taskId)
+        {
+            
+            var assignees= await assignee.GetAllByTaskIdAsync(taskId);
+            if (assignees == null)
+            {
+                return NotFound("No assignees found for the given task.");
+            }
+
+            return Ok(assignees);
+        }
+
     }
 }
