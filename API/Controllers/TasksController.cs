@@ -84,5 +84,20 @@ namespace API.Controllers
             return Ok(task);
            
         }
+        
+        [HttpPatch("{taskId}/status")]
+        public async Task<IActionResult> ChangeTaskStatus(Guid taskId, [FromBody] ChangeTaskStatusDTO model)
+        {
+          
+            try
+            {
+                await tasks.ChangeTaskStatusAsync(taskId, model.StatusId);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

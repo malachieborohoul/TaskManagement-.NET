@@ -23,7 +23,6 @@ namespace API.Controllers
             }
         }
         
-        // Action pour obtenir un assigné spécifique
         [HttpGet("{taskId}/{userId}")]
         public async Task<IActionResult> GetAssignee(string userId, Guid taskId)
         {

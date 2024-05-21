@@ -12,5 +12,6 @@ public interface ITaskService
     Task<GeneralResponse> CreateTaskAsync(CreateTaskDTO model);
     Task<GeneralResponse> DeleteTaskAsync(GetTaskDTO model);
     Task<GeneralResponse> UpdateTaskAsync(Guid taskId, UpdateTaskDTO model);
+    Task<GeneralResponse> ChangeTaskStatusAsync(Guid taskId, ChangeTaskStatusDTO model);
 
 }

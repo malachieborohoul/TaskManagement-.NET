@@ -115,4 +115,25 @@ public class TaskService(HttpClientService httpClientService):ITaskService
             return new GeneralResponse(Flag: false, Message: ex.Message);
         }
     }
+
+    public async Task<GeneralResponse> ChangeTaskStatusAsync(Guid taskId, ChangeTaskStatusDTO model)
+    {
+        try
+        {
+            var privateClient = await httpClientService.GetPrivateClient();
+            
+
+            var response = await privateClient.PatchAsJsonAsync($"{Constant.CreateTaskRoute}/{taskId}/status",model );
+            string error = CheckResponseStatus(response);
+            if (!string.IsNullOrEmpty(error))
+                return new GeneralResponse(Flag: false, Message: error);
+        
+            var result = new GeneralResponse(true, "Task Status changed successfully");
+            return result!;
+        }
+        catch (Exception ex)
+        {
+            return new GeneralResponse(Flag: false, Message: ex.Message);
+        }
+    }
 }

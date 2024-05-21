@@ -19,4 +19,5 @@ public interface ITasks
     Task<GeneralResponse> UpdateAsync(Guid id, UpdateTaskDTO task);
 
     Task<GeneralResponse> DeleteAsync(Guid id);
+    Task<GeneralResponse> ChangeTaskStatusAsync(Guid taskId, Guid statusId);
 }

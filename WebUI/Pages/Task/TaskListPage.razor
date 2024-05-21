@@ -11,10 +11,14 @@
         <div class="sm:flex-auto">
             <h1 class="text-base font-semibold leading-6 text-gray-900">Tasks</h1>
         </div>
-        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-            <button @onclick="OpenAddTaskModal" type="button" class="block rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create Task</button>
-           
-        </div>
+        <AuthorizeView Roles="@Constant.Role.Admin">
+            <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+                <button @onclick="OpenAddTaskModal" type="button" class="block rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create Task</button>
+
+            </div>
+
+        </AuthorizeView>
+       
     </div>
     <div class=" flex justify-between mt-4">
 
@@ -111,8 +115,27 @@
    
     protected override async Task OnInitializedAsync()
     {
-        await GetTasks();
-        Console.Write(tasks.Count());
+        
+        try
+        {
+            await authService.CreateAdmin();
+            //If user is authenticated send to home
+            if ((await ClientAuthState!).User.Identity!.IsAuthenticated == false)
+            {
+                NavManager.NavigateTo("/login", false, true);
+
+            }
+            
+            await GetTasks();
+                
+              
+        }
+        catch
+        {
+            NavManager.NavigateTo("/login", false, true);
+        }
+        
+       
     }
     
     private async Task GetTasks()

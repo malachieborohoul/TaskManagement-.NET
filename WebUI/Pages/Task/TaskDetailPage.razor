@@ -39,8 +39,8 @@
                         <span class="block flex-shrink-0">
                             <div class="h-3 w-3 bg-orange-600 rounded-full"></div>
                         </span>
-                        <span class="block min-w-0 flex-1">
-                            <span class="block truncate text-xs font-medium text-gray-500">TO DO</span>
+                        <span style="cursor: pointer" @onclick="OpenChangeStatusModal " class="block min-w-0 flex-1">
+                            <span class="block truncate text-xs font-medium text-gray-500">@TaskDTO.Status.Name.ToUpper()</span>
                         </span>
                     </span>
                 </div>
@@ -142,7 +142,7 @@
         {
             await GetSubTasks();
             await GetAssignees();
-            TaskDTO = await taskService.GetTaskAsync(TaskId);
+            await GetTask();
         }
         catch (Exception ex)
         {
@@ -173,6 +173,13 @@
         SubTasks = await subTaskService.GetSubTasksByTaskIdAsync(TaskId);
         StateHasChanged();
     }
+    
+    private async Task GetTask()
+    {
+        TaskDTO = await taskService.GetTaskAsync(TaskId);
+        StateHasChanged();
+    }
+
 
     
     private void OpenAddSubTaskModal()
@@ -185,6 +192,19 @@
        
        
     }
+    
+    private void OpenChangeStatusModal()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("task",TaskDTO);
+        parameters.Add("Callback",new Func<Task>(GetTask));
+
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.ExtraSmall,FullWidth = true, NoHeader = true};
+
+
+        DialogService.Show<ChangeStatusModal>("Change Status", parameters, options);
+    }
+
 
     #endregion
 

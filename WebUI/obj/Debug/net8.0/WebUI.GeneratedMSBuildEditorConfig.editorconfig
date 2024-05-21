@@ -38,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9BZGRUYXNrTW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Components/Task/Modals/ChangeStatusModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9DaGFuZ2VTdGF0dXNNb2RhbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/bsm/Documents/projects/dot net/TaskManagement/WebUI/Components/Task/Modals/DeleteTaskModal.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9EZWxldGVUYXNrTW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

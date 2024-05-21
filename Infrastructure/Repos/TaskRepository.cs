@@ -223,5 +223,21 @@ public class TaskRepository(AppDbContext context,UserManager<ApplicationUser> us
         }
     }
     
+    public async Task<GeneralResponse> ChangeTaskStatusAsync(Guid taskId, Guid statusId)
+    {
+        var task = await context.Tasks.FindAsync(taskId);
+        if (task == null)
+        {
+            return new GeneralResponse(false, "Task not found");
+        }
+
+        task.StatusId = statusId;
+        context.Tasks.Update(task);
+        await context.SaveChangesAsync();
+        
+        return new GeneralResponse(true, "Status Task has been changed successfully");
+
+    }
+    
 
 }
