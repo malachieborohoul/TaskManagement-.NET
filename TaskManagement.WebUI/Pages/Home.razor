@@ -1,0 +1,89 @@
+﻿@page "/home"
+@using TaskManagement.Application.DTOs.Response
+@using TaskManagement.Application.DTOs.Response.SubTask
+@using TaskManagement.Application.DTOs.Response.Task
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Admin,User")]
+
+<div class="mt-4">
+    <dl class="mt-5 grid grid-cols-1 divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow md:grid-cols-3 md:divide-x md:divide-y-0">
+        @if (tasks != null)
+        {
+            <div class="px-4 py-5 sm:p-6">
+                <dt class="text-base font-normal text-gray-900">Total Tasks</dt>
+                <dd class="mt-1 flex items-baseline justify-between md:block lg:flex">
+                    <div class="flex items-baseline text-2xl font-semibold text-blue-600">
+                        @tasks.Count()
+                    </div>
+
+
+                </dd>
+            </div>
+        }
+        else
+        {
+            <MudSkeleton/>
+            <MudSkeleton Animation="Animation.False"/>
+            <MudSkeleton Animation="Animation.Wave"/>
+        }
+
+        @if (users != null)
+        {
+        <div class="px-4 py-5 sm:p-6">
+            <dt class="text-base font-normal text-gray-900">Total Users</dt>
+            <dd class="mt-1 flex items-baseline justify-between md:block lg:flex">
+                <div class="flex items-baseline text-2xl font-semibold text-blue-600">
+                    @users.Count()
+                </div>
+
+
+            </dd>
+        </div>
+        }
+        else
+        {
+        <MudSkeleton/>
+        <MudSkeleton Animation="Animation.False"/>
+        <MudSkeleton Animation="Animation.Wave"/>
+        }
+
+
+
+    </dl>
+</div>
+
+
+@code {
+    
+    protected override async System.Threading.Tasks.Task OnInitializedAsync()
+    {
+        await GetTasks();
+        await GetUsers();
+        //await authService.EnsureAuthenticatedAsync(LoadAllData);
+    }
+    
+    private async System.Threading.Tasks.Task LoadAllData()
+    {
+        await GetTasks();
+        await GetUsers();
+    }
+
+    private IEnumerable<GetTaskDTO>? tasks;
+    private IEnumerable<GetSubTaskDTO>? subtasks;
+    private IEnumerable<GetUsersWithRolesResponseDTO>? users;
+
+    private async System.Threading.Tasks.Task GetTasks()
+    {
+        tasks = await taskService.GetTasksAsync();
+        StateHasChanged();
+    }
+
+    private async System.Threading.Tasks.Task GetUsers()
+    {
+        users = await userService.GetUsersAsync();
+        StateHasChanged();
+    }
+  
+
+
+}

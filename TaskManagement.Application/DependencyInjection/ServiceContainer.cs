@@ -1,0 +1,40 @@
+using System.Text;
+using TaskManagement.Application.Contracts;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using MudBlazor.Services;
+using NetcodeHub.Packages.Extensions.LocalStorage;
+using TaskManagement.Application.Extensions;
+using TaskManagement.Application.Services;
+
+namespace TaskManagement.Application.DependencyInjection;
+
+public static class ServiceContainer
+{
+   
+
+    public static IServiceCollection AddApplicationService(this IServiceCollection services)
+    {
+        services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<ITaskService, TaskService>();
+        services.AddScoped<IStatusService, StatusService>();
+        services.AddScoped<IPriorityService, PriorityService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IAssigneeService, AssigneeService>();
+        services.AddScoped<ISubTaskService, SubTaskService>();
+        services.AddScoped<IRoleService, RoleService>();
+        services.AddAuthorizationCore();
+        services.AddNetcodeHubLocalStorageService();
+        services.AddScoped<Extensions.LocalStorageService>();
+        services.AddScoped<HttpClientService>();
+        services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+        services. AddTransient<CustomHttpHandler>(); services.AddCascadingAuthenticationState();
+        services.AddMudServices();
+        services. AddHttpClient(Constant.HttpClientName, client =>
+        {
+            client.BaseAddress = new Uri("https://localhost:7260/"); }).AddHttpMessageHandler<CustomHttpHandler>();
+        return services;
+    }
+}

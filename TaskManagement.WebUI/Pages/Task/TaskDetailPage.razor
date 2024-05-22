@@ -1,0 +1,209 @@
+@page "/tasks/{taskId:guid}"
+@using TaskManagement.Application.DTOs.Response.SubTask
+@using TaskManagement.Application.DTOs.Response.Task
+@using Domain.Entity.Tasks
+@using WebUI.Components.Task.Modals
+<div class="sm:flex sm:items-center mt-6">
+    <div class="sm:flex-auto">
+        <h1 class="text-base font-semibold leading-6 text-gray-900">Task Detail</h1>
+    </div>
+
+</div>
+<div class="lg:col-start-3 lg:row-end-1 mt-4 ">
+    <h2 class="sr-only">Summary</h2>
+    <div class="flex justify-between rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
+        <div class=" px-6 py-6 w-3/5">
+            @if ( TaskDTO== null)
+            {
+                <MudSkeleton Animation="Animation.Wave"/>
+
+            }
+            else
+            {
+                <div class="flex justify-between">
+                    @if (TaskDTO.Priority.Slug == "normal")
+                    {
+                        <span class="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/10 mr-2">@TaskDTO.Priority.Name.ToUpper()</span>
+
+                    }else if (TaskDTO.Priority.Slug == "medium")
+                    {
+                    <span class="inline-flex items-center rounded-full bg-orange-50 px-2 py-1 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-600/10 mr-2">@TaskDTO.Priority.Name.ToUpper()</span>
+
+                    }
+                    else if (TaskDTO.Priority.Slug == "high")
+                    {
+                    <span class="inline-flex items-center rounded-full bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10 mr-2">@TaskDTO.Priority.Name.ToUpper()</span>
+
+                    }
+                    <span class="flex min-w-0 flex-1 items-center space-x-2">
+                        <span class="block flex-shrink-0">
+                            <div class="h-3 w-3 bg-orange-600 rounded-full"></div>
+                        </span>
+                        <span style="cursor: pointer" @onclick="OpenChangeStatusModal " class="block min-w-0 flex-1">
+                            <span class="block truncate text-xs font-medium text-gray-500">@TaskDTO.Status.Name.ToUpper()</span>
+                        </span>
+                    </span>
+                </div>
+            }
+
+            <div class="mt-4">
+                <h3 class="font-bold text-xs text-gray-900">TASK TEAM</h3>
+                <ul role="list" class="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
+                    @if (IsLoading)
+                    {
+                    <MudSkeleton/>
+                    <MudSkeleton Animation="Animation.False"/>
+                    <MudSkeleton Animation="Animation.Wave"/>
+                    }
+                    else
+                    {
+                    <div class="max-h-80  overflow-y-auto">
+                        @foreach (var assignee in Assignees)
+                        {
+                        <li class="flex items-center  py-3">
+                            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-500 mr-4">
+                                <span class="font-medium leading-none text-white text-xs">@assignee.User.Name.ToUpper().First()@assignee.User.Name.ToUpper().Substring(1, 1)</span>
+                            </span>
+                            <span class="text-xs font-medium leading-none text-black">@assignee.User.Name.ToUpper()</span>
+                            
+                        </li>
+                        }
+                    </div>
+                    }
+
+                   
+
+                  
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="mt-6 border-t border-gray-900/5 px-6 py-6 w-2/5  ">
+            <div class="flex justify-between">
+                <h3 class="font-bold text-xs text-gray-900">SUB TASKS</h3>
+
+                <button @onclick="OpenAddSubTaskModal">
+                    <span class="flex h-4 w-4 items-center justify-center rounded-full border-2 border-dashed border-blue-300 text-blue-600">
+                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z"/>
+                        </svg>
+                    </span>
+                </button>
+
+            </div>
+
+            @if (IsLoading)
+            {
+                <MudSkeleton/>
+                <MudSkeleton Animation="Animation.False"/>
+                <MudSkeleton Animation="Animation.Wave"/>
+            }
+            else
+            {
+                <div class="max-h-80  overflow-y-auto">
+                    @foreach (var subTask in SubTasks)
+                    {
+                    <div class=" flex items-start justify-start  mt-4 ">
+                        <span class="h-5 w-5 rounded-full bg-indigo-500 flex items-center justify-center ring-8 ring-white mr-2">
+                           
+                                 <svg class="h-3 w-3 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6.072 10.072 2 2 6-4m3.586 4.314.9-.9a2 2 0 0 0 0-2.828l-.9-.9a2 2 0 0 1-.586-1.414V5.072a2 2 0 0 0-2-2H13.8a2 2 0 0 1-1.414-.586l-.9-.9a2 2 0 0 0-2.828 0l-.9.9a2 2 0 0 1-1.414.586H5.072a2 2 0 0 0-2 2v1.272a2 2 0 0 1-.586 1.414l-.9.9a2 2 0 0 0 0 2.828l.9.9a2 2 0 0 1 .586 1.414v1.272a2 2 0 0 0 2 2h1.272a2 2 0 0 1 1.414.586l.9.9a2 2 0 0 0 2.828 0l.9-.9a2 2 0 0 1 1.414-.586h1.272a2 2 0 0 0 2-2V13.8a2 2 0 0 1 .586-1.414Z"/>
+                                </svg>
+                          </span>
+                        <div>
+                            <div class="flex items-center ">
+                                <h3 class=" text-xs font-medium text-gray-900 mr-2">@subTask.CreatedAt.ToLongDateString()</h3>
+                                <span class="inline-flex flex-shrink-0 items-center rounded-full bg-indigo-50 px-1.5 py-0.5 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-600/20">@subTask.Tag</span>
+                            </div>
+                            <p class="mt-1  text-xs text-gray-500">@subTask.Title</p>
+                        </div>
+
+                    </div>
+                    }
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public Guid TaskId { get; set; }
+    private IEnumerable<GetSubTaskDTO> SubTasks { get; set; }
+    private IEnumerable<Assignee> Assignees { get; set; }
+    private GetTaskDTO TaskDTO { get; set; }
+    private bool IsLoading { get; set; } = true;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await GetSubTasks();
+        await GetAssignees();
+        await GetTask();
+        IsLoading = false;
+
+
+   
+    }
+    
+    private async Task LoadAllData()
+    {
+       
+
+    }
+
+    #region Assignee
+
+    private async Task GetAssignees()
+    {
+        Assignees = await assigneeService.GetAssigneesByTaskIdAsync(TaskId);
+        StateHasChanged();
+    }
+
+    #endregion
+    
+
+    #region SubTask
+    
+    private async Task GetSubTasks()
+    {
+        SubTasks = await subTaskService.GetSubTasksByTaskIdAsync(TaskId);
+        StateHasChanged();
+    }
+    
+    private async Task GetTask()
+    {
+        TaskDTO = await taskService.GetTaskAsync(TaskId);
+        StateHasChanged();
+    }
+
+
+    
+    private void OpenAddSubTaskModal()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.ExtraSmall,FullWidth = true, NoHeader = true};
+        var parameters = new DialogParameters();
+        parameters.Add("Callback", new Func<Task>(GetSubTasks));
+        parameters.Add("taskId", TaskId);
+        var res= DialogService.Show<AddSubTaskModal>("Add Sub Task",parameters, options);
+       
+       
+    }
+    
+    private void OpenChangeStatusModal()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("task",TaskDTO);
+        parameters.Add("Callback",new Func<Task>(GetTask));
+
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.ExtraSmall,FullWidth = true, NoHeader = true};
+
+
+        DialogService.Show<ChangeStatusModal>("Change Status", parameters, options);
+    }
+
+
+    #endregion
+
+}

@@ -2,15 +2,21 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{A6A85A09-0D97-4BF6-96E2-A62699C00F24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{CF4CB256-D13C-45D9-9CF2-A18FC315E075}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Application", "TaskManagement.Application\TaskManagement.Application.csproj", "{CF4CB256-D13C-45D9-9CF2-A18FC315E075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{DE70A7E6-C7D5-4D30-9C52-E19B9BB7F2AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Domain", "TaskManagement.Domain\TaskManagement.Domain.csproj", "{DE70A7E6-C7D5-4D30-9C52-E19B9BB7F2AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{837FE9D4-13A8-497D-962B-AE412A0EB072}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Infrastructure", "TaskManagement.Infrastructure\TaskManagement.Infrastructure.csproj", "{837FE9D4-13A8-497D-962B-AE412A0EB072}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{B9FF96F2-0888-47A3-A814-CA21E3004E66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.API", "TaskManagement.API\TaskManagement.API.csproj", "{B9FF96F2-0888-47A3-A814-CA21E3004E66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{91EBF5B7-1F7F-4334-80A2-32BF87B8E4E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.WebUI", "TaskManagement.WebUI\TaskManagement.WebUI.csproj", "{91EBF5B7-1F7F-4334-80A2-32BF87B8E4E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{B6D81ED2-2CD6-4B9C-9314-5B0921BDA45E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{718F16DC-B65A-4E2C-843C-73FE0EE10FBB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{83D36681-AE89-47C0-9DB4-0B13D632D0A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,5 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B9FF96F2-0888-47A3-A814-CA21E3004E66} = {A6A85A09-0D97-4BF6-96E2-A62699C00F24}
 		{91EBF5B7-1F7F-4334-80A2-32BF87B8E4E8} = {A6A85A09-0D97-4BF6-96E2-A62699C00F24}
+		{CF4CB256-D13C-45D9-9CF2-A18FC315E075} = {B6D81ED2-2CD6-4B9C-9314-5B0921BDA45E}
+		{DE70A7E6-C7D5-4D30-9C52-E19B9BB7F2AC} = {718F16DC-B65A-4E2C-843C-73FE0EE10FBB}
+		{837FE9D4-13A8-497D-962B-AE412A0EB072} = {83D36681-AE89-47C0-9DB4-0B13D632D0A6}
 	EndGlobalSection
 EndGlobal

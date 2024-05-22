@@ -1,0 +1,155 @@
+@using TaskManagement.Application.DTOs.Request.Task
+@using TaskManagement.Application.DTOs.Response
+@using TaskManagement.Application.DTOs.Response.Task
+@using Domain.Entity.Tasks
+@using Microsoft.IdentityModel.Tokens
+<MudDialog >
+    <DialogContent>
+        <EditForm Model="ChangeTaskStatusModal" OnValidSubmit="ChangeTaskStatusAsync">
+            <div class="text-md font-bold mt-4">CHANGE STATUS</div>
+          
+ 
+            <div class="flex justify-between mt-3  ">
+                @if (statuses != null)
+                {
+                    <div class="w-full mr-2">
+                        <label for="status" class="block text-sm font-medium leading-6 text-gray-900">Status</label>
+                        <div class="mt-2">
+                            <select id="status" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6" @onchange="OnStatusChanged">
+
+                                @foreach (var status in statuses)
+                                {
+                                    <option value="@status.Id">@status.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                }
+              
+
+            </div>
+
+        
+
+
+        </EditForm>
+       
+    </DialogContent>
+    <DialogActions>
+
+        @if (isLoading)
+        {
+        <div class="mt-6 flex items-center justify-end gap-x-6 mr-4">
+            <button disabled="disabled" @onclick="Cancel" type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+            <button @onclick="ChangeTaskStatusAsync" type="submit" class="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+                <svg width="20" height="20" fill="currentColor" class="mr-2 animate-spin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
+                    </path>
+                </svg>
+                Save
+            </button>
+        </div>
+        }
+        else
+        {
+        <div class="mt-6 flex items-center justify-end gap-x-6 mr-4">
+            <button @onclick="Cancel" type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+            <button @onclick="ChangeTaskStatusAsync" type="submit" class="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Save</button>
+        </div>
+        }
+    </DialogActions>
+    
+    
+    
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [Parameter]
+    public Func<Task> Callback { get; set; } // Callback function to refresh the task list
+
+    [Parameter] public GetTaskDTO task { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+    private string SearchText { get; set; }
+    private GetUsersWithRolesResponseDTO SelectedUser { get; set; }
+    private bool _isDropdownVisible { get; set; } = false;
+
+   
+
+    public ChangeTaskStatusDTO ChangeTaskStatusModal = new ChangeTaskStatusDTO();
+
+   
+
+    
+    //Status
+    private string? _selectedStatusId;
+
+    private void OnStatusChanged(ChangeEventArgs e)
+    {
+        _selectedStatusId = e.Value?.ToString();
+    }
+    private IEnumerable<Status>? statuses;
+    protected override async Task OnInitializedAsync()
+    {
+        statuses = await statusService.GetStatusAsync();
+        _selectedStatusId = statuses.First().Id.ToString();
+       
+
+
+
+    }
+ 
+    #region Task
+
+    private bool isLoading = false;
+
+   
+    
+    private async Task ChangeTaskStatusAsync()
+    {
+        try
+        {
+       
+                isLoading = true;
+
+                var changeTaskStatus = new ChangeTaskStatusDTO()
+                {
+                    StatusId = Guid.Parse(_selectedStatusId)
+                };
+
+          
+                var response = await taskService.ChangeTaskStatusAsync(task.Id, changeTaskStatus);
+                if (response.Flag)
+                {
+                    isLoading = false;
+                    Snackbar.Add(@response.Message, Severity.Success);
+                    MudDialog.Close(DialogResult.Ok(true));
+                    await Callback(); // Refresh the task list
+                
+                }
+                else
+                {
+                    Snackbar.Add(@response.Message, Severity.Error);
+               
+                }
+               
+            
+             
+            
+           
+
+            
+        }
+        catch 
+        {
+           
+        }
+    }
+
+
+    
+
+    #endregion
+}
