@@ -2,10 +2,12 @@ using System.Net.Http.Json;
 using Application.DTOs.Request.Account;
 using Application.DTOs.Response;
 using Application.Extensions;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Application.Services;
 
-public class AuthService(HttpClientService httpClientService):IAuthService
+public class AuthService(HttpClientService httpClientService, AuthenticationStateProvider authenticationStateProvider,  NavigationManager navManager):IAuthService
 {
      public async Task CreateAdmin()
     {
@@ -17,6 +19,29 @@ public class AuthService(HttpClientService httpClientService):IAuthService
         catch (Exception e)
         {
             
+        }
+    }
+
+    public async Task EnsureAuthenticatedAsync(Func<Task> onAuthenticated)
+    {
+        try
+        {
+            await CreateAdmin();
+
+            var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+
+            if (authState.User.Identity == null || !authState.User.Identity.IsAuthenticated)
+            {
+                navManager.NavigateTo("/login", false, true);
+            }
+            else
+            {
+                await onAuthenticated();
+            }
+        }
+        catch
+        {
+            navManager.NavigateTo("/login", false, true);
         }
     }
 

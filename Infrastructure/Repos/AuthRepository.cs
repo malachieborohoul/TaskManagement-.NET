@@ -32,6 +32,7 @@ public class AuthRepository( UserManager<ApplicationUser> userManager, IConfigur
                 var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
                 var userClaims = new[]
                 {
+                    new Claim("Id", user.Id!),
                     new Claim(ClaimTypes.Name, user.Name!),
                     new Claim(ClaimTypes.Email, user.Email!),
                     new Claim(ClaimTypes.Role, (await userManager.GetRolesAsync(user)).FirstOrDefault().ToString()),

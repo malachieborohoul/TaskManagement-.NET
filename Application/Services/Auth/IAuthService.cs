@@ -6,6 +6,7 @@ namespace Application.Services;
 public interface IAuthService
 {
     Task CreateAdmin();
+    Task EnsureAuthenticatedAsync(Func<Task> onAuthenticated);
     Task<GeneralResponse> RegisterAsync(RegisterDTO model);
     Task<LoginResponse> LoginAsync(LoginDTO model);
     Task<LoginResponse> RefreshTokenAsync(RefreshTokenDTO model);

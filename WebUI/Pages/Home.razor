@@ -54,8 +54,15 @@
 
 
 @code {
-
+    
     protected override async System.Threading.Tasks.Task OnInitializedAsync()
+    {
+        await GetTasks();
+        await GetUsers();
+        //await authService.EnsureAuthenticatedAsync(LoadAllData);
+    }
+    
+    private async System.Threading.Tasks.Task LoadAllData()
     {
         await GetTasks();
         await GetUsers();

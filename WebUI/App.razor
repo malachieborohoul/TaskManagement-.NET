@@ -1,8 +1,9 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿
+<Router AppAssembly="@typeof(App).Assembly" OnNavigateAsync="HandleNavigation">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
             <NotAuthorized>
-                <WebUI.Pages.Authentication.RedirectToLogin/>
+                <WebUI.Pages.Authentication.AuthenticationPage/>
             </NotAuthorized>
         </AuthorizeRouteView>
         <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
@@ -14,3 +15,25 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+@code {
+    private async Task HandleNavigation(NavigationContext args)
+    {
+        try
+        {
+            await authService. CreateAdmin();
+
+            var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+
+            if (authState.User.Identity == null || !authState.User.Identity.IsAuthenticated)
+            {
+                NavManager.NavigateTo("/login", false, true);
+            }
+           
+        }
+        catch
+        {
+            NavManager.NavigateTo("/login", false, true);
+        }
+    }
+}

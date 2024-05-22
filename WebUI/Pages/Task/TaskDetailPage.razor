@@ -138,21 +138,19 @@
 
     protected override async Task OnParametersSetAsync()
     {
-        try
-        {
-            await GetSubTasks();
-            await GetAssignees();
-            await GetTask();
-        }
-        catch (Exception ex)
-        {
-            // Gérer les erreurs
-            Console.WriteLine($"Erreur lors de la récupération de la tâche : {ex.Message}");
-        }
-        finally
-        {
-            IsLoading = false;
-        }
+        await GetSubTasks();
+        await GetAssignees();
+        await GetTask();
+        IsLoading = false;
+
+
+   
+    }
+    
+    private async Task LoadAllData()
+    {
+       
+
     }
 
     #region Assignee

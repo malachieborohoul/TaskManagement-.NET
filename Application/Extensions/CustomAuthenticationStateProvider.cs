@@ -48,6 +48,8 @@ public class CustomAuthenticationStateProvider(LocalStorageService localStorageS
         if (claims.Email is null) return new ClaimsPrincipal();
         return new ClaimsPrincipal(new ClaimsIdentity(
         [
+            new Claim ("Id", claims.Id),
+
             new(ClaimTypes.Name, claims.UserName!), 
             new(ClaimTypes.Email, claims.Email!),
             new(ClaimTypes.Role, claims.Role!),
@@ -69,8 +71,9 @@ public class CustomAuthenticationStateProvider(LocalStorageService localStorageS
             var email = token.Claims. FirstOrDefault(_ => _.Type == ClaimTypes.Email)! .Value;
             var role = token.Claims. FirstOrDefault(_ => _. Type == ClaimTypes.Role)! .Value;
             var fullname = token.Claims. FirstOrDefault(_ => _.Type == "Fullname")!.Value; 
-            return new UserClaimsDTO(fullname, name, email, role);
-               
+            var id = token.Claims. FirstOrDefault(_ => _.Type == "Id")!.Value;
+            return new UserClaimsDTO(Id: id, Fullname: fullname, UserName: name, Email: email, Role: role);
+
         }
         catch
         {

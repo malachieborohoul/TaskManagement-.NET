@@ -94,24 +94,15 @@
    
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            await authService.CreateAdmin();
-            //If user is authenticated send to home
-            if ((await ClientAuthState!).User.Identity!.IsAuthenticated == false)
-            {
-                NavManager.NavigateTo("/login", false, true);
+        await GetUsers();
 
-            }
-            
-                await GetUsers();
-                
-              
-        }
-        catch
-        {
-            NavManager.NavigateTo("/login", false, true);
-        }
+       
+    }
+    
+    private async Task LoadAllData()
+    {
+       
+
     }
     
     private async Task GetUsers()
