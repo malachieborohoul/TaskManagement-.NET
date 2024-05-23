@@ -3,6 +3,7 @@ using TaskManagement.Application.DTOs.Request.Account;
 using TaskManagement.Application.DTOs.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaskManagement.Application.DTOs.Request.User;
 
 namespace TaskManagement.API.Controllers
 {
@@ -26,6 +27,32 @@ namespace TaskManagement.API.Controllers
             return Created();
         }
         
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> Update(string id, [FromBody] UpdateUserDTO model)
+        {
+            
+            if (!ModelState.IsValid)
+                return BadRequest("Model cannot be null");
+            var result = await user.UpdateAsync(id, model);
+            if (result.Flag)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                if (result.Message == null)
+                {
+                    return NotFound(result);
+                }
+                
+                return StatusCode(500, new { error = "An error occurred while updating the resource" });
+
+            }
+
+            
+        }
+        
         [HttpPost("/setting")]
         public async Task<ActionResult> CreateAdmin()
         {
@@ -40,6 +67,30 @@ namespace TaskManagement.API.Controllers
                 return BadRequest("Model cannot be null");
             return Ok(await user.ChangeUserRoleAsync(model));
         }*/
+        
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var result = await user.DeleteAsync(id);
+
+            if (result.Flag)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                if (result.Message == null!)
+                {
+                    return NotFound(result);
+                }
+                
+                return StatusCode(500, new { error = "An error occurred while updating the resource" });
+
+            }
+
+           
+        }
 
     }
     

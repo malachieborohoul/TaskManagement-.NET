@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Application.Contracts;
 using TaskManagement.Application.DTOs.Request.Account;
+using TaskManagement.Application.DTOs.Request.User;
 using TaskManagement.Application.DTOs.Response;
 using TaskManagement.Application.Extensions;
 using TaskManagement.Infrastructure.Data;
@@ -150,7 +151,82 @@ public class UserRepository(RoleManager<IdentityRole> roleManager, UserManager<A
 
     }
 
+    public async Task<GeneralResponse> UpdateAsync(string userId, UpdateUserDTO model)
+    {
+        using var transaction = await context.Database.BeginTransactionAsync();
+
+        try
+        {
+            var userEntity = await context.Users.FindAsync(userId);
+            if (userEntity == null)
+            {
+                return new GeneralResponse(false, Message:null!);
+            }
+
+            var changeRole = new ChangeUserRoleRequestDTO(userEntity.Email,model.Role)
+            {
+                RoleName = model.Role,
+                UserEmail = userEntity.Email
+            };
 
 
-   
+
+           var result= await ChangeUserRoleAsync(changeRole);
+
+           if (result.Flag)
+           {
+               userEntity = model.Adapt(userEntity);
+               context.Users.Update(userEntity);
+               await context.SaveChangesAsync();
+
+           }
+
+           
+
+      
+       
+
+
+            await transaction.CommitAsync();
+
+            return new GeneralResponse(true, "User updated successfully");
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            // Log the exception
+            return new GeneralResponse(false, "An error occurred while updating the task: " + ex.Message);
+        }
+    }
+
+    public async Task<GeneralResponse> DeleteAsync(string id)
+    {
+        using var transaction = await context.Database.BeginTransactionAsync();
+
+        try
+        {
+            var existingUser = await context.Users.FindAsync(id);
+            var previousRole = (await userManager.GetRolesAsync(existingUser)).FirstOrDefault();
+            if (existingUser == null)
+            {
+                return new GeneralResponse(false, null!);
+            }
+            
+            await userManager.RemoveFromRoleAsync(existingUser, previousRole);
+
+
+            context.Users.Remove(existingUser);
+            await context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+
+            return new GeneralResponse(true, "User deleted successfully");
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            // Log the exception
+            return new GeneralResponse(false, "An error occurred while deleting the task: " + ex.Message);
+        }
+    }
 }

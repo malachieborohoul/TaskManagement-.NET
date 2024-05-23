@@ -2,14 +2,8 @@
 @inject IDialogService DialogService
 
 @using TaskManagement.Application.DTOs.Response
-@using TaskManagement.Application.DTOs.Response.Task
-@using TaskManagement.Application.DTOs.Response.User
-@using Domain.Entity.Tasks
-@using WebUI.Components.Task
-@using WebUI.Components.Task.Modals
-@using WebUI.Components.Task.Buttons
+
 @using WebUI.Components.User.Modals
-@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize(Roles = "Admin")]
 
@@ -86,6 +80,8 @@
 
     private IEnumerable<GetUsersWithRolesResponseDTO>? users;
     
+    
+    
     private void NavigateToTaskDetail(Guid taskId)
     {
         NavManager.NavigateTo($"/tasks/{taskId}");
@@ -136,13 +132,13 @@
         var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.ExtraSmall,FullWidth = true, NoHeader = true};
 
 
-        DialogService.Show<EditTaskModal>("Update", parameters, options);
+        DialogService.Show<EditUserModal>("Update", parameters, options);
     }
     
     private void OpenDeleteUserModal(GetUsersWithRolesResponseDTO user)
     {
-        var parameters = new DialogParameters<DeleteTaskModal>();
-        parameters.Add(x => x.ContentText, "Do you really want to delete this task ? ");
+        var parameters = new DialogParameters<DeleteUserModal>();
+        parameters.Add(x => x.ContentText, "Do you really want to delete this user ? ");
         parameters.Add(x => x.ButtonText, "Delete");
         parameters.Add(x => x.Color, Color.Error);
         parameters.Add("user",user);
@@ -150,7 +146,7 @@
 
         var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Medium, };
 
-        DialogService.Show<DeleteTaskModal>("Delete", parameters, options);
+        DialogService.Show<DeleteUserModal>("Delete", parameters, options);
     }
 
 }

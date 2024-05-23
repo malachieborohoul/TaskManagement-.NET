@@ -67,7 +67,8 @@ namespace TaskManagement.API.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return StatusCode(500, new { error = "An error occurred while updating the user" });
+
         }
         
         [HttpDelete]
@@ -78,7 +79,7 @@ namespace TaskManagement.API.Controllers
 
             if (!task.Flag)
             {
-                return BadRequest(task);
+                return StatusCode(500, new { error = "An error occurred while deleting the user" });
                 
             }
             return Ok(task);

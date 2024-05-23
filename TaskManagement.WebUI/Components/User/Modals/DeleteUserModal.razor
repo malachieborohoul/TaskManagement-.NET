@@ -1,0 +1,64 @@
+@using TaskManagement.Application.DTOs.Response
+<MudDialog>
+    <DialogContent>
+        <MudText>@ContentText</MudText>
+    </DialogContent>
+    <DialogActions>
+        @if (isLoading)
+        {
+            <MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true"/>
+        }
+        else
+        {
+            <MudButton OnClick="Cancel">Cancel</MudButton>
+            <MudButton Color="@Color" Variant="Variant.Filled" OnClick="Submit">@ButtonText</MudButton>
+        }
+      
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [Parameter] public string ContentText { get; set; }
+
+    [Parameter] public string ButtonText { get; set; }
+
+    [Parameter] public Color Color { get; set; }
+    [Parameter] public GetUsersWithRolesResponseDTO user { get; set; }
+
+    [Parameter]
+    public Func<Task> Callback { get; set; } // Callback function to refresh the task list
+
+    private bool isLoading = false;
+    private async Task Submit()
+    {
+        try
+        {
+            isLoading = true;
+
+            var response = await userService.DeleteUserAsync(user);
+            if (response.Flag)
+            {
+                isLoading = false;
+                Snackbar.Add(@response.Message, Severity.Success);
+                MudDialog.Close(DialogResult.Ok(true));
+                await Callback(); // Refresh the task list
+
+            }
+            else
+            {
+                Snackbar.Add(@response.Message, Severity.Error);
+
+            }
+
+            MudDialog.Close(DialogResult.Ok(true));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    void Cancel() => MudDialog.Cancel();
+}
