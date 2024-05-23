@@ -14,4 +14,7 @@ public interface ITaskService
     Task<GeneralResponse> UpdateTaskAsync(Guid taskId, UpdateTaskDTO model);
     Task<GeneralResponse> ChangeTaskStatusAsync(Guid taskId, ChangeTaskStatusDTO model);
 
+    Task<byte[]> ExportPdf();
+    Task<byte[]> ExportExcel();
+
 }

@@ -37,6 +37,43 @@ public class TaskService(HttpClientService httpClientService):ITaskService
             throw new Exception(ex.Message);
         }
     }
+    
+    public async Task<byte[]> ExportPdf()
+    {
+        try
+        {
+            var privateClient = await httpClientService.GetPrivateClient();
+            var response = await privateClient.GetAsync($"{Constant.GetTasksRoute}/export/pdf"); 
+            string error = CheckResponseStatus(response);
+            if (!string.IsNullOrEmpty(error))
+                throw new Exception(error);
+            return await response.Content.ReadAsByteArrayAsync();
+           
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
+    public async Task<byte[]> ExportExcel()
+    {
+        try
+        {
+            var privateClient = await httpClientService.GetPrivateClient();
+            var response = await privateClient.GetAsync($"{Constant.GetTasksRoute}/export/excel"); 
+            string error = CheckResponseStatus(response);
+            if (!string.IsNullOrEmpty(error))
+                throw new Exception(error);
+
+            return await response.Content.ReadAsByteArrayAsync();
+
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
 
     public async Task<GetTaskDTO> GetTaskAsync(Guid taskId)
     {
@@ -56,6 +93,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
             throw new Exception(ex.Message);
         }
     }
+    
+    
 
     public async Task<GeneralResponse> CreateTaskAsync(CreateTaskDTO model)
     {

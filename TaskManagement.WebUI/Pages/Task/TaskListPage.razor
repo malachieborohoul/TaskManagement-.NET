@@ -1,22 +1,49 @@
 @page "/tasks"
 @inject IDialogService DialogService
-
+@inject IJSRuntime JSRuntime
 @using System.Security.Claims
 @using TaskManagement.Application.DTOs.Response.Task
 @using Domain.Entity.Tasks
+@using TaskManagement.Application.DTOs.Response
 @using WebUI.Components.Task
 @using WebUI.Components.Task.Modals
 @using WebUI.Components.Task.Buttons
+@using TaskManagement.WebUI.Components.Task.Buttons
 <div class="px-4 sm:px-6 lg:px-8 mt-6 ">
     <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
             <h1 class="text-base font-semibold leading-6 text-gray-900">Tasks</h1>
         </div>
         <AuthorizeView Roles="@Constant.Role.Admin">
-            <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                <button @onclick="OpenAddTaskModal" type="button" class="block rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create Task</button>
+            <div class="flex  ">
+                <button @onclick="ExportPdf" type="button" class="inline-flex items-center gap-x-2 rounded-md bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-600 shadow-sm hover:bg-blue-100 mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                    </svg>
+
+                    Export PDF
+                </button>
+                <button @onclick="ExportExcel" type="button" class="inline-flex items-center gap-x-2 rounded-md bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-600 shadow-sm hover:bg-blue-100 mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                    </svg>
+
+                    Export Excel
+                </button>
+                
+                <button @onclick="OpenAddTaskModal" type="button" class="inline-flex items-center gap-x-2  rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+
+                    Create Task
+                </button>
+              
+                
 
             </div>
+          
 
         </AuthorizeView>
 
@@ -227,5 +254,29 @@
 
         DialogService.Show<DeleteTaskModal>("Delete", parameters, options);
     }
+
+    #region Export
+
+    private async Task ExportPdf()
+    {
+        var pdfBytes = await taskService.ExportPdf();
+        var base64String = Convert.ToBase64String(pdfBytes);
+        const string fileName = "Tasks.pdf";
+
+        await JSRuntime.InvokeVoidAsync("downloadFile", fileName, "application/pdf", base64String);
+    }
+    
+    private async Task ExportExcel()
+    {
+        var excelBytes = await taskService.ExportExcel();
+        var base64String = Convert.ToBase64String(excelBytes);
+        var fileName = "Tasks.xlsx";
+
+        await JSRuntime.InvokeVoidAsync("downloadFile", fileName,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", base64String);
+    }
+    
+
+
+    #endregion
 
 }

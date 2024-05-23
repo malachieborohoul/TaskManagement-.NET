@@ -1,15 +1,37 @@
+using Mapster;
 using TaskManagement.Application.Contracts;
 using TaskManagement.Application.DTOs.Request.Task;
 using TaskManagement.Domain.Entity.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol;
 
 namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TasksController(ITasks tasks) : ControllerBase
+    public class TasksController(ITasks tasks, IPdf pdf, IExcel excel) : ControllerBase
     {
+        
+        [HttpGet("export/pdf")]
+        public async Task<IActionResult> ExportTasksToPdf()
+        {
+            var result = await tasks.GetAllAsync();
+            
+            var pdfBytes = await pdf.ExportTasksToPdfAsync(result);
+
+            return File(pdfBytes, "application/pdf", "Tasks.pdf");
+        }
+        
+        [HttpGet("export/excel")]
+        public async Task<IActionResult> ExportTasksToExcel()
+        {
+            var result = await tasks.GetAllAsync();
+
+            var excelBytes = await excel.ExportTasksToExcelAsync(result);
+
+            return File(excelBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Tasks.xlsx");
+        }
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
