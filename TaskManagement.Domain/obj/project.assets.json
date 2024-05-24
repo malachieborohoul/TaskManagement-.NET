@@ -564,11 +564,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj",
+      "projectUniqueName": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj",
       "projectName": "TaskManagement.Domain",
-      "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj",
+      "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj",
       "packagesPath": "/Users/bsm/.nuget/packages/",
-      "outputPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/",
+      "outputPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/bsm/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E0QOpzklE6cTohsxP4TtSesS5ZmitMjj9e+yAZEw6R8wkvH6UE/AWuHnJMj/Zw6epKCt+0V+66jWEbqb0VmJeQ==",
+  "dgSpecHash": "0BpZ3R8UIf/Q+08Q9wse9hsPfyIIymJXYYo6FJVhly7k5xr5yAt88Qx4KqzHw6w+2mVS45LxuWUVeBJA0J0qpA==",
   "success": true,
-  "projectFilePath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj",
+  "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj",
   "expectedPackageFiles": [
     "/Users/bsm/.nuget/packages/mapster/7.4.0/mapster.7.4.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/mapster.core/1.2.1/mapster.core.1.2.1.nupkg.sha512",

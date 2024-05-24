@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj": {}
+    "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj": {}
   },
   "projects": {
-    "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj": {
+    "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
+        "projectUniqueName": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
         "projectName": "TaskManagement.Application",
-        "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
+        "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
         "packagesPath": "/Users/bsm/.nuget/packages/",
-        "outputPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/obj/",
+        "outputPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bsm/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj": {
-                "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj"
+              "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj": {
+                "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj"
               }
             }
           }
@@ -87,14 +87,14 @@
         }
       }
     },
-    "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj": {
+    "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj",
+        "projectUniqueName": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj",
         "projectName": "TaskManagement.Domain",
-        "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj",
+        "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj",
         "packagesPath": "/Users/bsm/.nuget/packages/",
-        "outputPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/",
+        "outputPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bsm/.nuget/NuGet/NuGet.Config"
@@ -146,14 +146,14 @@
         }
       }
     },
-    "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj": {
+    "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj",
+        "projectUniqueName": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj",
         "projectName": "TaskManagement.WebUI",
-        "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj",
+        "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj",
         "packagesPath": "/Users/bsm/.nuget/packages/",
-        "outputPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.WebUI/obj/",
+        "outputPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bsm/.nuget/NuGet/NuGet.Config"
@@ -168,8 +168,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj": {
-                "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj"
+              "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj": {
+                "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aXIRyhxHJkdFIieoeftUVc7QeSwlPt+CrET+p+6biOq4E0zzg0jhxpTC4tKHl6+wNZHxnFwD7J0u1aNvsIVfJw==",
+  "dgSpecHash": "0bPQp2n9XInWugek5uzvpO5Vski7VXkmTT3li5tXnM/ni+ano6SnLKcG/EEJDH9cwEVAu6afQZ51byqEVIceHg==",
   "success": true,
-  "projectFilePath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
+  "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
   "expectedPackageFiles": [
     "/Users/bsm/.nuget/packages/microsoft.aspnetcore.authorization/8.0.3/microsoft.aspnetcore.authorization.8.0.3.nupkg.sha512",
     "/Users/bsm/.nuget/packages/microsoft.aspnetcore.components/8.0.3/microsoft.aspnetcore.components.8.0.3.nupkg.sha512",

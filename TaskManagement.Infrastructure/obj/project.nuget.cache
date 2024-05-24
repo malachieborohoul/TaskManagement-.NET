@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oHtGffN4OoU7rkixuqK0eg33JMg1ABuuUmTX2wdM0IJN4dVK6mpwapxak2FvVmK3TJ2SNkqBwDq7OmnwjZL4Qg==",
+  "dgSpecHash": "vSM5WRRju112JvlEKxRQWls1JvMAInFHL7VWk8CMvDj0KlZj1HA2IjLUwqdFqEhRWcNnm4XhMLznLZa5NSpOAA==",
   "success": true,
-  "projectFilePath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Infrastructure/TaskManagement.Infrastructure.csproj",
+  "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/TaskManagement.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/bsm/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",
@@ -14,8 +14,10 @@
     "/Users/bsm/.nuget/packages/itext/8.0.4/itext.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext.bouncy-castle-adapter/8.0.4/itext.bouncy-castle-adapter.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext.commons/8.0.4/itext.commons.8.0.4.nupkg.sha512",
+    "/Users/bsm/.nuget/packages/itext.pdfhtml/5.0.4/itext.pdfhtml.5.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext7/8.0.4/itext7.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext7.bouncy-castle-adapter/8.0.4/itext7.bouncy-castle-adapter.8.0.4.nupkg.sha512",
+    "/Users/bsm/.nuget/packages/itext7.pdfhtml/5.0.4/itext7.pdfhtml.5.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/mapster/7.4.0/mapster.7.4.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/mapster.core/1.2.1/mapster.core.1.2.1.nupkg.sha512",
     "/Users/bsm/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

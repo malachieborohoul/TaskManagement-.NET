@@ -1633,11 +1633,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
+      "projectUniqueName": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
       "projectName": "TaskManagement.Application",
-      "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
+      "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj",
       "packagesPath": "/Users/bsm/.nuget/packages/",
-      "outputPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/obj/",
+      "outputPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/bsm/.nuget/NuGet/NuGet.Config"
@@ -1652,8 +1652,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj": {
-              "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj"
+            "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj": {
+              "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/TaskManagement.Domain.csproj"
             }
           }
         }

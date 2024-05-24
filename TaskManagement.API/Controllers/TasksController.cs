@@ -1,10 +1,7 @@
-using Mapster;
+using System.Text;
 using TaskManagement.Application.Contracts;
 using TaskManagement.Application.DTOs.Request.Task;
-using TaskManagement.Domain.Entity.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NuGet.Protocol;
 
 namespace TaskManagement.API.Controllers
 {
@@ -17,8 +14,31 @@ namespace TaskManagement.API.Controllers
         public async Task<IActionResult> ExportTasksToPdf()
         {
             var result = await tasks.GetAllAsync();
+            // Get the path of the solution directory
+            var solutionDirectory = Directory.GetParent(AppContext.BaseDirectory)?.Parent?.Parent?.Parent?.Parent?.FullName;
             
-            var pdfBytes = await pdf.ExportTasksToPdfAsync(result);
+            // Load HTML template
+            var templatePath = Path.Combine(solutionDirectory!,"TaskManagement.WebUI", "wwwroot","templates","template.html");
+            var logoPath = Path.Combine(solutionDirectory!,"TaskManagement.WebUI", "wwwroot","logo.png");
+            var htmlTemplate = await System.IO.File.ReadAllTextAsync(templatePath);
+            
+            
+            
+            // Generate task rows
+            var taskRows = new StringBuilder();
+            foreach (var task in result)
+            {
+                taskRows.Append(
+                    $"<tr><td>{task.Title}</td><td>{task.Priority.Name}</td><td>{task.Status.Name}</td><td>{task.User.Name}</td><td>{task.CreatedAt:yyyy-MM-dd}</td><td>{task.DueDate:yyyy-MM-dd}</td></tr>");
+                
+            }
+            
+            // Replace placeholder with actual task rows
+            var htmlContent = htmlTemplate.Replace("./logo.png", logoPath).Replace("{{TASKS}}", taskRows.ToString());
+
+            
+            // Convert to PDF
+            var pdfBytes = await pdf.ConvertHtmlToPdfAsync(htmlContent);
 
             return File(pdfBytes, "application/pdf", "Tasks.pdf");
         }

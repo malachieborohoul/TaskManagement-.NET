@@ -830,6 +830,22 @@
           }
         }
       },
+      "itext.pdfhtml/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "itext": "8.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/itext.html2pdf.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/itext.html2pdf.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "itext7/8.0.4": {
         "type": "package",
         "dependencies": {
@@ -840,6 +856,12 @@
         "type": "package",
         "dependencies": {
           "itext.bouncy-castle-adapter": "8.0.4"
+        }
+      },
+      "itext7.pdfhtml/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "itext.pdfhtml": "5.0.4"
         }
       },
       "iTextSharp/5.5.13.3": {
@@ -4904,7 +4926,8 @@
           "TaskManagement.Application": "1.0.0",
           "TaskManagement.Domain": "1.0.0",
           "itext7": "8.0.4",
-          "itext7.bouncy-castle-adapter": "8.0.4"
+          "itext7.bouncy-castle-adapter": "8.0.4",
+          "itext7.pdfhtml": "5.0.4"
         },
         "compile": {
           "bin/placeholder/TaskManagement.Infrastructure.dll": {}
@@ -5896,6 +5919,25 @@
         "lib/netstandard2.0/itext.commons.xml"
       ]
     },
+    "itext.pdfhtml/5.0.4": {
+      "sha512": "F8LpOCs2QIs03tgq1WJS9YVq01sMhWdDNriHbNhDIsq4XUVsTl83A+OZwT338TjJOOomDJKdplQfWZig5cnWJw==",
+      "type": "package",
+      "path": "itext.pdfhtml/5.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ITSC-avatar.png",
+        "LICENSE.md",
+        "NOTICE.txt",
+        "gnu-agpl-v3.0.md",
+        "itext.pdfhtml.5.0.4.nupkg.sha512",
+        "itext.pdfhtml.nuspec",
+        "lib/net461/itext.html2pdf.dll",
+        "lib/net461/itext.html2pdf.xml",
+        "lib/netstandard2.0/itext.html2pdf.dll",
+        "lib/netstandard2.0/itext.html2pdf.xml"
+      ]
+    },
     "itext7/8.0.4": {
       "sha512": "J+eaLBqCSXbk4DPGuuKZPcs02cH7De6xGZ312o87d21MNgSmAQQikDVw5OpcdMiA0GW/YT/VXRjU5cLPa6sh9A==",
       "type": "package",
@@ -5922,6 +5964,21 @@
         "gnu-agpl-v3.0.md",
         "itext7.bouncy-castle-adapter.8.0.4.nupkg.sha512",
         "itext7.bouncy-castle-adapter.nuspec"
+      ]
+    },
+    "itext7.pdfhtml/5.0.4": {
+      "sha512": "FgOtKJb8oLqbQBempBYqajM7HeRIgJ+q1fo92WleQZFXxy9z7VPq6aX4guEJzp2E9ytzaA4e9JML8d6BnAd8ww==",
+      "type": "package",
+      "path": "itext7.pdfhtml/5.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ITSC-avatar.png",
+        "LICENSE.md",
+        "NOTICE.txt",
+        "gnu-agpl-v3.0.md",
+        "itext7.pdfhtml.5.0.4.nupkg.sha512",
+        "itext7.pdfhtml.nuspec"
       ]
     },
     "iTextSharp/5.5.13.3": {
@@ -14033,11 +14090,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.API/TaskManagement.API.csproj",
+      "projectUniqueName": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/TaskManagement.API.csproj",
       "projectName": "TaskManagement.API",
-      "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.API/TaskManagement.API.csproj",
+      "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/TaskManagement.API.csproj",
       "packagesPath": "/Users/bsm/.nuget/packages/",
-      "outputPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.API/obj/",
+      "outputPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/bsm/.nuget/NuGet/NuGet.Config"
@@ -14052,11 +14109,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj": {
-              "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj"
+            "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj": {
+              "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/TaskManagement.Application.csproj"
             },
-            "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Infrastructure/TaskManagement.Infrastructure.csproj": {
-              "projectPath": "/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Infrastructure/TaskManagement.Infrastructure.csproj"
+            "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/TaskManagement.Infrastructure.csproj": {
+              "projectPath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/TaskManagement.Infrastructure.csproj"
             }
           }
         }

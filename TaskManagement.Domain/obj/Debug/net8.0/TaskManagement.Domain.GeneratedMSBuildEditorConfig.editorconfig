@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TaskManagement.Domain
-build_property.ProjectDir = /Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/
+build_property.ProjectDir = /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
