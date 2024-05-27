@@ -1,15 +1,15 @@
-using TaskManagement.Application.Contracts;
-using TaskManagement.Application.DTOs.Request.Account;
 using TaskManagement.Application.DTOs.Response;
-using TaskManagement.Infrastructure.Repos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaskManagement.Application.Services.API.Role;
+using TaskManagement.Domain.DTOs.Request.Auth;
+using TaskManagement.Domain.DTOs.Response;
 
 namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RolesController(IRole role) : ControllerBase
+    public class RolesController(IRoleService roleService) : ControllerBase
     {
         
    [HttpPost()]
@@ -17,15 +17,15 @@ namespace TaskManagement.API.Controllers
    {
        if (!ModelState.IsValid)
            return BadRequest("Model cannot be null");
-       await role.CreateRoleAsync(model);
+       await roleService.CreateRoleAsync(model);
        return Created();
    }
 
    [HttpGet()]
-   public async Task<ActionResult<IEnumerable<GetRoleDTO>>> GetRoles()
+   public async Task<ActionResult<IEnumerable<GetRoleDto>>> GetRoles()
    {
        ;
-       return Ok(await role.GetRolesAsync());
+       return Ok(await roleService.GetRolesAsync());
    }
    
  

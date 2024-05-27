@@ -1,8 +1,9 @@
 using System.Net;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Components;
-using TaskManagement.Application.DTOs.Request.Account;
 using TaskManagement.Application.Services;
+using TaskManagement.Application.Services.WebUI.Auth;
+using TaskManagement.Domain.DTOs.Request.Auth;
 
 namespace TaskManagement.Application.Extensions;
 

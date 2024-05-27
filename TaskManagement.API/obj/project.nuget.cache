@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rRIOPSnieXho7Ca69wogG51iHTQlxGRe5Wsp9Ny2csRfXl8+S98f2/sJlM94elWDSHFTeqkaZLpBUSTCiki3cg==",
+  "dgSpecHash": "fdrNXXwXcBQPzED9U2BNtfcTk1s5bpsPmPNbhZ0fN74S8hJQmM4Te2M4620TxxtQ4LzVNi6a3vdEN+/F1dkNlw==",
   "success": true,
   "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/TaskManagement.API.csproj",
   "expectedPackageFiles": [

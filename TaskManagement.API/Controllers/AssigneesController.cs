@@ -1,32 +1,24 @@
-using TaskManagement.Application.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaskManagement.Application.Services.API.Assignee;
 
 namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AssigneesController(IAssignee assignee) : ControllerBase
+    public class AssigneesController(IAssigneeService assigneeService) : ControllerBase
     {
         [HttpDelete("{taskId}/{userId}")]
         public async Task<IActionResult> DeleteAssignee(Guid taskId, string userId)
         {
-            var result = await assignee.DeleteAsync(taskId, userId);
-
-            if (result)
-            {
-                return NoContent();
-            }
-            else
-            {
-                return NotFound();
-            }
+            await assigneeService.DeleteAsync(taskId, userId);
+            return NoContent();
         }
         
         [HttpGet("{taskId}/{userId}")]
         public async Task<IActionResult> GetAssignee(string userId, Guid taskId)
         {
-            var result = await assignee.GetAsync( taskId, userId);
+            var result = await assigneeService.GetAsync( taskId, userId);
         
             if (result == null)
             {
@@ -39,7 +31,7 @@ namespace TaskManagement.API.Controllers
         public async Task<IActionResult> GetAllByTaskId(Guid taskId)
         {
             
-            var assignees= await assignee.GetAllByTaskIdAsync(taskId);
+            var assignees= await assigneeService.GetAllByTaskIdAsync(taskId);
             if (assignees == null)
             {
                 return NotFound("No assignees found for the given task.");

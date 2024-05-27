@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using NetcodeHub.Packages.Extensions.LocalStorage;
-using TaskManagement.Application.DTOs.Request.Account;
+using TaskManagement.Domain.DTOs.Request.Auth;
 
 namespace TaskManagement.Application.Extensions;
 

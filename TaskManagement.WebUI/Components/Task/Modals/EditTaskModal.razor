@@ -1,10 +1,10 @@
-@using TaskManagement.Application.DTOs.Request.Task
 @using TaskManagement.Application.DTOs.Response
-@using TaskManagement.Application.DTOs.Response.Task
 @using TaskManagement.Application.DTOs.Response.User
 @using Domain.Entity.Tasks
 @using Mapster
 @using Microsoft.IdentityModel.Tokens
+@using TaskManagement.Domain.DTOs.Request.Task
+@using TaskManagement.Domain.DTOs.Response.Task
 <MudDialog >
     <DialogContent>
         <EditForm Model="CreateTaskModel" OnValidSubmit="UpdateTaskAsync">

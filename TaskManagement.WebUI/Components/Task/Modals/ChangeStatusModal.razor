@@ -1,8 +1,9 @@
-@using TaskManagement.Application.DTOs.Request.Task
 @using TaskManagement.Application.DTOs.Response
-@using TaskManagement.Application.DTOs.Response.Task
 @using Domain.Entity.Tasks
 @using Microsoft.IdentityModel.Tokens
+@using TaskManagement.Domain.DTOs.Request.Task
+@using TaskManagement.Domain.DTOs.Response.Task
+@using TaskManagement.Domain.DTOs.Response.User
 <MudDialog >
     <DialogContent>
         <EditForm Model="ChangeTaskStatusModal" OnValidSubmit="ChangeTaskStatusAsync">

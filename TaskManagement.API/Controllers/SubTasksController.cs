@@ -1,26 +1,26 @@
-using TaskManagement.Application.Contracts;
-using TaskManagement.Application.DTOs.Request.SubTask;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaskManagement.Application.Services.API.SubTask;
+using TaskManagement.Domain.DTOs.Request.SubTask;
 
 namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubTasksController(ISubTask subTasks) : ControllerBase
+    public class SubTasksController(ISubTaskService subTasksService) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             
-            return Ok(await subTasks.GetAllAsync());
+            return Ok(await subTasksService.GetAllAsync());
         }
         
         [HttpGet()]
         [Route("{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var task = await subTasks.GetByIdAsync(id);
+            var task = await subTasksService.GetByIdAsync(id);
 
             if (task == null)
             {
@@ -33,20 +33,15 @@ namespace TaskManagement.API.Controllers
 
         public async Task<IActionResult> GetAllByTaskId(Guid taskId)
         {
-            
-           var subtasks= await subTasks.GetAllByTaskIdAsync(taskId);
-           if (subtasks == null)
-           {
-               return NotFound("No subtasks found for the given task.");
-           }
 
-          return Ok(subtasks);
+            var subTasks = await subTasksService.GetAllByTaskIdAsync(taskId);
+            return Ok(subTasks);
         }
         
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateSubTaskDTO model)
         {
-            var response= await subTasks.CreateAsync(model);
+            var response= await subTasksService.CreateAsync(model);
             if (!response.Flag)
             {
                 return BadRequest(response.Message);
@@ -61,24 +56,23 @@ namespace TaskManagement.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateSubTaskDTO model)
         {
-            var result = await subTasks.UpdateAsync(id, model);
-            if (result.Flag)
+            var response = await subTasksService.UpdateAsync(id, model);
+            if (!response.Flag)
             {
-                return Ok(result);
+                return NotFound(response.Message);
             }
-
-            return BadRequest(result);
+            return Ok(response);
         }
         
         [HttpDelete]
         [Route("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var subtask = await subTasks.DeleteAsync(id);
+            var subtask = await subTasksService.DeleteAsync(id);
 
             if (!subtask.Flag)
             {
-                return BadRequest(subtask);
+                return NotFound(subtask);
                 
             }
             return Ok(subtask);

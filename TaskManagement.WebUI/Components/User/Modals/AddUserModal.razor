@@ -1,7 +1,8 @@
-@using TaskManagement.Application.DTOs.Request.Task
 @using TaskManagement.Application.DTOs.Response
 @using Domain.Entity.Tasks
 @using Microsoft.IdentityModel.Tokens
+@using TaskManagement.Domain.DTOs.Request.Auth
+@using TaskManagement.Domain.DTOs.Response.User
 <MudDialog >
     <DialogContent>
         <EditForm Model="CreateUserModel" OnValidSubmit="CreateUserAsync">
@@ -84,7 +85,7 @@
     private List<GetUsersWithRolesResponseDTO> users = new List<GetUsersWithRolesResponseDTO>();
   
 
-    private IEnumerable<GetRoleDTO> roles = new List<GetRoleDTO>();
+    private IEnumerable<GetRoleDto> roles = new List<GetRoleDto>();
    
 
 

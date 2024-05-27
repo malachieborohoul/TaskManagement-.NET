@@ -1,7 +1,8 @@
-@using TaskManagement.Application.DTOs.Request.Task
 @using TaskManagement.Application.DTOs.Response
 @using Domain.Entity.Tasks
 @using Microsoft.IdentityModel.Tokens
+@using TaskManagement.Domain.DTOs.Request.Task
+@using TaskManagement.Domain.DTOs.Response.User
 <MudDialog >
     <DialogContent>
         <EditForm Model="CreateTaskModel" OnValidSubmit="CreateTaskAsync">

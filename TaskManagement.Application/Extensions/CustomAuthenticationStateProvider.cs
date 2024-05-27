@@ -1,8 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Components.Authorization;
-using TaskManagement.Application.DTOs.Request.Account;
 using TaskManagement.Application.DTOs.Response;
+using TaskManagement.Domain.DTOs.Request.Auth;
 
 namespace TaskManagement.Application.Extensions;
 
@@ -43,7 +43,7 @@ public class CustomAuthenticationStateProvider(LocalStorageService localStorageS
 
 
 
-    public static ClaimsPrincipal SetClaimPrincipal(UserClaimsDTO claims)
+    public static ClaimsPrincipal SetClaimPrincipal(UserClaimsDto claims)
     {
         if (claims.Email is null) return new ClaimsPrincipal();
         return new ClaimsPrincipal(new ClaimsIdentity(
@@ -60,11 +60,11 @@ public class CustomAuthenticationStateProvider(LocalStorageService localStorageS
     
     
 
-    private static UserClaimsDTO DecryptToken(string jwtToken)
+    private static UserClaimsDto DecryptToken(string jwtToken)
     {
         try
         {
-            if (string.IsNullOrEmpty(jwtToken)) return new UserClaimsDTO();
+            if (string.IsNullOrEmpty(jwtToken)) return new UserClaimsDto();
             var handler = new JwtSecurityTokenHandler(); 
             var token = handler.ReadJwtToken(jwtToken);
             var name = token.Claims.FirstOrDefault(_ => _.Type== ClaimTypes.Name)! .Value;
@@ -72,7 +72,7 @@ public class CustomAuthenticationStateProvider(LocalStorageService localStorageS
             var role = token.Claims. FirstOrDefault(_ => _. Type == ClaimTypes.Role)! .Value;
             var fullname = token.Claims. FirstOrDefault(_ => _.Type == "Fullname")!.Value; 
             var id = token.Claims. FirstOrDefault(_ => _.Type == "Id")!.Value;
-            return new UserClaimsDTO(Id: id, Fullname: fullname, UserName: name, Email: email, Role: role);
+            return new UserClaimsDto(Id: id, Fullname: fullname, UserName: name, Email: email, Role: role);
 
         }
         catch

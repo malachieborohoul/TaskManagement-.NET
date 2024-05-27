@@ -1,26 +1,26 @@
-using TaskManagement.Application.Contracts;
-using TaskManagement.Application.DTOs.Request.Priority;
 using TaskManagement.Domain.Entity.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaskManagement.Application.Services.API.Priority;
+using TaskManagement.Domain.DTOs.Request.Priority;
 
 namespace TaskManagement.API.Controllers
 {
     [Route("api/Priorities")]
     [ApiController]
-    public class PriorityController(IPriority priority) : ControllerBase
+    public class PriorityController(IPriorityService priorityService) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             
-            return Ok(await priority.GetAllAsync());
+            return Ok(await priorityService.GetAllAsync());
         }
         [HttpGet()]
         [Route("{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var prior = await priority.GetByIdAsync(id);
+            var prior = await priorityService.GetByIdAsync(id);
 
             if (prior == null)
             {
@@ -32,22 +32,26 @@ namespace TaskManagement.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreatePriorityDTO model)
         {
-            return Ok(await priority.CreateAsync(model));
+            var priority = await priorityService.CreateAsync(model);
+            return CreatedAtAction(nameof(GetById), new { id = priority.Id }, priority);
         }
         
         [HttpPut]
         [Route("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] CreatePriorityDTO model)
         {
-            return Ok(await priority.UpdateAsync(id, model));
+            var priority = await priorityService.UpdateAsync(id, model);
+            if (priority == null) return NotFound();
+            return Ok(priority);
         }
         
         [HttpDelete]
         [Route("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var model = await priority.DeleteAsync(id);
-            return Ok(model);
+            var priority = await priorityService.DeleteAsync(id);
+            if (priority == null) return NotFound();
+            return Ok(priority);
         }
     }
 }

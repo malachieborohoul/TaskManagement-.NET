@@ -14,12 +14,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TaskManagement.Application\TaskManagement.Application.csproj" />
+        <ProjectReference Include="..\TaskManagement.Application\TaskManagement.Application.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Components\Task\Forms\" />
-      <Folder Include="Pages\SubTask\" />
+        <Folder Include="Components\Task\Forms\" />
+        <Folder Include="Pages\SubTask\" />
     </ItemGroup>
 
 </Project>

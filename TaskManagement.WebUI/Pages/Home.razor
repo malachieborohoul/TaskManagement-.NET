@@ -1,8 +1,9 @@
 ﻿@page "/home"
 @using TaskManagement.Application.DTOs.Response
-@using TaskManagement.Application.DTOs.Response.SubTask
-@using TaskManagement.Application.DTOs.Response.Task
 @using Microsoft.AspNetCore.Authorization
+@using TaskManagement.Domain.DTOs.Response.SubTask
+@using TaskManagement.Domain.DTOs.Response.Task
+@using TaskManagement.Domain.DTOs.Response.User
 @attribute [Authorize(Roles = "Admin,User")]
 
 <div class="mt-4">

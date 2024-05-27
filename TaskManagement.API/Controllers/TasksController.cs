@@ -1,19 +1,22 @@
 using System.Text;
-using TaskManagement.Application.Contracts;
-using TaskManagement.Application.DTOs.Request.Task;
 using Microsoft.AspNetCore.Mvc;
+using TaskManagement.Application.Services.API.Excel;
+using TaskManagement.Application.Services.API.Pdf;
+using TaskManagement.Application.Services.API.Tasks;
+using TaskManagement.Application.Services.API.Tasks;
+using TaskManagement.Domain.DTOs.Request.Task;
 
 namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TasksController(ITasks tasks, IPdf pdf, IExcel excel) : ControllerBase
+    public class TasksController(ITaskService taskService, IPdfService pdfService, IExcelService excelService) : ControllerBase
     {
         
         [HttpGet("export/pdf")]
         public async Task<IActionResult> ExportTasksToPdf()
         {
-            var result = await tasks.GetAllAsync();
+            var result = await taskService.GetAllAsync();
             // Get the path of the solution directory
             var solutionDirectory = Directory.GetParent(AppContext.BaseDirectory)?.Parent?.Parent?.Parent?.Parent?.FullName;
             
@@ -38,7 +41,7 @@ namespace TaskManagement.API.Controllers
 
             
             // Convert to PDF
-            var pdfBytes = await pdf.ConvertHtmlToPdfAsync(htmlContent);
+            var pdfBytes = await pdfService.ConvertHtmlToPdfAsync(htmlContent);
 
             return File(pdfBytes, "application/pdf", "Tasks.pdf");
         }
@@ -46,9 +49,9 @@ namespace TaskManagement.API.Controllers
         [HttpGet("export/excel")]
         public async Task<IActionResult> ExportTasksToExcel()
         {
-            var result = await tasks.GetAllAsync();
+            var result = await taskService.GetAllAsync();
 
-            var excelBytes = await excel.ExportTasksToExcelAsync(result);
+            var excelBytes = await excelService.ExportTasksToExcelAsync(result);
 
             return File(excelBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Tasks.xlsx");
         }
@@ -56,13 +59,13 @@ namespace TaskManagement.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             
-            return Ok(await tasks.GetAllAsync());
+            return Ok(await taskService.GetAllAsync());
         }
         [HttpGet()]
         [Route("{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var task = await tasks.GetByIdAsync(id);
+            var task = await taskService.GetByIdAsync(id);
 
             if (task == null)
             {
@@ -75,8 +78,9 @@ namespace TaskManagement.API.Controllers
 
         public async Task<IActionResult> GetAllByStatusId(Guid statusId)
         {
-            
-            return Ok(await tasks.GetAllByStatusIdAsync(statusId));
+            var tasks = await taskService.GetAllByStatusIdAsync(statusId);
+            if (tasks == null) return NotFound();
+            return Ok(tasks);
         }
         
         [HttpGet("priority/{priorityId}")]
@@ -84,13 +88,15 @@ namespace TaskManagement.API.Controllers
         public async Task<IActionResult> GetAllByPriorityId(Guid priorityId)
         {
             
-            return Ok(await tasks.GetAllByPriorityIdAsync(priorityId));
+            var tasks = await taskService.GetAllByPriorityIdAsync(priorityId);
+            if (tasks == null) return NotFound();
+            return Ok(tasks);
         }
         
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateTaskDTO task)
         {
-           var response= await tasks.CreateAsync(task);
+           var response= await taskService.CreateAsync(task);
            if (response.Flag)
            {
                return Created();
@@ -101,46 +107,30 @@ namespace TaskManagement.API.Controllers
         
         [HttpPut]
         [Route("{id:guid}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTaskDTO task)
+        public async Task<IActionResult> Update(Guid taskId, [FromBody] UpdateTaskDTO model)
         {
-            var result = await tasks.UpdateAsync(id, task);
-            if (result.Flag)
-            {
-                return Ok(result);
-            }
-
-            return StatusCode(500, new { error = "An error occurred while updating the user" });
-
+            var response = await taskService.UpdateAsync(taskId, model);
+            if (!response.Flag) return BadRequest(response.Message);
+            return Ok(response.Message);
         }
         
         [HttpDelete]
         [Route("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var task = await tasks.DeleteAsync(id);
-
-            if (!task.Flag)
-            {
-                return StatusCode(500, new { error = "An error occurred while deleting the user" });
-                
-            }
-            return Ok(task);
+            var response = await taskService.DeleteAsync(id);
+            if (!response.Flag) return BadRequest(response.Message);
+            return Ok(response.Message);
            
         }
         
         [HttpPatch("{taskId}/status")]
-        public async Task<IActionResult> ChangeTaskStatus(Guid taskId, [FromBody] ChangeTaskStatusDTO model)
+        public async Task<IActionResult> ChangeTaskStatus(Guid taskId, [FromBody] Guid statusId)
         {
           
-            try
-            {
-                await tasks.ChangeTaskStatusAsync(taskId, model.StatusId);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
+            var response = await taskService.ChangeTaskStatusAsync(taskId, statusId);
+            if (!response.Flag) return BadRequest(response.Message);
+            return Ok(response.Message);
         }
     }
 }

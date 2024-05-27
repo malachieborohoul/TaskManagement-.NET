@@ -1,21 +1,22 @@
-using TaskManagement.Application.Contracts;
-using TaskManagement.Application.DTOs.Request.Account;
 using TaskManagement.Application.DTOs.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Application.DTOs.Request.User;
+using TaskManagement.Application.Services.API.User;
+using TaskManagement.Domain.DTOs.Request.Auth;
+using TaskManagement.Domain.DTOs.Request.User;
+using TaskManagement.Domain.DTOs.Response;
 
 namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IUser user) : ControllerBase
+    public class UsersController(IUserService userService) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAllWithRole()
         {
             
-            return Ok(await user.GetUsersWithRolesAsync());
+            return Ok(await userService.GetUsersWithRolesAsync());
         }
         
         [HttpPost()]
@@ -23,7 +24,7 @@ namespace TaskManagement.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest("Model cannot be null");
-            await user.RegisterAsync(model);
+            await userService.RegisterAsync(model);
             return Created();
         }
         
@@ -34,21 +35,13 @@ namespace TaskManagement.API.Controllers
             
             if (!ModelState.IsValid)
                 return BadRequest("Model cannot be null");
-            var result = await user.UpdateAsync(id, model);
-            if (result.Flag)
+            var response = await userService.UpdateAsync(id, model);
+            if (response.Flag)
             {
-                return Ok(result);
+                return Ok(response);
             }
-            else
-            {
-                if (result.Message == null)
-                {
-                    return NotFound(result);
-                }
-                
-                return StatusCode(500, new { error = "An error occurred while updating the resource" });
 
-            }
+            return BadRequest(response.Message);
 
             
         }
@@ -56,8 +49,8 @@ namespace TaskManagement.API.Controllers
         [HttpPost("/setting")]
         public async Task<ActionResult> CreateAdmin()
         {
-            await user.CreateAdmin();
-            return Ok();
+            await userService.CreateAdmin();
+            return Created();
         }
         /*
         [HttpPost("identity/change-role")]
@@ -72,22 +65,14 @@ namespace TaskManagement.API.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var result = await user.DeleteAsync(id);
+            var response = await userService.DeleteAsync(id);
 
-            if (result.Flag)
+            if (response.Flag)
             {
-                return Ok(result);
+                return Ok(response);
             }
-            else
-            {
-                if (result.Message == null!)
-                {
-                    return NotFound(result);
-                }
-                
-                return StatusCode(500, new { error = "An error occurred while updating the resource" });
 
-            }
+            return BadRequest(response.Message);
 
            
         }
