@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/xNrkKgUWi9WoyIitBlWypExB5iDgR4TRxxunLsPuc36K43aTE/tviX9WlUWh5Y8a7r5CgOopTNYWnNVh5HTPg==",
+  "dgSpecHash": "rCqCBFcCwYsdFsVZch0U2AXfGthAhrLV3vcTX8ZkEtSTqlxDuaHVNzUyoLPUfinZXIxR0M7d/ulO0rZTPtddnQ==",
   "success": true,
   "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/TaskManagement.API.csproj",
   "expectedPackageFiles": [
@@ -211,7 +211,7 @@
     "/Users/bsm/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/serilog/3.1.1/serilog.3.1.1.nupkg.sha512",
-    "/Users/bsm/.nuget/packages/serilog.aspnetcore/8.0.1/serilog.aspnetcore.8.0.1.nupkg.sha512",
+    "/Users/bsm/.nuget/packages/serilog.aspnetcore/8.0.2-dev-00338/serilog.aspnetcore.8.0.2-dev-00338.nupkg.sha512",
     "/Users/bsm/.nuget/packages/serilog.extensions.hosting/8.0.0/serilog.extensions.hosting.8.0.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/serilog.extensions.logging/8.0.0/serilog.extensions.logging.8.0.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/serilog.formatting.compact/2.0.0/serilog.formatting.compact.2.0.0.nupkg.sha512",

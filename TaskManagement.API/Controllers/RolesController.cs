@@ -9,23 +9,49 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RolesController(IRoleService roleService) : ControllerBase
+    public class RolesController(IRoleService roleService,ILogger<AuthController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         
    [HttpPost()]
    public async Task<ActionResult<GeneralResponse>> CreateRole(CreateRoleDTO model)
    {
-       if (!ModelState.IsValid)
-           return BadRequest("Model cannot be null");
-       await roleService.CreateRoleAsync(model);
-       return Created();
+       var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+
+       try
+       {
+           if (!ModelState.IsValid)
+               return BadRequest("Model cannot be null");
+           await roleService.CreateRoleAsync(model);
+           logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+
+           return Created();
+       }
+       catch (Exception e)
+       {
+           logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+               DateTime.UtcNow);
+           return StatusCode(500, new GeneralResponse(false, e.Message));
+       }
    }
 
    [HttpGet()]
    public async Task<ActionResult<IEnumerable<GetRoleDto>>> GetRoles()
    {
-       ;
-       return Ok(await roleService.GetRolesAsync());
+       var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+
+       try
+       {
+           logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+
+           return Ok(await roleService.GetRolesAsync());
+       }
+       catch (Exception e)
+       {
+           logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+               DateTime.UtcNow);
+           return StatusCode(500, new GeneralResponse(false, e.Message));
+       }
+       
    }
    
  

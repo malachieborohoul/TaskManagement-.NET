@@ -1,5 +1,6 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Serilog;
 using TaskManagement.Application.DependencyInjection;
 using TaskManagement.Application.Services.API.Assignee;
 using TaskManagement.Application.Services.API.Auth;
@@ -63,6 +64,8 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateTaskDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateTaskDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<UpdateUserDtoValidator>();
 
+
+builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -77,7 +80,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-
+app.UseSerilogRequestLogging();
 
 app.MapControllers();
 

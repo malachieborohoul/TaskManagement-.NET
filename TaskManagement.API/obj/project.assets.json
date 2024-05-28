@@ -3457,14 +3457,12 @@
           }
         }
       },
-      "Serilog.AspNetCore/8.0.1": {
+      "Serilog.AspNetCore/8.0.2-dev-00338": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "Microsoft.Extensions.Logging": "8.0.0",
           "Serilog": "3.1.1",
           "Serilog.Extensions.Hosting": "8.0.0",
-          "Serilog.Extensions.Logging": "8.0.0",
           "Serilog.Formatting.Compact": "2.0.0",
           "Serilog.Settings.Configuration": "8.0.0",
           "Serilog.Sinks.Console": "5.0.0",
@@ -10673,10 +10671,10 @@
         "serilog.nuspec"
       ]
     },
-    "Serilog.AspNetCore/8.0.1": {
-      "sha512": "B/X+wAfS7yWLVOTD83B+Ip9yl4MkhioaXj90JSoWi1Ayi8XHepEnsBdrkojg08eodCnmOKmShFUN2GgEc6c0CQ==",
+    "Serilog.AspNetCore/8.0.2-dev-00338": {
+      "sha512": "CxmoNgEex6L1sc5MiFcBIlIOexcDjG/BbLGr8UnE4B6xnVPl+VcLDBqYU22curekemgljFnESyRY+dmpjEpYVg==",
       "type": "package",
-      "path": "serilog.aspnetcore/8.0.1",
+      "path": "serilog.aspnetcore/8.0.2-dev-00338",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -10692,7 +10690,7 @@
         "lib/net8.0/Serilog.AspNetCore.xml",
         "lib/netstandard2.0/Serilog.AspNetCore.dll",
         "lib/netstandard2.0/Serilog.AspNetCore.xml",
-        "serilog.aspnetcore.8.0.1.nupkg.sha512",
+        "serilog.aspnetcore.8.0.2-dev-00338.nupkg.sha512",
         "serilog.aspnetcore.nuspec"
       ]
     },
@@ -14601,7 +14599,7 @@
     "net8.0": [
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.2",
-      "Serilog.AspNetCore >= 8.0.1",
+      "Serilog.AspNetCore >= 8.0.2-dev-00338",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "TaskManagement.Application >= 1.0.0",
       "TaskManagement.Infrastructure >= 1.0.0",
@@ -14665,7 +14663,7 @@
           },
           "Serilog.AspNetCore": {
             "target": "Package",
-            "version": "[8.0.1, )"
+            "version": "[8.0.2-dev-00338, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

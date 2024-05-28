@@ -10,37 +10,75 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IUserService userService) : ControllerBase
+    public class UsersController(IUserService userService, ILogger<AuthController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAllWithRole()
         {
+            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+
             
-            return Ok(await userService.GetUsersWithRolesAsync());
+            try
+            {
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+
+                return Ok(await userService.GetUsersWithRolesAsync());
+            }
+            catch (Exception e)
+            {
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                    DateTime.UtcNow);
+                return StatusCode(500, new GeneralResponse(false, e.Message));
+            }
         }
         
         [HttpPost]
         public async Task<ActionResult<GeneralResponse>> Register(RegisterDTO model)
         {
-          
-            await userService.RegisterAsync(model);
-            return Created();
+            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+
+            try
+            {
+                await userService.RegisterAsync(model);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+
+                return Created();
+            }
+            catch (Exception e)
+            {
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                    DateTime.UtcNow);
+                return StatusCode(500, new GeneralResponse(false, e.Message));
+            }
         }
         
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateUserDTO model)
         {
-            
-            if (!ModelState.IsValid)
-                return BadRequest("Model cannot be null");
-            var response = await userService.UpdateAsync(id, model);
-            if (response.Flag)
-            {
-                return Ok(response);
-            }
+            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
 
-            return BadRequest(response.Message);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest("Model cannot be null");
+                var response = await userService.UpdateAsync(id, model);
+                if (response.Flag)
+                {
+                    logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+
+                    return Ok(response);
+                }
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                    DateTime.UtcNow);
+                return BadRequest(response.Message);
+            }
+            catch (Exception e)
+            {
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                    DateTime.UtcNow);
+                return StatusCode(500, new GeneralResponse(false, e.Message));
+            }
 
             
         }
@@ -48,8 +86,21 @@ namespace TaskManagement.API.Controllers
         [HttpPost("/setting")]
         public async Task<ActionResult> CreateAdmin()
         {
-            await userService.CreateAdmin();
-            return Created();
+            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+
+            try
+            {
+                await userService.CreateAdmin();
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+
+                return Created();
+            }
+            catch (Exception e)
+            {
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                    DateTime.UtcNow);
+                return StatusCode(500, new GeneralResponse(false, e.Message));
+            }
         }
         /*
         [HttpPost("identity/change-role")]
@@ -64,15 +115,29 @@ namespace TaskManagement.API.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var response = await userService.DeleteAsync(id);
+            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
 
-            if (response.Flag)
+            try
             {
-                return Ok(response);
+                var response = await userService.DeleteAsync(id);
+
+                if (response.Flag)
+                {
+                    logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+
+                    return Ok(response);
+                }
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                    DateTime.UtcNow);
+                return BadRequest(response.Message);
+
             }
-
-            return BadRequest(response.Message);
-
+            catch (Exception e)
+            {
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                    DateTime.UtcNow);
+                return StatusCode(500, new GeneralResponse(false, e.Message));
+            }
            
         }
 
