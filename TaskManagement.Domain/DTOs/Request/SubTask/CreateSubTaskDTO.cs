@@ -6,7 +6,6 @@ public class CreateSubTaskDTO:UpdateSubTaskDTO
 {
  
    
-    [Required]
 
     public Guid TaskId { get; set; }
 }

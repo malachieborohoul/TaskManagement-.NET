@@ -46,6 +46,14 @@
               "target": "Package",
               "version": "[7.1.2, )"
             },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
             "Mapster": {
               "target": "Package",
               "version": "[7.4.0, )"

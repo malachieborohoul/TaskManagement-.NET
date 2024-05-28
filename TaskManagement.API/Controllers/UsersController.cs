@@ -19,11 +19,10 @@ namespace TaskManagement.API.Controllers
             return Ok(await userService.GetUsersWithRolesAsync());
         }
         
-        [HttpPost()]
+        [HttpPost]
         public async Task<ActionResult<GeneralResponse>> Register(RegisterDTO model)
         {
-            if (!ModelState.IsValid)
-                return BadRequest("Model cannot be null");
+          
             await userService.RegisterAsync(model);
             return Created();
         }

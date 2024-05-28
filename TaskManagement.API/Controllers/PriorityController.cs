@@ -32,6 +32,7 @@ namespace TaskManagement.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreatePriorityDTO model)
         {
+            
             var priority = await priorityService.CreateAsync(model);
             return CreatedAtAction(nameof(GetById), new { id = priority.Id }, priority);
         }

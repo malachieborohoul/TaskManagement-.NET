@@ -59,6 +59,56 @@
           "lib/net7.0/EPPlus.System.Drawing.dll": {}
         }
       },
+      "FluentValidation/11.9.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentValidation.AspNetCore/9.5.4": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "9.5.4",
+          "FluentValidation.DependencyInjectionExtensions": "9.5.4"
+        },
+        "compile": {
+          "lib/net5.0/FluentValidation.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/FluentValidation.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "FluentValidation.DependencyInjectionExtensions/9.5.4": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "9.5.4",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "itext/8.0.4": {
         "type": "package",
         "dependencies": {
@@ -2741,6 +2791,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "EPPlus": "7.1.2",
+          "FluentValidation": "11.9.1",
+          "FluentValidation.AspNetCore": "9.5.4",
           "Mapster": "7.4.0",
           "Microsoft.AspNetCore.Components.Authorization": "8.0.3",
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -2831,6 +2883,56 @@
         },
         "runtime": {
           "lib/net7.0/EPPlus.System.Drawing.dll": {}
+        }
+      },
+      "FluentValidation/11.9.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentValidation.AspNetCore/9.5.4": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "9.5.4",
+          "FluentValidation.DependencyInjectionExtensions": "9.5.4"
+        },
+        "compile": {
+          "lib/net5.0/FluentValidation.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/FluentValidation.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "FluentValidation.DependencyInjectionExtensions/9.5.4": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "9.5.4",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "itext/8.0.4": {
@@ -5481,6 +5583,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "EPPlus": "7.1.2",
+          "FluentValidation": "11.9.1",
+          "FluentValidation.AspNetCore": "9.5.4",
           "Mapster": "7.4.0",
           "Microsoft.AspNetCore.Components.Authorization": "8.0.3",
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -5604,6 +5708,63 @@
         "lib/netstandard2.1/EPPlus.System.Drawing.dll",
         "license.md",
         "readme.md"
+      ]
+    },
+    "FluentValidation/11.9.1": {
+      "sha512": "C+PqISSMdlOZZJx0Hx25atW32tv4vbpsaiQB+PLjK+ZGLzOFuHl1fUJ3Lny77mIZ31ZtYtNG0JgUjxa3wwLsWg==",
+      "type": "package",
+      "path": "fluentvalidation/11.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.9.1.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.AspNetCore/9.5.4": {
+      "sha512": "nb6RUGLlnMz0Ay/ihDqjagC/Rd2pg24qdxoPDLed5grCaHx6cXBmyzLqCCzGTtvpYS4i9bOwNvhbpRkXhV+VIA==",
+      "type": "package",
+      "path": "fluentvalidation.aspnetcore/9.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluent-validation-icon.png",
+        "fluentvalidation.aspnetcore.9.5.4.nupkg.sha512",
+        "fluentvalidation.aspnetcore.nuspec",
+        "lib/net5.0/FluentValidation.AspNetCore.dll",
+        "lib/net5.0/FluentValidation.AspNetCore.xml",
+        "lib/netcoreapp2.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp2.1/FluentValidation.AspNetCore.xml",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/9.5.4": {
+      "sha512": "jn1fxwhWJ20FJGYDJ1roozCBtnohtSIy//H/KTGgKBNriS7fUp9fTGs2GnTajK+Ei5k8UO1TUcPx6wBGEb32Zw==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/9.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.9.5.4.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml"
       ]
     },
     "itext/8.0.4": {

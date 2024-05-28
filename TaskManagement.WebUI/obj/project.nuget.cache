@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "q+ssoIbKlDlWjqRFBTqHFX/iQhRUSJlqJH9GIrjmtU4FSijmuqxaTPek9JcHp8J2lbHClqW1QgcjEVj6b3b8NQ==",
+  "dgSpecHash": "ZQ5E59dHm/3hSAkF+tqI6TYFdq/vO+q2T1v5z3QnXXlPdrD4Ht7oflc6s5WYoLT/co5GUNejaDHvZBWTJHQqhQ==",
   "success": true,
   "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,9 @@
     "/Users/bsm/.nuget/packages/epplus/7.1.2/epplus.7.1.2.nupkg.sha512",
     "/Users/bsm/.nuget/packages/epplus.interfaces/6.1.1/epplus.interfaces.6.1.1.nupkg.sha512",
     "/Users/bsm/.nuget/packages/epplus.system.drawing/6.1.1/epplus.system.drawing.6.1.1.nupkg.sha512",
+    "/Users/bsm/.nuget/packages/fluentvalidation/11.9.1/fluentvalidation.11.9.1.nupkg.sha512",
+    "/Users/bsm/.nuget/packages/fluentvalidation.aspnetcore/9.5.4/fluentvalidation.aspnetcore.9.5.4.nupkg.sha512",
+    "/Users/bsm/.nuget/packages/fluentvalidation.dependencyinjectionextensions/9.5.4/fluentvalidation.dependencyinjectionextensions.9.5.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext/8.0.4/itext.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext.bouncy-castle-adapter/8.0.4/itext.bouncy-castle-adapter.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext.commons/8.0.4/itext.commons.8.0.4.nupkg.sha512",

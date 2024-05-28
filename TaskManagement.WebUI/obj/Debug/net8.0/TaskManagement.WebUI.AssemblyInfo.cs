@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskManagement.WebUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7de71eb9731ae573580e3109f1e105284c332ab7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57e22b72e9368187b3bc7b59cd12c499fb764e6a")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskManagement.WebUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskManagement.WebUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

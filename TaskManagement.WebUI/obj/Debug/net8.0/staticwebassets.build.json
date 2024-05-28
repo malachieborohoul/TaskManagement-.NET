@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G0dXogeqiPg4Zed1Ko7NRN26cs+9xFSar+PaHOBZX6c=",
+  "Hash": "e0xYs5DYMkfALusVop0fbYzyn7aZUuYbq+E8/0abkxM=",
   "Source": "TaskManagement.WebUI",
   "BasePath": "/",
   "Mode": "Root",
@@ -281,6 +281,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/webcil/EPPlus.wasm"
+    },
+    {
+      "Identity": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/FluentValidation.wasm",
+      "SourceId": "TaskManagement.WebUI",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/FluentValidation.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/webcil/FluentValidation.wasm"
     },
     {
       "Identity": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/icudt_CJK.dat",
@@ -7007,6 +7026,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.AspNetCore.Http.wasm"
+    },
+    {
+      "Identity": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/compressed/e6h6yx3uiv.gz",
+      "SourceId": "TaskManagement.WebUI",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/FluentValidation.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/FluentValidation.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/FluentValidation.wasm"
     },
     {
       "Identity": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/compressed/ec6szhvuhf.gz",

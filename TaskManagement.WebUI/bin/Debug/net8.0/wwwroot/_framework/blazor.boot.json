@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "TaskManagement.WebUI",
   "resources": {
-    "hash": "sha256-ZJL0/LhE8bxnnclpJjTpxpIn2KG+2dnJeOMfkWjibGU=",
+    "hash": "sha256-NOa7QB0+JScbi123paVIjSuczJYhtGoBXa1FAHxD65A=",
     "jsModuleNative": {
       "dotnet.native.8.0.4.6k4527kub6.js": "sha256-ju0+XWE0ihz554eKEj0HQ8Opa61xpbUIaX5/MNo8we4="
     },
@@ -21,6 +21,7 @@
       "EPPlus.wasm": "sha256-6IF9TXzWhkgMzIIOicVaYeJZTuXpKkvlKFTV19+ZV9c=",
       "EPPlus.Interfaces.wasm": "sha256-1ivxaRqKUyyRIttdHUKXxddIGDaEU4AlyiD+ktlQwnM=",
       "EPPlus.System.Drawing.wasm": "sha256-zbq4Ro3GsS6aTeZsp6yNt+7JhXELs77az4ead5N8rGw=",
+      "FluentValidation.wasm": "sha256-Dt7DBDag97mASqcSTSWerTCmGMiE8QnbGYMRbfGmqvQ=",
       "itext.barcodes.wasm": "sha256-kPZW+1vxdOwBK4IZcrKV5X7XbV9avPhIZR0EhKrwxT8=",
       "itext.bouncy-castle-connector.wasm": "sha256-WbvgJ3tR0dW/SRtmNmTbjGjg+UFQjNJS+Mq9Cz/BPos=",
       "itext.forms.wasm": "sha256-RO9sZwzS8FJZUXCTOOawgNaxsVzqhb0tGdEkpNA0NYM=",
@@ -274,14 +275,14 @@
       "mscorlib.wasm": "sha256-VCfYgt1mcjITabSTosCDVZ+68ea3Z7kakTFaLNLG+18=",
       "netstandard.wasm": "sha256-YOZxxR9PM3Dltcijfb0Q4FD39DkWZbZ1e2ScbZDvWJ4=",
       "System.Private.CoreLib.wasm": "sha256-NrT1QkAzVU//2wgK9vXdq77lCGvLJ4IOZ+Aegesyanc=",
-      "TaskManagement.Application.wasm": "sha256-VCKOt//Lgi2iny3PoWVGRpKrWsImOEz4SYNAR741XDg=",
-      "TaskManagement.Domain.wasm": "sha256-zlInViUAGbrK+5JgMA66WdEe0Hz0c1bePPzYDUmU/Yo=",
-      "TaskManagement.WebUI.wasm": "sha256-sAAj93cYDt3ILxl/FQ4aSxsQYAPlh71kd1aZM0wR97w="
+      "TaskManagement.Application.wasm": "sha256-2NgZynDCM38Mb4GHnrO3zb11EOla5fqfabqdUIj9zZg=",
+      "TaskManagement.Domain.wasm": "sha256-psZiCYhTNsj9Kw4XQ679s6Q1sDYQYSkd5YlrZ+x0Fgg=",
+      "TaskManagement.WebUI.wasm": "sha256-LaP/lUGxSXrKkF+c6NsOTLsyB1OMmjuhidPTJEViqtQ="
     },
     "pdb": {
-      "TaskManagement.Application.pdb": "sha256-Eb3+KIn/wPV8mJu3WyXtOgSYBone/Xpd234/mR9toIk=",
-      "TaskManagement.Domain.pdb": "sha256-zy9pcRZk6q9P+U7u8YQ7rGZeiTw+Bv4BIF6X0xVido0=",
-      "TaskManagement.WebUI.pdb": "sha256-NZl/l/toZnlvXIj/nQTyumRoovmK3miAlqkAn2CYlmM="
+      "TaskManagement.Application.pdb": "sha256-q1jv344mkYJGHrX70NklXnNKjsGRzWy5V3qpogw5v9I=",
+      "TaskManagement.Domain.pdb": "sha256-p68cGo++fLUHy1iMdhuqjhv8zUeaeWWJ9Y7MPi5GDJs=",
+      "TaskManagement.WebUI.pdb": "sha256-G3MNRkUh2yHwcI1gl9IJqv0pP8is4kXl8VIlUYtBVHM="
     }
   },
   "cacheBootResources": true,

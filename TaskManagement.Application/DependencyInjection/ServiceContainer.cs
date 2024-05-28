@@ -1,4 +1,6 @@
 using System.Text;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +17,13 @@ using TaskManagement.Application.Services.WebUI.Status;
 using TaskManagement.Application.Services.WebUI.SubTask;
 using TaskManagement.Application.Services.WebUI.Tasks;
 using TaskManagement.Application.Services.WebUI.User;
+using TaskManagement.Application.Validations.Auth;
+using TaskManagement.Application.Validations.Priority;
+using TaskManagement.Application.Validations.Status;
+using TaskManagement.Application.Validations.SubTask;
+using TaskManagement.Application.Validations.Tasks;
+using TaskManagement.Application.Validations.User;
+using TaskManagement.Domain.DTOs.Request.Priority;
 using IAssigneeService = TaskManagement.Application.Services.WebUI.Assignee.IAssigneeService;
 using IAuthService = TaskManagement.Application.Services.WebUI.Auth.IAuthService;
 using IPriorityService = TaskManagement.Application.Services.WebUI.Priority.IPriorityService;
@@ -44,6 +53,8 @@ public static class ServiceContainer
         services.AddScoped<ISubTaskService, SubTaskService>();
         services.AddScoped<IRoleService, RoleService>();
         */
+        services.AddValidatorsFromAssemblyContaining<CreatePriorityDtoValidator>();
+
         services.AddAuthorizationCore();
         services.AddNetcodeHubLocalStorageService();
         services.AddScoped<Extensions.LocalStorageService>();
@@ -52,6 +63,8 @@ public static class ServiceContainer
         services. AddTransient<CustomHttpHandler>(); services.AddCascadingAuthenticationState();
         services.AddMudServices();
         
+
+
         
 
 

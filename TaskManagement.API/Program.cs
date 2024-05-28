@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using TaskManagement.Application.DependencyInjection;
 using TaskManagement.Application.Services.API.Assignee;
 using TaskManagement.Application.Services.API.Auth;
@@ -9,11 +11,20 @@ using TaskManagement.Application.Services.API.Status;
 using TaskManagement.Application.Services.API.SubTask;
 using TaskManagement.Application.Services.API.Tasks;
 using TaskManagement.Application.Services.API.User;
+using TaskManagement.Application.Validations.Auth;
+using TaskManagement.Application.Validations.Priority;
+using TaskManagement.Application.Validations.Status;
+using TaskManagement.Application.Validations.SubTask;
+using TaskManagement.Application.Validations.Tasks;
+using TaskManagement.Application.Validations.User;
+using TaskManagement.Domain.DTOs.Request.Priority;
 using TaskManagement.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+
+// Add builder.Services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -32,6 +43,25 @@ builder.Services.AddScoped<IExcelService, ExcelService>();
 builder.Services.AddScoped<IPdfService, PdfService>();
 builder.Services.AddInfrastructureService(builder.Configuration);
 
+
+//builder.Services.AddControllers().AddFluentValidation(v => v.RegisterValidatorsFromAssemblyContaining<CreatePriorityDtoValidator>());
+
+
+//Validators
+builder.Services.AddFluentValidationAutoValidation();
+
+builder.Services.AddValidatorsFromAssemblyContaining<ChangeUserRoleDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateRoleDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<LoginDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreatePriorityDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateStatusDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateSubTaskDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateSubTaskDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<ChangeTaskStatusDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateTaskDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateTaskDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdateUserDtoValidator>();
 
 var app = builder.Build();
 

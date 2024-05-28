@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[8.0.2, )"
             },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -132,6 +136,14 @@
             "EPPlus": {
               "target": "Package",
               "version": "[7.1.2, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.1, )"
             },
             "Mapster": {
               "target": "Package",
