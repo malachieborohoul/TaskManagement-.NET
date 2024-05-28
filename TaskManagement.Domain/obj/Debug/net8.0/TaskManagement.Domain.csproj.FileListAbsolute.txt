@@ -1,0 +1,26 @@
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/bin/Debug/net8.0/TaskManagement.Domain.deps.json
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/bin/Debug/net8.0/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/bin/Debug/net8.0/TaskManagement.Domain.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.csproj.AssemblyReference.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.AssemblyInfoInputs.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.AssemblyInfo.cs
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.csproj.CoreCompileInputs.cache
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.sourcelink.json
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/refint/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.pdb
+/Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/ref/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/bin/Debug/net8.0/TaskManagement.Domain.deps.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/bin/Debug/net8.0/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/bin/Debug/net8.0/TaskManagement.Domain.pdb
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.csproj.AssemblyReference.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.AssemblyInfoInputs.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.AssemblyInfo.cs
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.csproj.CoreCompileInputs.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.sourcelink.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/refint/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/TaskManagement.Domain.pdb
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Domain/obj/Debug/net8.0/ref/TaskManagement.Domain.dll
