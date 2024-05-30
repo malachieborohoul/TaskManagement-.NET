@@ -9,7 +9,7 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StatusController(IStatusService statusService, ILogger<AuthController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
+    public class StatusController(IStatusService statusService, ILogger<StatusController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAll()

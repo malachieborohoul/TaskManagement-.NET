@@ -11,7 +11,7 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TasksController(ITaskService taskService, IPdfService pdfService, IExcelService excelService, ILogger<AuthController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
+    public class TasksController(ITaskService taskService, IPdfService pdfService, IExcelService excelService, ILogger<TasksController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         
         [HttpGet("export/pdf")]

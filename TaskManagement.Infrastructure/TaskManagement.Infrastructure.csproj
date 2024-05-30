@@ -7,6 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Duende.IdentityServer" Version="7.0.4" />
+        <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="7.0.4" />
+        <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="7.0.4" />
         <PackageReference Include="EPPlus" Version="7.1.2" />
         <PackageReference Include="itext7" Version="8.0.4" />
         <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.4" />
@@ -28,6 +31,7 @@
     <ItemGroup>
         <ProjectReference Include="..\TaskManagement.Application\TaskManagement.Application.csproj" />
         <ProjectReference Include="..\TaskManagement.Domain\TaskManagement.Domain.csproj" />
+        <ProjectReference Include="..\TaskManagement.WebUI\TaskManagement.WebUI.csproj" />
     </ItemGroup>
 
     <ItemGroup>

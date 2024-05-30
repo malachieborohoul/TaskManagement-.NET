@@ -10,7 +10,7 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(IUserService userService, ILogger<AuthController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
+    public class UsersController(IUserService userService, ILogger<UsersController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAllWithRole()

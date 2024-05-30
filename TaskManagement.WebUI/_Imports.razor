@@ -9,17 +9,15 @@
 @using WebUI
 @using WebUI.Layout
 @using MudBlazor
-@using TaskManagement.Application.Extensions
-@using TaskManagement.Application.Services
 @using Microsoft.AspNetCore.Components.Authorization
-@using IAssigneeService = TaskManagement.Application.Services.WebUI.Assignee.IAssigneeService
-@using IAuthService = TaskManagement.Application.Services.WebUI.Auth.IAuthService
-@using IPriorityService = TaskManagement.Application.Services.WebUI.Priority.IPriorityService
-@using IRoleService = TaskManagement.Application.Services.WebUI.Role.IRoleService
-@using IStatusService = TaskManagement.Application.Services.WebUI.Status.IStatusService
-@using ISubTaskService = TaskManagement.Application.Services.WebUI.SubTask.ISubTaskService
-@using ITaskService = TaskManagement.Application.Services.WebUI.Tasks.ITaskService
-@using IUserService = TaskManagement.Application.Services.WebUI.User.IUserService
+@using IAssigneeService = TaskManagement.WebUI.Services.Assignee.IAssigneeService
+@using IAuthService = TaskManagement.WebUI.Services.Auth.IAuthService
+@using IPriorityService = TaskManagement.WebUI.Services.Priority.IPriorityService
+@using IRoleService = TaskManagement.WebUI.Services.Role.IRoleService
+@using IStatusService = TaskManagement.WebUI.Services.Status.IStatusService
+@using ISubTaskService = TaskManagement.WebUI.Services.SubTask.ISubTaskService
+@using ITaskService = TaskManagement.WebUI.Services.Tasks.ITaskService
+@using IUserService = TaskManagement.WebUI.Services.User.IUserService
 
 
 @inject IAuthService authService

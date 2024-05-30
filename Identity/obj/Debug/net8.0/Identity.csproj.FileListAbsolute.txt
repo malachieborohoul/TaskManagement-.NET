@@ -1,0 +1,8 @@
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.AssemblyInfoInputs.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.AssemblyInfo.cs
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.csproj.CoreCompileInputs.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.MvcApplicationPartsAssemblyInfo.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.RazorAssemblyInfo.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.RazorAssemblyInfo.cs
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.sourcelink.json

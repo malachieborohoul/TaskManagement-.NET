@@ -1,4 +1,4 @@
-namespace TaskManagement.Domain.Entity.Authentication;
+namespace TaskManagement.Domain.Entities.Authentication;
 
 public class RefreshToken
 {

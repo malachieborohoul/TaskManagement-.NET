@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using TaskManagement.Domain.Entity.Tasks;
 
-namespace TaskManagement.Domain.Entity.Authentication;
+namespace TaskManagement.Domain.Entities.Authentication;
 
 public class ApplicationUser:IdentityUser
 {
@@ -11,7 +11,7 @@ public class ApplicationUser:IdentityUser
      
     // Navigation properties
     [JsonIgnore]
-    public ICollection<Tasks.Tasks> Tasks { get; set; } = new List<Tasks.Tasks>();
+    public ICollection<Entity.Tasks.Tasks> Tasks { get; set; } = new List<Entity.Tasks.Tasks>();
     
     [JsonIgnore]
     public ICollection<Assignee> Assignees { get; set; } = new List<Assignee>();

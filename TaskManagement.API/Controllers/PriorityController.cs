@@ -9,7 +9,7 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/Priorities")]
     [ApiController]
-    public class PriorityController(IPriorityService priorityService,ILogger<AuthController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
+    public class PriorityController(IPriorityService priorityService,ILogger<PriorityController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAll()

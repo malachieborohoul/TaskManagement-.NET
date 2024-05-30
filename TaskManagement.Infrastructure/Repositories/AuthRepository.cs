@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Application.Contracts;
-using TaskManagement.Domain.Entity.Authentication;
+using TaskManagement.Domain.Entities.Authentication;
 using TaskManagement.Infrastructure.Data;
 
 namespace TaskManagement.Infrastructure.Repositories;

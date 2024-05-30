@@ -4,7 +4,6 @@ using TaskManagement.Application.Contracts;
 using TaskManagement.Application.DTOs.Response;
 using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.Domain.DTOs.Response;
-using TaskManagement.Domain.Entity.Authentication;
 
 namespace TaskManagement.Application.Services.API.Role;
 

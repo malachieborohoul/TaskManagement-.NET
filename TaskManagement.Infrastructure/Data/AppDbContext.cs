@@ -1,7 +1,7 @@
-using TaskManagement.Domain.Entity.Authentication;
 using TaskManagement.Domain.Entity.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TaskManagement.Domain.Entities.Authentication;
 
 namespace TaskManagement.Infrastructure.Data;
 

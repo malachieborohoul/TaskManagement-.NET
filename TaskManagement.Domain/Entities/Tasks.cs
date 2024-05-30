@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using TaskManagement.Domain.Entity.Authentication;
+using TaskManagement.Domain.Entities.Authentication;
 
 namespace TaskManagement.Domain.Entity.Tasks;
 

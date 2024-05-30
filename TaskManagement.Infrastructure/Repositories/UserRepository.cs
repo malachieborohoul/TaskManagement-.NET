@@ -2,13 +2,13 @@ using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Application.Contracts;
-using TaskManagement.Application.Extensions;
 using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.Domain.DTOs.Request.User;
 using TaskManagement.Domain.DTOs.Response;
 using TaskManagement.Domain.DTOs.Response.User;
-using TaskManagement.Domain.Entity.Authentication;
+using TaskManagement.Domain.Entities.Authentication;
 using TaskManagement.Infrastructure.Data;
+using TaskManagement.WebUI.Extensions;
 
 namespace TaskManagement.Infrastructure.Repositories;
 

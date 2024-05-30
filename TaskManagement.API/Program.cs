@@ -1,3 +1,4 @@
+using Duende.IdentityServer.Test;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Serilog;
@@ -80,7 +81,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseIdentityServer();
 app.UseSerilogRequestLogging();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

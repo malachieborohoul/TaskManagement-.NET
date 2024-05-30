@@ -4,7 +4,7 @@ using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.Domain.DTOs.Request.User;
 using TaskManagement.Domain.DTOs.Response;
 using TaskManagement.Domain.DTOs.Response.User;
-using TaskManagement.Domain.Entity.Authentication;
+using TaskManagement.Domain.Entities.Authentication;
 
 namespace TaskManagement.Application.Services.API.User;
 

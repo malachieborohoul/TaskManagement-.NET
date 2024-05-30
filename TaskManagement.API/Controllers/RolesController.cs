@@ -9,7 +9,7 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RolesController(IRoleService roleService,ILogger<AuthController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
+    public class RolesController(IRoleService roleService,ILogger<RolesController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         
    [HttpPost()]

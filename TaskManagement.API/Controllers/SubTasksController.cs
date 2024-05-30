@@ -8,7 +8,7 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubTasksController(ISubTaskService subTasksService, ILogger<AuthController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
+    public class SubTasksController(ISubTaskService subTasksService, ILogger<SubTasksController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAll()

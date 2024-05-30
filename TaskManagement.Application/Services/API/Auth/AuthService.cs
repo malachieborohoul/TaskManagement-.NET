@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using TaskManagement.Application.Contracts;
 using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.Domain.DTOs.Response;
-using TaskManagement.Domain.Entity.Authentication;
+using TaskManagement.Domain.Entities.Authentication;
 
 namespace TaskManagement.Application.Services.API.Auth;
 

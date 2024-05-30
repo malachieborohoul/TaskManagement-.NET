@@ -18,20 +18,23 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.pdb
 /Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.genruntimeconfig.cache
 /Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/ref/TaskManagement.Infrastructure.dll
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Infrastructure.deps.json
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Infrastructure.runtimeconfig.json
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Infrastructure.dll
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Infrastructure.pdb
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Application.dll
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Domain.dll
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Application.pdb
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Domain.pdb
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.csproj.AssemblyReference.cache
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.AssemblyInfoInputs.cache
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.AssemblyInfo.cs
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.csproj.CoreCompileInputs.cache
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.sourcelink.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.WebUI.staticwebassets.runtime.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Infrastructure.deps.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Infrastructure.runtimeconfig.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Infrastructure.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Infrastructure.pdb
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Application.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.WebUI.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Application.pdb
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.Domain.pdb
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/bin/Debug/net8.0/TaskManagement.WebUI.pdb
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskMana.BCA0E1A6.Up2Date
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/TaskManagement.Infrastructure.dll
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/obj/Debug/net8.0/refint/TaskManagement.Infrastructure.dll
