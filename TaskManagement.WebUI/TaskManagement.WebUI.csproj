@@ -7,17 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.3"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="9.0.0-preview.4.24267.6" />
+        
+        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.6"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.6" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
         <PackageReference Include="MudBlazor" Version="6.19.1" />
         <PackageReference Include="NetcodeHub.Packages.Extensions.LocalStorage" Version="1.0.0"/>
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.0"/>
         
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.4"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.4" PrivateAssets="all"/>
         <PackageReference Include="Mapster" Version="7.4.0 "/>
         <PackageReference Include="MudBlazor" Version="6.19.1" />
+
+       
+        
     </ItemGroup>
 
     <ItemGroup>
@@ -28,6 +31,33 @@
         <Folder Include="Components\Task\Forms\" />
         <Folder Include="Pages\SubTask\" />
         <Folder Include="Services\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Account\AccessDenied.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Account\Create\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Account\Login\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Account\Logout\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Account\Logout\LoggedOut.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Ciba\All.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Ciba\Consent.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Ciba\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Ciba\_ScopeListItem.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Consent\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Consent\_ScopeListItem.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Device\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Device\Success.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Device\_ScopeListItem.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Diagnostics\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\ExternalLogin\Callback.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\ExternalLogin\Challenge.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Grants\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Home\Error\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Shared\_Nav.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Shared\_ValidationSummary.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\ServerSideSessions\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Redirect\Index.cshtml" />
     </ItemGroup>
 
 </Project>

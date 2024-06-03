@@ -1,4 +1,4 @@
-﻿
+﻿@*
 <Router AppAssembly="@typeof(App).Assembly" OnNavigateAsync="HandleNavigation">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
@@ -15,8 +15,23 @@
         </LayoutView>
     </NotFound>
 </Router>
-
+*@
+<Router AppAssembly="@typeof(App).Assembly" >
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+           
+        </AuthorizeRouteView>
+        <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p role="alert">Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
 @code {
+    /*
     private async Task HandleNavigation(NavigationContext args)
     {
         try
@@ -35,5 +50,5 @@
         {
             NavManager.NavigateTo("/login", false, true);
         }
-    }
+    }*/
 }

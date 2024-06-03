@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Components;
 using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.WebUI.Services.Auth;
-
+/*
 namespace TaskManagement.WebUI.Extensions;
 
 public class CustomHttpHandler(LocalStorageService localStorageService, 
@@ -81,5 +81,6 @@ private async Task ClearBrowserStorage() => await localStorageService. RemoveTok
 }
         
    
+*/
 
         

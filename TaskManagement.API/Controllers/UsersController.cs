@@ -15,18 +15,20 @@ namespace TaskManagement.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllWithRole()
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             
             try
             {
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(await userService.GetUsersWithRolesAsync());
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -35,18 +37,20 @@ namespace TaskManagement.API.Controllers
         [HttpPost]
         public async Task<ActionResult<GeneralResponse>> Register(RegisterDTO model)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
                 await userService.RegisterAsync(model);
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Created();
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -56,7 +60,9 @@ namespace TaskManagement.API.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateUserDTO model)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
@@ -65,17 +71,17 @@ namespace TaskManagement.API.Controllers
                 var response = await userService.UpdateAsync(id, model);
                 if (response.Flag)
                 {
-                    logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                    logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                     return Ok(response);
                 }
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return BadRequest(response.Message);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -86,18 +92,20 @@ namespace TaskManagement.API.Controllers
         [HttpPost("/setting")]
         public async Task<ActionResult> CreateAdmin()
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
                 await userService.CreateAdmin();
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Created();
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -115,7 +123,9 @@ namespace TaskManagement.API.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
@@ -123,18 +133,18 @@ namespace TaskManagement.API.Controllers
 
                 if (response.Flag)
                 {
-                    logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                    logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                     return Ok(response);
                 }
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return BadRequest(response.Message);
 
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }

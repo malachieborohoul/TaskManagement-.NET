@@ -1,3 +1,4 @@
+
 using System.Net.Http.Json;
 using TaskManagement.WebUI.Extensions;
 
@@ -18,7 +19,8 @@ public class PriorityService(HttpClientService httpClientService):IPriorityServi
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync(Constant.GetPrioritiesRoute); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))

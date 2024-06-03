@@ -1,6 +1,5 @@
 @using TaskManagement.Application.DTOs.Response
 @using Domain.Entity.Tasks
-@using Microsoft.IdentityModel.Tokens
 @using TaskManagement.Domain.DTOs.Request.Task
 @using TaskManagement.Domain.DTOs.Response.User
 <MudDialog >
@@ -233,17 +232,19 @@
     {
         try
         {
-            
+           /* 
             if (string.IsNullOrEmpty(CreateTaskModel.Title) && selectedUsers.IsNullOrEmpty() )
             {
                 _errorMessageTitle = "Title Task is empty";
                 _errorMessageAssign = "Select team members";
 
-            }
+            }*/
+           /*
             else if (string.IsNullOrEmpty(CreateTaskModel.Title))
             {
                 _errorMessageTitle = "Title Task is empty";
             }
+            
             else if (selectedUsers.IsNullOrEmpty())
             {
                 _errorMessageAssign = "Select team members";
@@ -277,7 +278,7 @@
                
                 }
                
-            }
+            }*/
              
             
            

@@ -1,4 +1,5 @@
 using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,15 +25,23 @@ public static class ServiceContainer
         services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
-        
+
         // Configuration de IdentityServer
-        services.AddIdentityServer()
+        services.AddIdentityServer(
+                options =>
+                {
+                    options.Events.RaiseErrorEvents = true;
+                    options.Events.RaiseInformationEvents = true;
+                    options.Events.RaiseFailureEvents = true;
+                    options.Events.RaiseSuccessEvents = true;
+                    options.EmitStaticAudienceClaim = true;
+                })
             .AddInMemoryIdentityResources(Config.GetIdentityResources())
             .AddInMemoryApiScopes(Config.GetApiScopes())
             .AddInMemoryClients(Config.GetClients())
             .AddAspNetIdentity<ApplicationUser>()
             .AddDeveloperSigningCredential();
-        
+        /*
             // Configuration de l'authentification JWT
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -47,31 +56,22 @@ public static class ServiceContainer
                     ValidAudience = config["Jwt:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]))
                 };
-            });
+            });*/
 
-        /*
-        services.AddIdentityCore<ApplicationUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
-            .AddSignInManager();
         services.AddAuthentication(options =>
-        {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        }).AddJwtBearer(options =>
-
-            options.TokenValidationParameters = new TokenValidationParameters
             {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateIssuerSigningKey = true,
-                ValidateLifetime = true,
-                ValidIssuer = config["Jwt:Issuer"],
-                ValidAudience = config["Jwt:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]!))
-            }
-        );*/
-        services.AddAuthentication();
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.Authority = "https://localhost:7238";
+                options.Audience = "task";
+                options.RequireHttpsMetadata = false;
+            });
+    
         services.AddAuthorization();
-      
+
         //Add cors
         services.AddCors(options =>
         {
@@ -91,9 +91,7 @@ public static class ServiceContainer
         services.AddScoped<IAssigneeRepository, AssigneeRepository>();
         services.AddScoped<ISubTaskRepository, SubTaskRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
-       
+
         return services;
     }
-    
-
 }

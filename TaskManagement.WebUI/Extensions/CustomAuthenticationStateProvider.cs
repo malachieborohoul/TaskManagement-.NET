@@ -1,4 +1,4 @@
-using System.IdentityModel.Tokens.Jwt;
+/*using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Components.Authorization;
 using TaskManagement.Application.DTOs.Response;
@@ -81,3 +81,5 @@ public class CustomAuthenticationStateProvider(LocalStorageService localStorageS
         }        
     }    
 }    
+
+*/

@@ -1,3 +1,4 @@
+
 using System.Net.Http.Json;
 using TaskManagement.Application.DTOs.Response;
 using TaskManagement.WebUI.Extensions;
@@ -20,7 +21,8 @@ public class RoleService(HttpClientService httpClientService):IRoleService
         
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync(Constant.GetRolesRoute); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))

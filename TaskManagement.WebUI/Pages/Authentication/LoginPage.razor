@@ -1,10 +1,11 @@
 @page "/login"
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Authorization
 @using TaskManagement.Domain.DTOs.Request.Auth
 @using TaskManagement.WebUI.Extensions
 @using WebUI.Layout.Authentication
 @layout AuthenticationLayout
-
+@attribute [Authorize]
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
@@ -79,13 +80,14 @@
         try
         {
             var response = await authService.LoginAsync(LoginModel);
+            /*
             if (response.Flag)
             {
                 var customAuthStateProvider = (CustomAuthenticationStateProvider) AuthStateProvider;
                 await customAuthStateProvider.UpdateAuthenticationState(new LocalStorageDTO()
                     { Token = response.Token, Refresh = response.RefreshToken });
                 NavManager. NavigateTo(uri: "home", true);
-            }
+            }*/
         }
         catch 
         {

@@ -1,3 +1,4 @@
+
 using System.Net.Http.Json;
 using TaskManagement.Domain.DTOs.Request.Task;
 using TaskManagement.Domain.DTOs.Response;
@@ -22,7 +23,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync(Constant.GetTasksRoute); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -41,7 +43,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync($"{Constant.GetTasksRoute}/export/pdf"); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -59,7 +62,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync($"{Constant.GetTasksRoute}/export/excel"); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -78,7 +82,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync($"{Constant.GetTasksRoute}/{taskId}"); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -99,7 +104,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.PostAsJsonAsync(Constant.CreateTaskRoute, model);
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -118,7 +124,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.DeleteAsync($"{Constant.CreateTaskRoute}/{model.Id}");
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -137,7 +144,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             
 
             var response = await privateClient.PutAsJsonAsync($"{Constant.CreateTaskRoute}/{taskId}",model );
@@ -158,7 +166,8 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             
 
             var response = await privateClient.PatchAsJsonAsync($"{Constant.CreateTaskRoute}/{taskId}/status",model );

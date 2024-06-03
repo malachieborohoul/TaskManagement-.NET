@@ -14,17 +14,19 @@ namespace TaskManagement.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(await statusService.GetAllAsync());
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -33,7 +35,9 @@ namespace TaskManagement.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
@@ -41,17 +45,17 @@ namespace TaskManagement.API.Controllers
 
                 if (stat == null)
                 {
-                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                     return NotFound();
                 }
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(stat);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -60,18 +64,20 @@ namespace TaskManagement.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateStatusDTO model)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
                 var status = await statusService.CreateAsync(model);
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return CreatedAtAction(nameof(GetById), new { id = status.Id }, status);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -81,24 +87,26 @@ namespace TaskManagement.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] CreateStatusDTO model)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
                 var status = await statusService.UpdateAsync(id, model);
                 if (status == null)
                 {
-                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                     return NotFound();
                 }
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(status);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -108,24 +116,26 @@ namespace TaskManagement.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
                 var status = await statusService.DeleteAsync(id);
                 if (status == null)
                 {
-                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                     return NotFound();
                 }
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(status);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }

@@ -1,18 +1,52 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using TaskManagement.Application.DTOs.Response;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using TaskManagement.Application.Services.API.Auth;
 using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.Domain.DTOs.Response;
+using TaskManagement.Domain.Entities.Authentication;
 
 namespace TaskManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController(IAuthService authService, ILogger<AuthController> logger) : ControllerBase
+    public class AuthController(IAuthService authService, ILogger<AuthController> logger, UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager, IConfiguration configuration) : ControllerBase
     {
-      
         
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDTO model)
+        {
+            var user = await userManager.FindByEmailAsync(model.EmailAddress);
+            if (user == null || !await userManager.CheckPasswordAsync(user, model.Password))
+            {
+                return Unauthorized();
+            }
+
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: configuration["Jwt:Issuer"],
+                audience: configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(30),
+                signingCredentials: creds);
+            await signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+            return Ok(new { Token = new JwtSecurityTokenHandler().WriteToken(token) });
+        }
+      
+        /*
         [HttpPost("login")]
         public async Task<ActionResult<GeneralResponse>> Login(LoginDTO model)
         {
@@ -46,5 +80,6 @@ namespace TaskManagement.API.Controllers
             return Ok(await authService.RefreshTokenAsync(model));
         }
    
+    }*/
     }
 }

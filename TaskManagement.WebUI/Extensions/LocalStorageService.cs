@@ -1,3 +1,4 @@
+/*
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using NetcodeHub.Packages.Extensions.LocalStorage;
@@ -66,5 +67,5 @@ public class LocalStorageService(ILocalStorageService localStorageService)
             UnmappedMemberHandling = JsonUnmappedMemberHandling.Skip
         };
     }        
-}
+}*/
 

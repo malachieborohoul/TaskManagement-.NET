@@ -1,3 +1,4 @@
+
 using System.Net.Http.Json;
 using TaskManagement.Domain.DTOs.Response;
 using TaskManagement.WebUI.Extensions;
@@ -18,7 +19,7 @@ public class AssigneeService(HttpClientService httpClientService):IAssigneeServi
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
             var response = await privateClient.DeleteAsync($"{Constant.DeleteAssigneeRoute}/{taskId}/{userId}");
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -35,7 +36,8 @@ public class AssigneeService(HttpClientService httpClientService):IAssigneeServi
 
     public async Task<GeneralResponse> GetAssigneeAsync(Guid taskId, string userId)
     {
-        var privateClient = await httpClientService.GetPrivateClient();
+        var privateClient =  httpClientService.GetPublicClient();
+
         var response = await privateClient.DeleteAsync($"{Constant.DeleteAssigneeRoute}/{taskId}/{userId}");
         string error = CheckResponseStatus(response);
         if (!string.IsNullOrEmpty(error))
@@ -49,7 +51,9 @@ public class AssigneeService(HttpClientService httpClientService):IAssigneeServi
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+           // var privateClient = await httpClientService.GetPrivateClient();
+           var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync($"{Constant.DeleteAssigneeRoute}/{taskId}"); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))

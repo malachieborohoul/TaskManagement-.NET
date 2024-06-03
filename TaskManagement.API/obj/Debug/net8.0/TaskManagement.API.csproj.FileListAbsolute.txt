@@ -356,6 +356,7 @@
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Forms.dll
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Web.dll
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/bin/Debug/net8.0/Microsoft.AspNetCore.Components.WebAssembly.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/bin/Debug/net8.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.API/bin/Debug/net8.0/Microsoft.AspNetCore.DataProtection.Abstractions.dll

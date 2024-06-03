@@ -1,14 +1,17 @@
+
 using System.Net.Http.Headers;
 
 namespace TaskManagement.WebUI.Extensions;
 
 
 
-public class HttpClientService(IHttpClientFactory httpClientFactory, LocalStorageService localStorageService)
+public class HttpClientService(IHttpClientFactory httpClientFactory 
+    //LocalStorageService localStorageService
+    )
 {
     private HttpClient CreateClient() => httpClientFactory!.CreateClient(Constant.HttpClientName);
     public HttpClient GetPublicClient() => CreateClient();
-    public async Task<HttpClient> GetPrivateClient()
+    /*public async Task<HttpClient> GetPrivateClient()
     {
         try
         {
@@ -22,5 +25,5 @@ public class HttpClientService(IHttpClientFactory httpClientFactory, LocalStorag
         }
         catch { return new HttpClient(); }
 
-    }
+    }*/
 }

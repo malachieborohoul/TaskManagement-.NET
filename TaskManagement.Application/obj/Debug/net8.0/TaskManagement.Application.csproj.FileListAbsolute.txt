@@ -14,17 +14,17 @@
 /Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/refint/TaskManagement.Application.dll
 /Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskManagement.Application.pdb
 /Users/bsm/Documents/projects/dot net/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/ref/TaskManagement.Application.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Application.deps.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Application.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Application.pdb
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Domain.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Domain.pdb
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskManagement.Application.csproj.AssemblyReference.cache
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskManagement.Application.AssemblyInfoInputs.cache
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskManagement.Application.AssemblyInfo.cs
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskManagement.Application.csproj.CoreCompileInputs.cache
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskManagement.Application.sourcelink.json
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Application.deps.json
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Application.dll
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Application.pdb
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Domain.dll
-/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/bin/Debug/net8.0/TaskManagement.Domain.pdb
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskMana.B5C26166.Up2Date
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/TaskManagement.Application.dll
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Application/obj/Debug/net8.0/refint/TaskManagement.Application.dll

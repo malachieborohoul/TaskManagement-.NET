@@ -1,3 +1,4 @@
+
 using System.Net.Http.Json;
 using TaskManagement.Domain.DTOs.Request.SubTask;
 using TaskManagement.Domain.DTOs.Response;
@@ -20,7 +21,8 @@ public class SubTaskService(HttpClientService httpClientService):ISubTaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync($"{Constant.GetSubTasksRoute}/task/{taskId}"); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -39,7 +41,8 @@ public class SubTaskService(HttpClientService httpClientService):ISubTaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.PostAsJsonAsync(Constant.GetSubTasksRoute, model);
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -58,7 +61,8 @@ public class SubTaskService(HttpClientService httpClientService):ISubTaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.DeleteAsync($"{Constant.GetSubTasksRoute}/{model.Id}");
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -77,7 +81,8 @@ public class SubTaskService(HttpClientService httpClientService):ISubTaskService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             
 
             var response = await privateClient.PutAsJsonAsync($"{Constant.GetSubTasksRoute}/{subTaskId}",model );

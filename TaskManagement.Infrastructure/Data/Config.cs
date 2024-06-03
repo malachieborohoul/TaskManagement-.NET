@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
 
 public static class Config
@@ -7,7 +9,8 @@ public static class Config
         return new List<IdentityResource>
         {
             new IdentityResources.OpenId(),
-            new IdentityResources.Profile()
+            new IdentityResources.Email(),
+            new IdentityResources.Profile(),
         };
     }
 
@@ -15,7 +18,8 @@ public static class Config
     {
         return new List<ApiScope>
         {
-            new ApiScope("api1", "My API")
+            new ApiScope(name: "task",   displayName: "Task Server"),
+
         };
     }
 
@@ -27,11 +31,15 @@ public static class Config
             {
                 ClientId = "blazor-client",
                 AllowedGrantTypes = GrantTypes.Code,
-                RequireClientSecret = false,
-                RedirectUris = { "https://localhost:7159/authentication/login-callback" },
-                PostLogoutRedirectUris = { "https://localhost:7159/authentication/logout-callback" },
-                AllowedScopes = { "openid", "profile", "api1" },
-                AllowAccessTokensViaBrowser = true
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                AllowedScopes = { "task", 
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.Email,
+                        
+                },
+                RedirectUris =           { "http://localhost:7159/signin-oidc" },
+                PostLogoutRedirectUris = { "http://localhost:7159/signout-oidc" },
             }
         };
     }

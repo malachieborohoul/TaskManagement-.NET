@@ -1,3 +1,4 @@
+
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -129,7 +130,8 @@ public class AuthService(HttpClientService httpClientService, AuthenticationStat
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync(Constant.GetRolesRoute); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -151,7 +153,8 @@ public class AuthService(HttpClientService httpClientService, AuthenticationStat
         try
         {
             //The request is private and the token is added to the header 
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync (Constant.GetUserWithRolesRoute); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -172,7 +175,8 @@ public class AuthService(HttpClientService httpClientService, AuthenticationStat
 
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.PostAsJsonAsync(Constant.ChangeUserRoleRoute, model); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using TaskManagement.Domain.Entity.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,15 +10,19 @@ namespace TaskManagement.API.Controllers
 {
     [Route("api/Priorities")]
     [ApiController]
+    [Authorize]
     public class PriorityController(IPriorityService priorityService,ILogger<PriorityController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
+
             try
             {
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(await priorityService.GetAllAsync());
             }
@@ -32,7 +37,9 @@ namespace TaskManagement.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
             try
             {
@@ -40,19 +47,19 @@ namespace TaskManagement.API.Controllers
 
                 if (prior == null)
                 {
-                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
 
 
                     return NotFound();
                 }
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(prior);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -62,18 +69,21 @@ namespace TaskManagement.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreatePriorityDTO model)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
+
 
             try
             {
                 var priority = await priorityService.CreateAsync(model);
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return CreatedAtAction(nameof(GetById), new { id = priority.Id }, priority);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -83,23 +93,26 @@ namespace TaskManagement.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] CreatePriorityDTO model)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
+
 
             try
             {
                 var priority = await priorityService.UpdateAsync(id, model);
                 if (priority == null)
                 {
-                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
                     return NotFound();
                 }
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(priority);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }
@@ -109,24 +122,27 @@ namespace TaskManagement.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+            var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+            logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
+
 
             try
             {
                 var priority = await priorityService.DeleteAsync(id);
                 if (priority == null)
                 {
-                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                    logger.LogWarning("Not found request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                     return NotFound();
                 }
-                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+                logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
                 return Ok(priority);
             }
             catch (Exception e)
             {
-                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+                logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                     DateTime.UtcNow);
                 return StatusCode(500, new GeneralResponse(false, e.Message));
             }

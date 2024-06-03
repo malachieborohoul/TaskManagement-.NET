@@ -1,3 +1,4 @@
+
 using System.Net.Http.Json;
 using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.Domain.DTOs.Request.User;
@@ -21,7 +22,8 @@ public class UserService(HttpClientService httpClientService):IUserService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.GetAsync(Constant.GetUsersRoute); 
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -40,7 +42,8 @@ public class UserService(HttpClientService httpClientService):IUserService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.PostAsJsonAsync(Constant.GetUsersRoute, model);
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -59,7 +62,8 @@ public class UserService(HttpClientService httpClientService):IUserService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             
 
             var response = await privateClient.PutAsJsonAsync($"{Constant.GetUsersRoute}/{userId}",model );
@@ -80,7 +84,8 @@ public class UserService(HttpClientService httpClientService):IUserService
     {
         try
         {
-            var privateClient = await httpClientService.GetPrivateClient();
+            var privateClient =  httpClientService.GetPublicClient();
+
             var response = await privateClient.DeleteAsync($"{Constant.GetUsersRoute}/{model.Id}");
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))

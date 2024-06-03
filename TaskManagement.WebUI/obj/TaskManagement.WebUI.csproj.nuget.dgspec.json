@@ -107,7 +107,7 @@
             },
             "Microsoft.AspNetCore.Components.Authorization": {
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
@@ -115,7 +115,7 @@
             },
             "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
               "target": "Package",
-              "version": "[9.0.0-preview.4.24267.6, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
               "suppressParent": "All",
@@ -145,10 +145,6 @@
             "NetcodeHub.Packages.Extensions.LocalStorage": {
               "target": "Package",
               "version": "[1.0.0, )"
-            },
-            "System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[7.5.0, )"
             }
           },
           "imports": [

@@ -15,20 +15,23 @@ namespace TaskManagement.API.Controllers
    [HttpPost()]
    public async Task<ActionResult<GeneralResponse>> CreateRole(CreateRoleDTO model)
    {
-       var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+       var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+       logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
+
 
        try
        {
            if (!ModelState.IsValid)
                return BadRequest("Model cannot be null");
            await roleService.CreateRoleAsync(model);
-           logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+           logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
            return Created();
        }
        catch (Exception e)
        {
-           logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+           logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                DateTime.UtcNow);
            return StatusCode(500, new GeneralResponse(false, e.Message));
        }
@@ -37,17 +40,19 @@ namespace TaskManagement.API.Controllers
    [HttpGet()]
    public async Task<ActionResult<IEnumerable<GetRoleDto>>> GetRoles()
    {
-       var requestName = httpContextAccessor.HttpContext!.GetEndpoint();
+       var requestName = httpContextAccessor.HttpContext!.Request.Path;
+            
+       logger.LogInformation("Starting request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
        try
        {
-           logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName, DateTime.UtcNow);
+           logger.LogInformation("Completed request {@RequestName}, {@DateTimeUtc}", requestName.Value, DateTime.UtcNow);
 
            return Ok(await roleService.GetRolesAsync());
        }
        catch (Exception e)
        {
-           logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName,
+           logger.LogError("Error occurred during request {@RequestName}, {@DateTimeUtc}", requestName.Value,
                DateTime.UtcNow);
            return StatusCode(500, new GeneralResponse(false, e.Message));
        }
