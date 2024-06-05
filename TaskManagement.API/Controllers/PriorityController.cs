@@ -1,16 +1,18 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using TaskManagement.Domain.Entity.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Application.Services.API.Priority;
+using TaskManagement.Application.Services.Priority;
 using TaskManagement.Domain.DTOs.Request.Priority;
 using TaskManagement.Domain.DTOs.Response;
 
 namespace TaskManagement.API.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     [Route("api/Priorities")]
     [ApiController]
-    [Authorize]
     public class PriorityController(IPriorityService priorityService,ILogger<PriorityController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase
     {
         [HttpGet]

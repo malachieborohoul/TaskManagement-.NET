@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using TaskManagement.Application.Services.API.Auth;
+using TaskManagement.Application.Services.Auth;
 using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.Domain.DTOs.Response;
 using TaskManagement.Domain.Entities.Authentication;

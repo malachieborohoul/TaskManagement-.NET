@@ -1,7 +1,0 @@
-2024-05-29 21:14:43.192 +01:00 [INF] Starting Duende IdentityServer version 7.0.4+4fd52ed639a4a1baea222f26f82827b5b9288b3a (.NET 8.0.4)
-2024-05-29 21:14:43.912 +01:00 [WRN] You do not have a valid license key for the Duende software. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please start a conversation with us: https://duendesoftware.com/contact
-2024-05-29 21:14:43.915 +01:00 [WRN] You have automatic key management enabled, but you do not have a license. This feature requires the Business or Enterprise Edition tier of license. Alternatively you can disable automatic key management by setting the KeyManagement.Enabled property to false on the IdentityServerOptions.
-2024-05-29 21:14:43.937 +01:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
-2024-05-29 21:14:43.960 +01:00 [INF] Using the default authentication scheme idsrv for IdentityServer
-2024-05-29 21:16:15.325 +01:00 [INF] Invoking IdentityServer endpoint: Duende.IdentityServer.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
-2024-05-29 21:16:21.328 +01:00 [INF] HTTP GET /favicon.ico responded 404 in 5.4958 ms

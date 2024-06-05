@@ -1,5 +1,6 @@
 /Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/bin/Debug/net8.0/appsettings.Development.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/bin/Debug/net8.0/appsettings.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/bin/Debug/net8.0/keys/is-signing-key-60EE659C7F630094DCB28BF008ED6836.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/bin/Debug/net8.0/Identity.staticwebassets.runtime.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/bin/Debug/net8.0/Identity
 /Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/bin/Debug/net8.0/Identity.deps.json
@@ -120,4 +121,3 @@
 /Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.pdb
 /Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/Identity.genruntimeconfig.cache
 /Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/obj/Debug/net8.0/ref/Identity.dll
-/Users/bsm/Documents/projects/dotnet/TaskManagement/Identity/bin/Debug/net8.0/keys/is-signing-key-60EE659C7F630094DCB28BF008ED6836.json

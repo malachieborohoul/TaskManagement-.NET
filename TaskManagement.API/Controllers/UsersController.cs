@@ -1,7 +1,7 @@
 using TaskManagement.Application.DTOs.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Application.Services.API.User;
+using TaskManagement.Application.Services.User;
 using TaskManagement.Domain.DTOs.Request.Auth;
 using TaskManagement.Domain.DTOs.Request.User;
 using TaskManagement.Domain.DTOs.Response;

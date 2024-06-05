@@ -1,7 +1,7 @@
 using TaskManagement.Domain.Entity.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Application.Services.API.Status;
+using TaskManagement.Application.Services.Status;
 using TaskManagement.Domain.DTOs.Request.Status;
 using TaskManagement.Domain.DTOs.Response;
 

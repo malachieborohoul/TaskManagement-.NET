@@ -7,16 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-       
-        <PackageReference Include="Duende.IdentityServer" Version="7.0.4" />
-       
-        <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="7.0.4" />
-       
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
         <PackageReference Include="itext7" Version="8.0.4" />
         <PackageReference Include="iTextSharp" Version="5.5.13.3" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
         <PackageReference Include="Serilog.AspNetCore" Version="8.0.2-dev-00338" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -28,4 +24,8 @@
       <ProjectReference Include="..\TaskManagement.Infrastructure\TaskManagement.Infrastructure.csproj" />
     </ItemGroup>
 
+  
+  
+ 
+  
 </Project>

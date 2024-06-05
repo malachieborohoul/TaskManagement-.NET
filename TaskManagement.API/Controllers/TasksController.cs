@@ -1,9 +1,9 @@
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Application.Services.API.Excel;
-using TaskManagement.Application.Services.API.Pdf;
-using TaskManagement.Application.Services.API.Tasks;
-using TaskManagement.Application.Services.API.Tasks;
+
+using TaskManagement.Application.Services.Excel;
+using TaskManagement.Application.Services.Pdf;
+using TaskManagement.Application.Services.Tasks;
 using TaskManagement.Domain.DTOs.Request.Task;
 using TaskManagement.Domain.DTOs.Response;
 

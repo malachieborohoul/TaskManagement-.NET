@@ -1,41 +1,33 @@
-﻿using IdentityServer;
-using Serilog;
 
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .CreateBootstrapLogger();
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using TaskManagement.Domain.Entities.Authentication;
+using TaskManagement.Infrastructure.Data;
 
-Log.Information("Starting up");
+var builder = WebApplication.CreateBuilder(args);
 
-try
-{
-    var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Configuration de l'identité
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+builder.Services.AddIdentityServer(options =>
+    {
+        options.Events.RaiseErrorEvents = true;
+        options.Events.RaiseInformationEvents = true;
+        options.Events.RaiseFailureEvents = true;
+        options.Events.RaiseSuccessEvents = true;
+        options.EmitStaticAudienceClaim = true;
+    }).AddInMemoryIdentityResources(Config.GetIdentityResources())
+    .AddInMemoryApiScopes(Config.GetApiScopes())
+    .AddInMemoryClients(Config.Clients())
+    .AddAspNetIdentity<ApplicationUser>()
+    .AddDeveloperSigningCredential();
 
-    builder.Host.UseSerilog((ctx, lc) => lc
-        .WriteTo.Console(
-            outputTemplate:
-            "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}")
-        .Enrich.FromLogContext()
-        .ReadFrom.Configuration(ctx.Configuration));
+var app = builder.Build();
 
-    var app = builder
-        .ConfigureServices()
-        .ConfigurePipeline();
-    
-    builder.Services.AddIdentityServer()
-        .AddInMemoryApiScopes(Config.ApiScopes)
-        .AddInMemoryClients(Config.Clients);
-    
-    
-    app.UseIdentityServer();
-    app.Run();
-}
-catch (Exception ex)
-{
-    Log.Fatal(ex, "Unhandled exception");
-}
-finally
-{
-    Log.Information("Shut down complete");
-    Log.CloseAndFlush();
-}
+app.UseIdentityServer();
+
+app.MapGet("/", () => "Hello World!");
+
+app.Run();

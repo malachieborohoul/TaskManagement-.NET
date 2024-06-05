@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Application.Services.API.Assignee;
+using TaskManagement.Application.Services.Assignee;
 
 namespace TaskManagement.API.Controllers
 {

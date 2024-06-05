@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xYlJAwgMGqKzZgpUstYjc2l1C1izwJJbWLkV0GlsLMpwXhHXNaeYU9MrrU7rHaxnQ41k4r3f9mLKF5P9Mj4BEw==",
+  "success": true,
+  "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/ConsoleApp/ConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "/Users/bsm/.nuget/packages/identitymodel/7.0.0/identitymodel.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

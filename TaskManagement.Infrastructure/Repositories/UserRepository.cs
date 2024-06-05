@@ -12,7 +12,6 @@ using TaskManagement.Domain.DTOs.Response;
 using TaskManagement.Domain.DTOs.Response.User;
 using TaskManagement.Domain.Entities.Authentication;
 using TaskManagement.Infrastructure.Data;
-using TaskManagement.WebUI.Extensions;
 
 namespace TaskManagement.Infrastructure.Repositories;
 
@@ -96,13 +95,13 @@ public class UserRepository(AppDbContext context, RoleManager<IdentityRole> role
         {
             try
             {
-                if (await FindRoleByNameAsync(Constant.Role.Admin) != null) return;
+                if (await FindRoleByNameAsync("Admin") != null) return;
                 var admin = new RegisterDTO
                 {
                     Name = "Admin",
                     Password = "Admin@123",
                     EmailAddress = "admin@admin.com",
-                    Role = Constant.Role.Admin
+                    Role = "Admin"
                 };
                 await RegisterAsync(admin);
             }

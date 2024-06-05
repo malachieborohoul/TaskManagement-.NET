@@ -7,18 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Duende.IdentityServer" Version="7.0.4" />
-        <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="7.0.4" />
-        <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="7.0.4" />
-        <PackageReference Include="EPPlus" Version="7.1.2" />
-        <PackageReference Include="itext7" Version="8.0.4" />
-        <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.4" />
-        <PackageReference Include="itext7.pdfhtml" Version="5.0.4" />
+
+   
         <PackageReference Include="Mapster" Version="7.4.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3"/>
         <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4"/>
 
 
@@ -28,14 +21,10 @@
         </PackageReference>
     </ItemGroup>
 
+  
     <ItemGroup>
-        <ProjectReference Include="..\TaskManagement.Application\TaskManagement.Application.csproj" />
-        <ProjectReference Include="..\TaskManagement.Domain\TaskManagement.Domain.csproj" />
-        <ProjectReference Include="..\TaskManagement.WebUI\TaskManagement.WebUI.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Migrations\" />
+      <ProjectReference Include="..\TaskManagement.Application\TaskManagement.Application.csproj" />
+      <ProjectReference Include="..\TaskManagement.Domain\TaskManagement.Domain.csproj" />
     </ItemGroup>
 
 </Project>
