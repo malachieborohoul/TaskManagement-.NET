@@ -58,8 +58,10 @@ builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().Cre
 // Configure OIDC Authentication
 builder.Services.AddOidcAuthentication(options =>
 {
-    builder.Configuration.Bind("oidc", options.ProviderOptions);
-    options.ProviderOptions.DefaultScopes.Add("task");
+    builder.Configuration.Bind("Oidc", options.ProviderOptions);
+    options.ProviderOptions.DefaultScopes.Add("api1");
+    options.ProviderOptions.ResponseType = "code";
+    /*options.ProviderOptions.DefaultScopes.Add("task");
     options.ProviderOptions.ResponseType = "code";
     options.ProviderOptions.ClientId = "task";
     options.ProviderOptions.Authority = "https://localhost:7238";
@@ -68,7 +70,7 @@ builder.Services.AddOidcAuthentication(options =>
     options.ProviderOptions.PostLogoutRedirectUri = "http://localhost:7159/signout-oidc";
     //options.ProviderOptions.ResponseMode = "query";
     options.UserOptions.NameClaim = "name";
-    options.UserOptions.RoleClaim = "role";
+    options.UserOptions.RoleClaim = "role";*/
 });
 
 await builder.Build().RunAsync();

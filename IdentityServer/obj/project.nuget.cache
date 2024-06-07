@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5fmCXfu6dFLvMqxtsxcIKbXJLAjvqaWktjPmw/EITrRb8TDsiK34hsiZ2+Hj86S3oA04Rw9eRk8Wu8dSlxRGQQ==",
+  "dgSpecHash": "4N+efWfi6qzl78Q+S6gV0+Duc43h4Tu0D1L3m817psZfthRWKmzH/WPkhExlQI8bN1H2cU1Oq/Mf18qX+gr6IQ==",
   "success": true,
   "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/IdentityServer.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,7 @@
     "/Users/bsm/.nuget/packages/fluentvalidation/11.5.1/fluentvalidation.11.5.1.nupkg.sha512",
     "/Users/bsm/.nuget/packages/fluentvalidation.aspnetcore/11.3.0/fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.5.1/fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
-    "/Users/bsm/.nuget/packages/identitymodel/6.2.0/identitymodel.6.2.0.nupkg.sha512",
+    "/Users/bsm/.nuget/packages/identitymodel/7.0.0/identitymodel.7.0.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext/8.0.4/itext.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext.bouncy-castle-adapter/8.0.4/itext.bouncy-castle-adapter.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext.commons/8.0.4/itext.commons.8.0.4.nupkg.sha512",

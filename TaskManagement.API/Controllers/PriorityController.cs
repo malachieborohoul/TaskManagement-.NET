@@ -9,7 +9,7 @@ using TaskManagement.Domain.DTOs.Response;
 
 namespace TaskManagement.API.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = "Admin",AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 
     [Route("api/Priorities")]
     [ApiController]

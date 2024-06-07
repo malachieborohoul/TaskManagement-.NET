@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iJThX+C+JZ7bHfBJA5+yNl40fTlaY3AuYUYn1CirqMxXmiXJO/WgLEOM90xUCSGm7zzn+SIvlcpgE16ZRl1KKQ==",
+  "dgSpecHash": "u204DZDto8bBIz19Agrqo6u9CcfC0GU80wrq+4QEgSD/yo5iBpmHpa4er2ELbFYrygMPfqbZe4yRk80vFsDOgQ==",
   "success": true,
   "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.Infrastructure/TaskManagement.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "/Users/bsm/.nuget/packages/fluentvalidation.aspnetcore/11.3.0/fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.5.1/fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "/Users/bsm/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/bsm/.nuget/packages/identitymodel/7.0.0/identitymodel.7.0.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext/8.0.4/itext.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext.bouncy-castle-adapter/8.0.4/itext.bouncy-castle-adapter.8.0.4.nupkg.sha512",
     "/Users/bsm/.nuget/packages/itext.commons/8.0.4/itext.commons.8.0.4.nupkg.sha512",

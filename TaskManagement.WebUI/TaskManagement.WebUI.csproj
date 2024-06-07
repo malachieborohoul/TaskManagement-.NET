@@ -8,7 +8,6 @@
 
     <ItemGroup>
         
-        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.6"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.6" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
         <PackageReference Include="MudBlazor" Version="6.19.1" />
@@ -58,6 +57,27 @@
       <_ContentIncludedByDefault Remove="Pages\Shared\_ValidationSummary.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\ServerSideSessions\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Redirect\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Authentication\AuthenticationPage.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Authentication\LoginPage.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Authentication\LogoutPage.razor" />
+      <_ContentIncludedByDefault Remove="Pages\Authentication\RedirectToLogin.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Pages\Authentication\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Pages\Authentication\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Pages\Authentication\**" />
+      <Content Remove="Pages\Home.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Pages\Authentication\**" />
     </ItemGroup>
 
 </Project>

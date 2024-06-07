@@ -1,4 +1,5 @@
 
+using IdentityServer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Domain.Entities.Authentication;
@@ -11,6 +12,8 @@ builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(builder.Configurati
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddRazorPages();
 builder.Services.AddIdentityServer(options =>
     {
         options.Events.RaiseErrorEvents = true;
@@ -22,12 +25,18 @@ builder.Services.AddIdentityServer(options =>
     .AddInMemoryApiScopes(Config.GetApiScopes())
     .AddInMemoryClients(Config.Clients())
     .AddAspNetIdentity<ApplicationUser>()
+   // .AddTestUsers(TestUsers.Users)
     .AddDeveloperSigningCredential();
 
 var app = builder.Build();
 
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
 app.UseIdentityServer();
+app.UseAuthorization();
+app.MapRazorPages().RequireAuthorization();
 
-app.MapGet("/", () => "Hello World!");
+app.MapRazorPages();
 
 app.Run();

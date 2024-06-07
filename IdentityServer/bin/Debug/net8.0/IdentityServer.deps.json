@@ -52,7 +52,7 @@
       },
       "Duende.IdentityServer.Storage/7.0.4": {
         "dependencies": {
-          "IdentityModel": "6.2.0",
+          "IdentityModel": "7.0.0",
           "Microsoft.AspNetCore.DataProtection.Abstractions": "8.0.3"
         },
         "runtime": {
@@ -130,11 +130,11 @@
           }
         }
       },
-      "IdentityModel/6.2.0": {
+      "IdentityModel/7.0.0": {
         "runtime": {
           "lib/net6.0/IdentityModel.dll": {
-            "assemblyVersion": "6.2.0.0",
-            "fileVersion": "6.2.0.0"
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
           }
         }
       },
@@ -1361,6 +1361,7 @@
       },
       "TaskManagement.Infrastructure/1.0.0": {
         "dependencies": {
+          "IdentityModel": "7.0.0",
           "Mapster": "7.4.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.6",
@@ -1450,12 +1451,12 @@
       "path": "fluentvalidation.dependencyinjectionextensions/11.5.1",
       "hashPath": "fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512"
     },
-    "IdentityModel/6.2.0": {
+    "IdentityModel/7.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4AXZ6Tp+DNwrSSeBziiX/231i8ZpD77A9nEMyc68gLSCWG0kgWsIBeFquYcBebiIPkfB7GEXzCYuuLeR1QZJIQ==",
-      "path": "identitymodel/6.2.0",
-      "hashPath": "identitymodel.6.2.0.nupkg.sha512"
+      "sha512": "sha512-to99aLL5Gev1GOb2gUao/UZXT/uXMyjEmHPNrf/vJI2HBD1LMCTeC4SBCe/cqMIB12V9v+eSieq7ff0lju9pOQ==",
+      "path": "identitymodel/7.0.0",
+      "hashPath": "identitymodel.7.0.0.nupkg.sha512"
     },
     "itext/8.0.4": {
       "type": "package",

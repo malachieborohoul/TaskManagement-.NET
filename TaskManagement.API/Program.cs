@@ -3,6 +3,7 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using TaskManagement.Application.Services.Assignee;
@@ -22,11 +23,17 @@ using TaskManagement.Application.Validations.SubTask;
 using TaskManagement.Application.Validations.Tasks;
 using TaskManagement.Application.Validations.User;
 using TaskManagement.Infrastructure.DependencyInjection;
+using TaskManagement.Infrastructure.IDbInitializer;
 
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 
+
+// Configure the data protection system to persist keys in a specific directory.
+builder.Services.AddDataProtection()
+    
+    .PersistKeysToFileSystem(new DirectoryInfo(@"/home/app/.aspnet/DataProtection-Keys"));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -37,11 +44,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.Authority = "https://localhost:5001";
+        options.Authority = builder.Configuration["ServiceUrls:IdentityAPI"];
         options.TokenValidationParameters.ValidateAudience = false;
+        options.TokenValidationParameters.NameClaimType = "name";
+        options.TokenValidationParameters.RoleClaimType = "role";
     });
 
 
+builder.Services.AddAuthorization();
 //API Service
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAssigneeService, AssigneeService>();
@@ -87,6 +97,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+SeedDatabase();
+
 app.UseCors("WebUI");
 app.UseAuthentication();
 
@@ -96,3 +108,12 @@ app.MapControllers();
 app.Logger.LogInformation("Application started");
 app.Run();
 
+
+void SeedDatabase()
+{
+    using (var scope=app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initialize();
+    }
+}

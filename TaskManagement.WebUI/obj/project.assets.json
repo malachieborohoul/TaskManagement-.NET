@@ -3113,7 +3113,6 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Mapster >= 7.4.0",
-      "Microsoft.AspNetCore.Components.Authorization >= 8.0.6",
       "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.4",
       "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 8.0.6",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 8.0.4",
@@ -3169,10 +3168,6 @@
           "Mapster": {
             "target": "Package",
             "version": "[7.4.0, )"
-          },
-          "Microsoft.AspNetCore.Components.Authorization": {
-            "target": "Package",
-            "version": "[8.0.6, )"
           },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",

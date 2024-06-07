@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TaskManagement.Application.Contracts;
 using TaskManagement.Domain.Entities.Authentication;
 using TaskManagement.Infrastructure.Data;
+using TaskManagement.Infrastructure.IDbInitializer;
 using TaskManagement.Infrastructure.Repositories;
 
 namespace TaskManagement.Infrastructure.DependencyInjection;
@@ -19,6 +20,7 @@ public static class ServiceContainer
         services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
+        services.AddScoped<IDbInitializer.IDbInitializer, DbInitializer>();
 
 
 

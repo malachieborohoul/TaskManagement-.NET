@@ -1,0 +1,69 @@
+﻿@inherits LayoutComponentBase
+@*
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <MudAppBar Color="Color.Transparent" Elevation="1">
+
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <span>
+            Hi,
+            <AuthorizeView>
+                <Authorized>@context.User.Identity!.Name</Authorized>
+                <NotAuthorized>Guest</NotAuthorized>
+            </AuthorizeView>
+        </span>
+        <MudSpacer />
+
+        <AuthorizeView>
+            <Authorized>
+                <MudAvatar Size="Size.Medium"  class="bg-blue-600">@context.User!.Identity!.Name!.Substring(0, 2)</MudAvatar>
+                <a class="text-red-600 font-bold ml-4" href="logout">Logout</a>
+                
+            </Authorized>
+        </AuthorizeView>
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="2">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h5" Class="mt-1">Task Management</MudText>
+        </MudDrawerHeader>
+        <NavMenu />
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large">
+            @Body
+
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+*@
+
+
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4 auth">
+        <LoginDisplay />
+        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div>
+
+@code {
+bool _drawerOpen = true;
+
+void DrawerToggle()
+{
+_drawerOpen = !_drawerOpen;
+}
+
+}

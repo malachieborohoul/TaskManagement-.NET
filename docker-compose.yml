@@ -1,0 +1,43 @@
+﻿services:
+  taskmanagement.api:
+    image: taskmanagement.api
+    container_name: taskmanagement.api
+    
+    build:
+      context: .
+      dockerfile: TaskManagement.API/Dockerfile
+      
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5241
+      - ConnectionStrings__DefaultConnection=Host=localhost;Database=TaskManagement;Username=postgres;Password=localhost
+    ports:
+      - "5241:5241"
+      - "7260:7260"
+        
+    volumes:
+      - dataprotection-keys:/home/app/.aspnet/DataProtection-Keys  # Utilisez le volume Docker pour stocker les clés
+     
+  localhost:
+    image: postgres:latest
+    container_name: TaskManagement
+    environment:
+      POSTGRES_DB: TaskManagement
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: localhost
+    volumes:
+      - app_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432   
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+
+volumes:
+  app_data:
+  dataprotection-keys:
+
+    

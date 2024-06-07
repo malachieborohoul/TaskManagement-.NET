@@ -1,6 +1,7 @@
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/bin/Debug/net8.0/appsettings.Development.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/bin/Debug/net8.0/appsettings.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/bin/Debug/net8.0/keys/is-signing-key-54D684328037D4734D85EF71B99AD8BF.json
+/Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/bin/Debug/net8.0/IdentityServer.staticwebassets.runtime.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/bin/Debug/net8.0/IdentityServer
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/bin/Debug/net8.0/IdentityServer.deps.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/bin/Debug/net8.0/IdentityServer.runtimeconfig.json
@@ -76,6 +77,8 @@
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/obj/Debug/net8.0/IdentityServer.csproj.CoreCompileInputs.cache
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/obj/Debug/net8.0/IdentityServer.MvcApplicationPartsAssemblyInfo.cs
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/obj/Debug/net8.0/IdentityServer.MvcApplicationPartsAssemblyInfo.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/obj/Debug/net8.0/IdentityServer.RazorAssemblyInfo.cache
+/Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/obj/Debug/net8.0/IdentityServer.RazorAssemblyInfo.cs
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/obj/Debug/net8.0/IdentityServer.sourcelink.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/obj/Debug/net8.0/staticwebassets.build.json
 /Users/bsm/Documents/projects/dotnet/TaskManagement/IdentityServer/obj/Debug/net8.0/staticwebassets.development.json

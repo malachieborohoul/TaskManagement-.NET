@@ -1,0 +1,131 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = TaskManagement.WebUI
+build_property.RootNamespace = TaskManagement.WebUI
+build_property.ProjectDir = /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/Task/Buttons/CustomStatusButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL0J1dHRvbnMvQ3VzdG9tU3RhdHVzQnV0dG9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/Task/Modals/AddSubTaskModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9BZGRTdWJUYXNrTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/Task/Modals/AddTaskModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9BZGRUYXNrTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/Task/Modals/ChangeStatusModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9DaGFuZ2VTdGF0dXNNb2RhbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/Task/Modals/DeleteTaskModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9EZWxldGVUYXNrTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/Task/Modals/EditTaskModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9UYXNrL01vZGFscy9FZGl0VGFza01vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/User/Modals/AddUserModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Vc2VyL01vZGFscy9BZGRVc2VyTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/User/Modals/DeleteUserModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Vc2VyL01vZGFscy9EZWxldGVVc2VyTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Components/User/Modals/EditUserModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Vc2VyL01vZGFscy9FZGl0VXNlck1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Layout/Authentication/AuthenticationLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L0F1dGhlbnRpY2F0aW9uL0F1dGhlbnRpY2F0aW9uTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/Authentication.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aGVudGljYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/Claims.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2xhaW1zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/LoginCallback.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW5DYWxsYmFjay5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9nb3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/LogoutCallback.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9nb3V0Q2FsbGJhY2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/Task/TaskDetailPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGFzay9UYXNrRGV0YWlsUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/Task/TaskListPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGFzay9UYXNrTGlzdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Pages/User/UserListPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlci9Vc2VyTGlzdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/CurrentSession.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0N1cnJlbnRTZXNzaW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/LoginDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-6gm50m9gef
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-u77ca7jqkf
