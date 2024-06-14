@@ -1,6 +1,9 @@
 using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Test;
+using IdentityModel;
+
+namespace IdentityServer;
 
 public static class Config
 {
@@ -11,6 +14,10 @@ public static class Config
             new IdentityResources.OpenId(),
             new IdentityResources.Email(),
             new IdentityResources.Profile(),
+            new IdentityResource(
+                "roles",
+                "Your role(s)",
+                new List<string>(){ JwtClaimTypes.Role })
         };
     }
 
@@ -58,7 +65,11 @@ public static class Config
 
             new Client
             {
-                ClientId = "ResourceOwnerPasswordClient",
+                ClientId = "BlazorClient",
+                ClientName = "Blazor Client",
+                ClientSecrets = {
+                    new Secret("E8C65E41BB0E4E519D409023CF5112F4".Sha256())
+                },
 
                 AllowedGrantTypes = GrantTypes.Code,
                 RequireClientSecret = false,
@@ -68,12 +79,14 @@ public static class Config
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.Address,
+                    IdentityServerConstants.StandardScopes.Email,
                     "api1",
 
                 },
 
                 RedirectUris = { "https://localhost:7159/authentication/login-callback" },
-                PostLogoutRedirectUris = { "https://localhost:7159/" },
+                PostLogoutRedirectUris = { "https://localhost:7159/authentication/logout-callback" },
                 Enabled = true,
 
                 AllowedCorsOrigins = { "https://localhost:7159" },

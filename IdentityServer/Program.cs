@@ -1,5 +1,6 @@
 
 using IdentityServer;
+using IdentityServer.Pages;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Domain.Entities.Authentication;
@@ -25,7 +26,7 @@ builder.Services.AddIdentityServer(options =>
     .AddInMemoryApiScopes(Config.GetApiScopes())
     .AddInMemoryClients(Config.Clients())
     .AddAspNetIdentity<ApplicationUser>()
-   // .AddTestUsers(TestUsers.Users)
+    //.AddTestUsers(TestUsers.Users)
     .AddDeveloperSigningCredential();
 
 var app = builder.Build();

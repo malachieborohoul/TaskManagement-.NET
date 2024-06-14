@@ -1,5 +1,6 @@
-﻿@inherits LayoutComponentBase
-@*
+﻿@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inherits LayoutComponentBase
+
 <MudThemeProvider/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
@@ -20,7 +21,7 @@
         <AuthorizeView>
             <Authorized>
                 <MudAvatar Size="Size.Medium"  class="bg-blue-600">@context.User!.Identity!.Name!.Substring(0, 2)</MudAvatar>
-                <a class="text-red-600 font-bold ml-4" href="logout">Logout</a>
+                <a class="text-red-600 font-bold ml-4" @onclick="BeginLogOut" href="javascript:void(0)">Logout</a>
                 
             </Authorized>
         </AuthorizeView>
@@ -39,27 +40,37 @@
     </MudMainContent>
 </MudLayout>
 
+
+
+@*
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4 auth">
+            <LoginDisplay />
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+<LoginDisplay />
+
+@Body
 *@
-
-
-
-<div class="sidebar">
-    <NavMenu />
-</div>
-
-<div class="main">
-    <div class="top-row px-4 auth">
-        <LoginDisplay />
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-    </div>
-
-    <div class="content px-4">
-        @Body
-    </div>
-</div>
 
 @code {
 bool _drawerOpen = true;
+
+public void BeginLogOut()
+{
+    NavManager.NavigateToLogout("authentication/logout");
+}
 
 void DrawerToggle()
 {

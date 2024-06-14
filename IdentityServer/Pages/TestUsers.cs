@@ -1,63 +1,77 @@
 // Copyright (c) Duende Software. All rights reserved.
 // See LICENSE in the project root for license information.
 
-using IdentityModel;
 using System.Security.Claims;
 using System.Text.Json;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Test;
+using IdentityModel;
 
-namespace IdentityServer;
-
-public static class TestUsers
+namespace IdentityServer.Pages
 {
-    public static List<TestUser> Users
+    public static class TestUsers
     {
-        get
+        public static class Roles
         {
-            var address = new
+            public static string IdentityAdmin = "IdentityAdmin";
+            public static string Admin = "Admin";
+            public static string User = "User";
+        }
+
+        public static List<TestUser> Users
+        {
+            get
             {
-                street_address = "One Hacker Way",
-                locality = "Heidelberg",
-                postal_code = "69118",
-                country = "Germany"
-            };
-                
-            return new List<TestUser>
-            {
-                new TestUser
+                var address = new
                 {
-                    SubjectId = "1",
-                    Username = "alice",
-                    Password = "alice",
-                    Claims =
-                    {
-                        new Claim(JwtClaimTypes.Name, "Alice Smith"),
-                        new Claim(JwtClaimTypes.GivenName, "Alice"),
-                        new Claim(JwtClaimTypes.FamilyName, "Smith"),
-                        new Claim(JwtClaimTypes.Email, "AliceSmith@email.com"),
-                        new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
-                        new Claim(JwtClaimTypes.WebSite, "http://alice.com"),
-                        new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json)
-                    }
-                },
-                new TestUser
+                    street_address = "One Hacker Way",
+                    locality = "Heidelberg",
+                    postal_code = "69118",
+                    country = "Germany"
+                };
+
+                return new List<TestUser>
                 {
-                    SubjectId = "2",
-                    Username = "bob",
-                    Password = "bob",
-                    Claims =
+                    new TestUser
                     {
-                        new Claim(JwtClaimTypes.Name, "Bob Smith"),
-                        new Claim(JwtClaimTypes.GivenName, "Bob"),
-                        new Claim(JwtClaimTypes.FamilyName, "Smith"),
-                        new Claim(JwtClaimTypes.Email, "BobSmith@email.com"),
-                        new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
-                        new Claim(JwtClaimTypes.WebSite, "http://bob.com"),
-                        new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json)
+                        SubjectId = "1",
+                        Username = "alice",
+                        Password = "alice",
+                        Claims =
+                        {
+                            new Claim(JwtClaimTypes.Name, "Alice Smith"),
+                            new Claim(JwtClaimTypes.GivenName, "Alice"),
+                            new Claim(JwtClaimTypes.FamilyName, "Smith"),
+                            new Claim(JwtClaimTypes.Email, "AliceSmith@email.com"),
+                            new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
+                            new Claim(JwtClaimTypes.WebSite, "http://alice.com"),
+                            new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json),
+
+                            new Claim(JwtClaimTypes.Role, Roles.IdentityAdmin),
+                            new Claim(JwtClaimTypes.Role, Roles.Admin),
+                            new Claim(JwtClaimTypes.Role, Roles.User)
+                        }
+                    },
+                    new TestUser
+                    {
+                        SubjectId = "2",
+                        Username = "bob",
+                        Password = "bob",
+                        Claims =
+                        {
+                            new Claim(JwtClaimTypes.Name, "Bob Smith"),
+                            new Claim(JwtClaimTypes.GivenName, "Bob"),
+                            new Claim(JwtClaimTypes.FamilyName, "Smith"),
+                            new Claim(JwtClaimTypes.Email, "BobSmith@email.com"),
+                            new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
+                            new Claim(JwtClaimTypes.WebSite, "http://bob.com"),
+                            new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json),
+
+                            new Claim(JwtClaimTypes.Role, Roles.User)
+                        }
                     }
-                }
-            };
+                };
+            }
         }
     }
 }
