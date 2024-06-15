@@ -1,5 +1,7 @@
 using Duende.IdentityServer;
+using Duende.IdentityServer.Services;
 using DuendeServer;
+using DuendeServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +24,6 @@ internal static class HostingExtensions
             .AddDefaultTokenProviders();
         
         builder.Services.AddRazorPages();
-
         var isBuilder = builder.Services.AddIdentityServer(options =>
             {
                 options.Events.RaiseErrorEvents = true;
@@ -38,7 +39,13 @@ internal static class HostingExtensions
             .AddInMemoryClients(Config.Clients)
             .AddAspNetIdentity<ApplicationUser>()
             //.AddTestUsers(TestUsers.Users)
-            .AddDeveloperSigningCredential();
+            .AddDeveloperSigningCredential()
+            .AddProfileService<ProfileService>();
+        
+        
+        
+        builder.Services.AddScoped<IProfileService, ProfileService>();
+
 
         // in-memory, code config
        // isBuilder.AddInMemoryIdentityResources(Config.IdentityResources);

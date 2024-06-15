@@ -1,3 +1,4 @@
+using IdentityModel;
 using Microsoft.AspNetCore.Components.Web;
 using TaskManagement.WebUI;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -61,16 +62,8 @@ builder.Services.AddOidcAuthentication(options =>
     builder.Configuration.Bind("Oidc", options.ProviderOptions);
     options.ProviderOptions.DefaultScopes.Add("api1");
     options.ProviderOptions.ResponseType = "code";
-    /*options.ProviderOptions.DefaultScopes.Add("task");
-    options.ProviderOptions.ResponseType = "code";
-    options.ProviderOptions.ClientId = "task";
-    options.ProviderOptions.Authority = "https://localhost:7238";
-   // options.ProviderOptions.ClientSecret = builder.Configuration["Oidc:ClientSecret"];
-    options.ProviderOptions.RedirectUri = "https://localhost:7159/signin-oidc";
-    options.ProviderOptions.PostLogoutRedirectUri = "http://localhost:7159/signout-oidc";
-    //options.ProviderOptions.ResponseMode = "query";
-    options.UserOptions.NameClaim = "name";
-    options.UserOptions.RoleClaim = "role";*/
+    // Configure le type de claim de rôle personnalisé
+    options.UserOptions.RoleClaim = JwtClaimTypes.Role;
 });
 
 

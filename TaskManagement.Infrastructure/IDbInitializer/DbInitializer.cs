@@ -18,6 +18,8 @@ public class DbInitializer( UserManager<ApplicationUser> userManager, RoleManage
             logger.LogInformation("Admin role dosent exist create an admin role");
 
             roleManager.CreateAsync(new IdentityRole(Constants.Admin)).GetAwaiter().GetResult();
+            roleManager.CreateAsync(new IdentityRole(Constants.User)).GetAwaiter().GetResult();
+
         }
         else
         {
@@ -44,6 +46,28 @@ public class DbInitializer( UserManager<ApplicationUser> userManager, RoleManage
         {
             new Claim(JwtClaimTypes.Name, adminUser.Name),
             new Claim(JwtClaimTypes.Role, Constants.Admin),
+        }).Result;
+        
+        
+        
+        ApplicationUser user = new ()
+        {
+            UserName = "user@gmail.com",
+            Email = "user@gmail.com",
+            Name = "User"
+        };
+        logger.LogInformation("Create  user with role");
+
+        userManager.CreateAsync(user, "User@123").GetAwaiter().GetResult();
+        userManager.AddToRoleAsync(user, Constants.User).GetAwaiter().GetResult();
+
+        
+        logger.LogInformation("Add claims");
+
+        var claims2 = userManager.AddClaimsAsync(user, new Claim[]
+        {
+            new Claim(JwtClaimTypes.Name, user.Name),
+            new Claim(JwtClaimTypes.Role, Constants.User),
         }).Result;
 
     }

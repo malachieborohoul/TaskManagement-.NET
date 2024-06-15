@@ -1,5 +1,6 @@
 ﻿using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
+using IdentityModel;
 
 namespace DuendeServer;
 
@@ -10,6 +11,7 @@ public static class Config
         {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
+            new IdentityResource("roles", "Your roles", new List<string> { JwtClaimTypes.Role })
         };
 
     public static IEnumerable<ApiScope> ApiScopes =>
@@ -72,6 +74,10 @@ public static class Config
                 AllowedScopes =
                 {
                     "api1",
+                   
+                    "roles",
+
+
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     IdentityServerConstants.StandardScopes.Email,
@@ -97,6 +103,12 @@ public static class Config
                     IdentityServerConstants.StandardScopes.Address,
                     IdentityServerConstants.StandardScopes.Email,
                     "api1",
+                    "roles",
+                  
+
+
+
+
 
                 },
 

@@ -30,8 +30,8 @@ public static class ServiceContainer
             options.AddPolicy("WebUI",
                 builder => builder
                     .WithOrigins("https://localhost:7159")
-                    .AllowAnyMethod()
                     .AllowAnyHeader()
+                    .AllowAnyMethod()
                     .AllowCredentials());
         });
         services.AddScoped<IPriorityRepository, PriorityRepository>();

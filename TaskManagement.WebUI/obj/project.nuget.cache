@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Og/YxLygTL15CjEGoygbpifX3IlrfwUfv+IQOuisQdmjE2Uc/ytr97h6JmAoM/zmdLxtAY61lPJD6zRknVrcjA==",
+  "dgSpecHash": "OtAdxBjGTZVaFXSZi++Qdi7v3xdjJjTSYMx7LSjojWBgADY0QgYNpAHjTWQrXNt4upDv90CAgUc4teK1A7tThQ==",
   "success": true,
   "projectFilePath": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/TaskManagement.WebUI.csproj",
   "expectedPackageFiles": [
+    "/Users/bsm/.nuget/packages/identitymodel/7.0.0/identitymodel.7.0.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/mapster/7.4.0/mapster.7.4.0.nupkg.sha512",
     "/Users/bsm/.nuget/packages/mapster.core/1.2.1/mapster.core.1.2.1.nupkg.sha512",
     "/Users/bsm/.nuget/packages/microsoft.aspnetcore.authorization/8.0.6/microsoft.aspnetcore.authorization.8.0.6.nupkg.sha512",

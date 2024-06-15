@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KuEfNAhm0Ki2Z+Fwo5WfSeTSgdTnHXzkFFMQVlCKmfg=",
+  "Hash": "2hQtqjw6Cd4dxxcm62FSvNI96/RAzNRSXxSR2DnG+9c=",
   "Source": "TaskManagement.WebUI",
   "BasePath": "/",
   "Mode": "Root",
@@ -281,6 +281,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/bsm/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/8.0.4/runtimes/browser-wasm/native/icudt_no_CJK.dat"
+    },
+    {
+      "Identity": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/IdentityModel.wasm",
+      "SourceId": "TaskManagement.WebUI",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/IdentityModel.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/webcil/IdentityModel.wasm"
     },
     {
       "Identity": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/Mapster.Core.wasm",
@@ -8185,6 +8204,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/Microsoft.Extensions.Configuration.Binder.wasm"
+    },
+    {
+      "Identity": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/compressed/wufmjtbht8.gz",
+      "SourceId": "TaskManagement.WebUI",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/IdentityModel.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/IdentityModel.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/IdentityModel.wasm"
     },
     {
       "Identity": "/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/compressed/x08lw20wju.gz",

@@ -1124,3 +1124,8 @@
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/refint/TaskManagement.WebUI.dll
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/TaskManagement.WebUI.pdb
 /Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/ref/TaskManagement.WebUI.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/IdentityModel.wasm
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/wwwroot/_framework/IdentityModel.wasm.gz
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/bin/Debug/net8.0/IdentityModel.dll
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/webcil/IdentityModel.wasm
+/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/obj/Debug/net8.0/compressed/wufmjtbht8.gz
