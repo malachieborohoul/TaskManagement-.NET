@@ -3,6 +3,7 @@
 @inject IJSRuntime JSRuntime
 @using System.Security.Claims
 @using Domain.Entity.Tasks
+@using IdentityModel
 @using TaskManagement.Application.DTOs.Response
 @using TaskManagement.Domain.DTOs.Response.Task
 @using WebUI.Components.Task
@@ -198,8 +199,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        userId = (await ClientAuthState!).User.FindFirst("Id")?.Value!;
-        role = (await ClientAuthState!).User.FindFirst(ClaimTypes.Role)?.Value!;
+        userId = (await ClientAuthState!).User.FindFirst(JwtClaimTypes.Subject)?.Value!;
+        role = (await ClientAuthState!).User.FindFirst(JwtClaimTypes.Role)?.Value!;
         //await authService.EnsureAuthenticatedAsync(LoadAllData);
         await GetTasks();
     }
@@ -212,8 +213,12 @@
 
     private async Task GetTasks()
     {
+        Console.WriteLine("Get tasks");
+
         tasks = await taskService.GetTasksAsync();
         StateHasChanged();
+        Console.WriteLine("Ok"+tasks.Count());
+
     }
 
     private void HandleButtonClick()

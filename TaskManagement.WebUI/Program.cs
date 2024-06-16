@@ -43,18 +43,16 @@ builder.Services.AddScoped<Extension. LocalStorageService>();
 builder.Services.AddScoped<AuthenticationStateProvider, Extension.CustomAuthenticationStateProvider>();
 builder.Services. AddTransient<Extension.CustomHttpHandler>(); builder.Services.AddCascadingAuthenticationState();
 */
+
+builder.Services.AddTransient<Extension.AntiforgeryHandler>();
 builder.Services.AddMudServices();
         
-
-        
-
-
 
 builder.Services. AddHttpClient(Extension.Constant.HttpClientName, client =>
 {
     client.BaseAddress = new Uri("https://localhost:7260/"); }).AddHttpMessageHandler<Extension.AntiforgeryHandler>();
 
-builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("BlazorServer"));
+builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient(Extension.Constant.HttpClientName));
 
 // Configure OIDC Authentication
 builder.Services.AddOidcAuthentication(options =>
