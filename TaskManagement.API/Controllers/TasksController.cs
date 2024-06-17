@@ -1,4 +1,6 @@
 using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using TaskManagement.Application.Services.Excel;
@@ -9,6 +11,8 @@ using TaskManagement.Domain.DTOs.Response;
 
 namespace TaskManagement.API.Controllers
 {
+    [ Authorize( AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
     [Route("api/[controller]")]
     [ApiController]
     public class TasksController(ITaskService taskService, IPdfService pdfService, IExcelService excelService, ILogger<TasksController> logger, IHttpContextAccessor httpContextAccessor) : ControllerBase

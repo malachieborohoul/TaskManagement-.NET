@@ -23,7 +23,7 @@ public class TaskService(HttpClientService httpClientService):ITaskService
     {
         try
         {
-            var privateClient =   httpClientService.GetPublicClient();
+            var privateClient =  await httpClientService.GetPrivateClient();
 
             var response = await privateClient.GetAsync(Constant.GetTasksRoute); 
             string error = CheckResponseStatus(response);

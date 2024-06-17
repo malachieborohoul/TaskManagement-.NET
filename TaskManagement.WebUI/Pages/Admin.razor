@@ -1,6 +1,31 @@
 @page "/admin"
+
+@using System.Net.Http
 @using Microsoft.AspNetCore.Authorization
+
+@using IdentityModel.Client
+
+@inject IHttpClientFactory HttpClientFactory
+
+@inject NavigationManager NavigationManager
+
 @attribute [Authorize(Roles = "Admin")]
 
-<h3>Admin Panel</h3>
-<p>Only users with the Admin role can see this.</p>
+<PageTitle>OnlyAdmin</PageTitle>
+
+<h4>OnlyAdmin</h4>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+<p>IdentityAdmin Part:</p>
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <a href="https://localhost:5001/admin">Identity Admin Panel</a>
+    </Authorized>
+    <NotAuthorized>
+        <p>Not authorized: need IdentityAdmin role</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+

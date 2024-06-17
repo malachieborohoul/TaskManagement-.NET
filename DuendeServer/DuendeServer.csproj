@@ -9,16 +9,37 @@
     <ItemGroup>
         <PackageReference Include="Duende.IdentityServer" Version="7.0.4"/>
         <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="7.0.4" />
+        <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="7.0.4" />
 
         <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.3"/>
 
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
+
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
+
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Serilog.AspNetCore" Version="8.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\TaskManagement.Domain\TaskManagement.Domain.csproj" />
       <ProjectReference Include="..\TaskManagement.Infrastructure\TaskManagement.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Admin\ApiScopes\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\ApiScopes\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\ApiScopes\New.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Clients\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Clients\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Clients\New.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\IdentityScopes\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\IdentityScopes\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\IdentityScopes\New.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Index.cshtml" />
     </ItemGroup>
 
 

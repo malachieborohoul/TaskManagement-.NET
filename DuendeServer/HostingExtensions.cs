@@ -1,6 +1,9 @@
 using Duende.IdentityServer;
 using Duende.IdentityServer.Services;
 using DuendeServer;
+using DuendeServer.Pages.Admin.ApiScopes;
+using DuendeServer.Pages.Admin.Clients;
+using DuendeServer.Pages.Admin.IdentityScopes;
 using DuendeServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -17,6 +20,7 @@ internal static class HostingExtensions
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+        var connectionString = builder.Configuration.GetConnectionString("IdentityConnection");
 
         // Configuration de l'identité
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -40,7 +44,21 @@ internal static class HostingExtensions
             .AddAspNetIdentity<ApplicationUser>()
             //.AddTestUsers(TestUsers.Users)
             .AddDeveloperSigningCredential()
-            .AddProfileService<ProfileService>();
+            .AddProfileService<ProfileService>()
+            // this adds the config data from DB (clients, resources, CORS)
+
+            .AddConfigurationStore(options =>
+            {
+                options.ConfigureDbContext = b =>
+                    b.UseSqlite(connectionString,
+                        dbOpts => dbOpts.MigrationsAssembly(typeof(Program).Assembly.FullName));
+            })
+            // this adds the operational data from DB (codes, tokens, consents)
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = b =>
+                    b.UseSqlite(connectionString, dbOpts => dbOpts.MigrationsAssembly(typeof(Program).Assembly.FullName));
+            });
         
         
         
@@ -77,9 +95,28 @@ internal static class HostingExtensions
                 options.ClientId = "copy client ID from Google here";
                 options.ClientSecret = "copy client secret from Google here";
             });
+        
+        // this adds the necessary config for the simple admin/config pages
+        {
+            
+            builder.Services.AddAuthorization(options =>
+                options.AddPolicy("admin",
+                    policy => policy.RequireClaim("role", "Admin"))
+            );
+    
+            builder.Services.Configure<RazorPagesOptions>(options =>
+                options.Conventions.AuthorizeFolder("/Admin", "admin"));
+
+            builder.Services.AddTransient<ClientRepository>();
+            builder.Services.AddTransient<IdentityScopeRepository>();
+            builder.Services.AddTransient<ApiScopeRepository>();
+        }
+
+        
 
         return builder.Build();
     }
+    
 
     public static WebApplication ConfigurePipeline(this WebApplication app)
     {
