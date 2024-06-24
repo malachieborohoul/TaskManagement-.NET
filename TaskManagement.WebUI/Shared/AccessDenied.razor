@@ -1,0 +1,22 @@
+@page "/access-denied"
+@layout AuthorizationLayout
+<div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="text-center">
+        <p class=" font-semibold text-indigo-600">403</p>
+        <h1 class="mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-5xl">Access Denied</h1>
+        <p class="mt-6 text-base leading-7 text-gray-600">You do not have permission to access this page.</p>
+        <div class="mt-10 ">
+            <a href="javascript:void(0)" @onclick="NavigateToHome" class="rounded-md bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Home</a>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    [Inject] NavigationManager Navigation { get; set; } = default!;
+
+    private void NavigateToHome()
+    {
+        Navigation.NavigateTo("/");
+    }
+}

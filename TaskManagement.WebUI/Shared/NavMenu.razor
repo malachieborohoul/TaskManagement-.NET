@@ -1,7 +1,7 @@
 ﻿@using TaskManagement.WebUI.Extensions
 
 <MudNavMenu>
-    <MudNavLink Class="my-1" Href="/home" Match="NavLinkMatch.All">Dashboard</MudNavLink>
+    <MudNavLink Class="my-1" Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
     <MudNavLink Class="my-1" Href="/tasks" Match="NavLinkMatch.Prefix">Tasks</MudNavLink>
     <AuthorizeView Roles="@Constant.Role.Admin">
         <MudNavLink Class="my-1" Href="/users" Match="NavLinkMatch.Prefix">Users</MudNavLink>

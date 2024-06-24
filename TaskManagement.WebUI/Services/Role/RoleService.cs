@@ -21,7 +21,7 @@ public class RoleService(HttpClientService httpClientService):IRoleService
         
         try
         {
-            var privateClient =  httpClientService.GetPublicClient();
+            var privateClient =  await httpClientService.GetPrivateClient();
 
             var response = await privateClient.GetAsync(Constant.GetRolesRoute); 
             string error = CheckResponseStatus(response);

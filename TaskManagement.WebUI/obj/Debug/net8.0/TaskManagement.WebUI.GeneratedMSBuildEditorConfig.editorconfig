@@ -110,6 +110,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlci9Vc2VyTGlzdFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/AccessDenied.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FjY2Vzc0RlbmllZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/AuthorizationLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0F1dGhvcml6YXRpb25MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/CurrentSession.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0N1cnJlbnRTZXNzaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -118,8 +126,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/RedirectToAccessDenied.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlZGlyZWN0VG9BY2Nlc3NEZW5pZWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/RedirectToLogin.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/Shared/Unauthorized.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1VuYXV0aG9yaXplZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/bsm/Documents/projects/dotnet/TaskManagement/TaskManagement.WebUI/_Imports.razor]

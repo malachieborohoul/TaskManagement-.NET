@@ -62,6 +62,7 @@ builder.Services.AddOidcAuthentication(options =>
     options.ProviderOptions.ResponseType = "code";
     // Configure le type de claim de rôle personnalisé
     options.UserOptions.RoleClaim = JwtClaimTypes.Role;
+   
 });
 
 

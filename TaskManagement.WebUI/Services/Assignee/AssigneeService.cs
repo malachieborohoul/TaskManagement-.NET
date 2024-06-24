@@ -19,7 +19,7 @@ public class AssigneeService(HttpClientService httpClientService):IAssigneeServi
     {
         try
         {
-            var privateClient =  httpClientService.GetPublicClient();
+            var privateClient =  await httpClientService.GetPrivateClient();
             var response = await privateClient.DeleteAsync($"{Constant.DeleteAssigneeRoute}/{taskId}/{userId}");
             string error = CheckResponseStatus(response);
             if (!string.IsNullOrEmpty(error))
@@ -36,7 +36,7 @@ public class AssigneeService(HttpClientService httpClientService):IAssigneeServi
 
     public async Task<GeneralResponse> GetAssigneeAsync(Guid taskId, string userId)
     {
-        var privateClient =  httpClientService.GetPublicClient();
+        var privateClient =  await httpClientService.GetPrivateClient();
 
         var response = await privateClient.DeleteAsync($"{Constant.DeleteAssigneeRoute}/{taskId}/{userId}");
         string error = CheckResponseStatus(response);
@@ -52,7 +52,7 @@ public class AssigneeService(HttpClientService httpClientService):IAssigneeServi
         try
         {
            // var privateClient = await httpClientService.GetPrivateClient();
-           var privateClient =  httpClientService.GetPublicClient();
+           var privateClient =  await httpClientService.GetPrivateClient();
 
             var response = await privateClient.GetAsync($"{Constant.DeleteAssigneeRoute}/{taskId}"); 
             string error = CheckResponseStatus(response);

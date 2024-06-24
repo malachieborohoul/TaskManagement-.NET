@@ -19,7 +19,7 @@ public class PriorityService(HttpClientService httpClientService):IPriorityServi
     {
         try
         {
-            var privateClient =  httpClientService.GetPublicClient();
+            var privateClient =  await httpClientService.GetPrivateClient();
 
             var response = await privateClient.GetAsync(Constant.GetPrioritiesRoute); 
             string error = CheckResponseStatus(response);
