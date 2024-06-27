@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -36,6 +37,12 @@
       <_ContentIncludedByDefault Remove="Pages\Admin\IdentityScopes\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Admin\IdentityScopes\New.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Admin\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 

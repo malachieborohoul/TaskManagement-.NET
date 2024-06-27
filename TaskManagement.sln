@@ -25,6 +25,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A46DBD1E-071A-4BCD-AB5E-267D1AEA2C04}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
+		wait-for-it.sh = wait-for-it.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuendeServer", "DuendeServer\DuendeServer.csproj", "{5FEF8140-EB5A-44BD-A6EB-1B863F9FF29A}"

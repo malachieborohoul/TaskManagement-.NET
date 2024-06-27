@@ -5,6 +5,7 @@ using FluentValidation.AspNetCore;
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using TaskManagement.Application.Services.Assignee;
@@ -26,6 +27,8 @@ using TaskManagement.Application.Validations.User;
 using TaskManagement.Infrastructure.DependencyInjection;
 using TaskManagement.Infrastructure.IDbInitializer;
 
+using TaskManagement.API;
+using TaskManagement.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
@@ -102,11 +105,16 @@ builder.Services.AddValidatorsFromAssemblyContaining<UpdateUserDtoValidator>();
 builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 var app = builder.Build();
 
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    // Apply database migrations
+    ApplyMigrations(app);
     app.UseSwagger();
     app.UseSwaggerUI();
+
 }
 
 app.UseHttpsRedirection();
@@ -129,4 +137,27 @@ void SeedDatabase()
         var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
         dbInitializer.Initialize();
     }
+}
+
+void ApplyMigrations(WebApplication app)
+{
+    // Apply migrations
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var logger = services.GetRequiredService<ILogger<Program>>();
+    
+        try
+        {
+            logger.LogInformation("Applying database migrations...");
+            var dbContext = services.GetRequiredService<AppDbContext>();
+            dbContext.Database.Migrate();
+            logger.LogInformation("Database migrations applied successfully.");
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "An error occurred while applying database migrations.");
+        }
+    }
+
 }
