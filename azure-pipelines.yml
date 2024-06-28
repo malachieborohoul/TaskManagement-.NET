@@ -123,13 +123,13 @@ stages:
                 echo "Current directory: $(pwd)"
                 
                 # Login to Docker Hub
-                echo "$(dockerHubPassword)" | docker login -u "$(dockerHubUsername)" --password-stdin
+                # echo "$(dockerHubPassword)" | docker login -u "$(dockerHubUsername)" --password-stdin
                 
                 # Stop and remove existing containers
                 docker-compose down
                 
                 # Pull the latest images
-                #docker-compose pull
+                docker-compose pull
                 
                 # Start the new containers
                 docker-compose up -d
