@@ -26,6 +26,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 		wait-for-it.sh = wait-for-it.sh
+		webui.Dockerfile = webui.Dockerfile
+		.dockerignore = .dockerignore
+		api.Dockerfile = api.Dockerfile
+		duende.Dockerfile = duende.Dockerfile
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuendeServer", "DuendeServer\DuendeServer.csproj", "{5FEF8140-EB5A-44BD-A6EB-1B863F9FF29A}"

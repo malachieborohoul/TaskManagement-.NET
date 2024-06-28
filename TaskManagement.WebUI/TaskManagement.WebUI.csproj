@@ -79,9 +79,6 @@
     <ItemGroup>
       <Content Remove="Pages\Authentication\**" />
       <Content Remove="Pages\Home.razor" />
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
     </ItemGroup>
 
     <ItemGroup>
