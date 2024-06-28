@@ -73,7 +73,7 @@ stages:
               containerRegistry: "DockerHubConnection"
               repository: "$(dockerHubUsername)/taskmanagement.api"
               command: "buildAndPush"
-              dockerfile: "TaskManagement.API/Dockerfile"
+              dockerfile: "api.Dockerfile"
               tags: |
                 $(tag)
                 latest
@@ -84,7 +84,7 @@ stages:
               containerRegistry: "DockerHubConnection"
               repository: "$(dockerHubUsername)/taskmanagement.webui"
               command: "buildAndPush"
-              dockerfile: "TaskManagement.WebUI/Dockerfile"
+              dockerfile: "webui.Dockerfile"
               tags: |
                 $(tag)
                 latest
@@ -95,7 +95,7 @@ stages:
               containerRegistry: "DockerHubConnection"
               repository: "$(dockerHubUsername)/duendeserver"
               command: "buildAndPush"
-              dockerfile: "DuendeServer/Dockerfile"
+              dockerfile: "duende.Dockerfile"
               tags: |
                 $(tag)
                 latest
@@ -129,7 +129,7 @@ stages:
                 docker-compose down
                 
                 # Pull the latest images
-                docker-compose pull
+                #docker-compose pull
                 
                 # Start the new containers
                 docker-compose up -d
