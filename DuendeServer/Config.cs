@@ -112,11 +112,11 @@ public static class Config
 
                 },
 
-                RedirectUris = { "https://localhost:7159/authentication/login-callback" },
-                PostLogoutRedirectUris = { "https://localhost:7159/authentication/logout-callback" },
+                RedirectUris = { "https://localhost:7159/authentication/login-callback","http://172.105.109.209:7159/authentication/login-callback" },
+                PostLogoutRedirectUris = { "https://localhost:7159/authentication/logout-callback", "http://172.105.109.209:7159/authentication/logout-callback" },
                 Enabled = true,
 
-                AllowedCorsOrigins = { "https://localhost:7159" },
+                AllowedCorsOrigins = { "https://localhost:7159","http://172.105.109.209:7159" },
             }
         };
 }
