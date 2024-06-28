@@ -106,12 +106,30 @@ builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Confi
 var app = builder.Build();
 
 
+// Apply migrations
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    
+    try
+    {
+        logger.LogInformation("Applying database migrations...");
+        var dbContext = services.GetRequiredService<AppDbContext>();
+        dbContext.Database.Migrate();
+        logger.LogInformation("Database migrations applied successfully.");
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "An error occurred while applying database migrations.");
+    }
+}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    // Apply database migrations
-    ApplyMigrations(app);
+ 
     app.UseSwagger();
     app.UseSwaggerUI();
 
@@ -141,23 +159,6 @@ void SeedDatabase()
 
 void ApplyMigrations(WebApplication app)
 {
-    // Apply migrations
-    using (var scope = app.Services.CreateScope())
-    {
-        var services = scope.ServiceProvider;
-        var logger = services.GetRequiredService<ILogger<Program>>();
-    
-        try
-        {
-            logger.LogInformation("Applying database migrations...");
-            var dbContext = services.GetRequiredService<AppDbContext>();
-            dbContext.Database.Migrate();
-            logger.LogInformation("Database migrations applied successfully.");
-        }
-        catch (Exception ex)
-        {
-            logger.LogError(ex, "An error occurred while applying database migrations.");
-        }
-    }
+
 
 }

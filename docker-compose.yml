@@ -2,8 +2,8 @@
 services:
   
   taskmanagement.webui:
-    image: taskmanagement.webui
-    container_name:  devopsalc/taskmanagement.webui:latest
+    image: devopsalc/taskmanagement.webui:latest
+    container_name: taskmanagement.webui
     build:
       context: .
       dockerfile: TaskManagement.WebUI/Dockerfile

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DuendeServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb8e609d74c155f66aca39e7d1aaf2ab707396f0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3476d0b0ba534a0c905613ad7f9d75958ceacd8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DuendeServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DuendeServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
