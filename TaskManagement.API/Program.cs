@@ -157,8 +157,3 @@ void SeedDatabase()
     }
 }
 
-void ApplyMigrations(WebApplication app)
-{
-
-
-}
