@@ -1,0 +1,166 @@
+# .NET Core with Docker
+# Build and deploy a .NET Core project using Docker.
+
+trigger:
+  - duende
+
+resources:
+  - repo: self
+
+variables:
+  tag: "latest"
+  repository: "devopsalc/taskmanagement"
+  composeDir: "/home/taskmanagement"
+ 
+
+stages:
+  - stage: Build
+    displayName: Build and Push Docker Images
+    jobs:
+      - job: Build
+        displayName: "Build and Push"
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '8.x'
+              installationPath: $(Agent.ToolsDirectory)/dotnet
+
+          - task: DotNetCoreCLI@2
+            displayName: Restore dependencies for taskmanagement.api
+            inputs:
+              command: 'restore'
+              projects: 'TaskManagement.API/TaskManagement.API.csproj'
+
+          - task: DotNetCoreCLI@2
+            displayName: Restore dependencies for taskmanagement.webui
+            inputs:
+              command: 'restore'
+              projects: 'TaskManagement.WebUI/TaskManagement.WebUI.csproj'
+
+          - task: DotNetCoreCLI@2
+            displayName: Restore dependencies for duendeserver
+            inputs:
+              command: 'restore'
+              projects: 'DuendeServer/DuendeServer.csproj'
+
+          - task: DotNetCoreCLI@2
+            displayName: Build taskmanagement.api
+            inputs:
+              command: 'build'
+              projects: 'TaskManagement.API/TaskManagement.API.csproj'
+              arguments: '--configuration Release'
+
+          - task: DotNetCoreCLI@2
+            displayName: Build taskmanagement.webui
+            inputs:
+              command: 'build'
+              projects: 'TaskManagement.WebUI/TaskManagement.WebUI.csproj'
+              arguments: '--configuration Release'
+
+          - task: DotNetCoreCLI@2
+            displayName: Build duendeserver
+            inputs:
+              command: 'build'
+              projects: 'DuendeServer/DuendeServer.csproj'
+              arguments: '--configuration Release'
+
+          - task: Docker@2
+            displayName: Build and Push Docker Image for taskmanagement.api
+            inputs:
+              containerRegistry: "DockerHubConnection"
+              repository: "$(dockerHubUsername)/taskmanagement.api"
+              command: "buildAndPush"
+              dockerfile: "TaskManagement.API/Dockerfile"
+              tags: |
+                $(tag)
+                latest
+
+          - task: Docker@2
+            displayName: Build and Push Docker Image for taskmanagement.webui
+            inputs:
+              containerRegistry: "DockerHubConnection"
+              repository: "$(dockerHubUsername)/taskmanagement.webui"
+              command: "buildAndPush"
+              dockerfile: "TaskManagement.WebUI/Dockerfile"
+              tags: |
+                $(tag)
+                latest
+
+          - task: Docker@2
+            displayName: Build and Push Docker Image for duendeserver
+            inputs:
+              containerRegistry: "DockerHubConnection"
+              repository: "$(dockerHubUsername)/duendeserver"
+              command: "buildAndPush"
+              dockerfile: "DuendeServer/Dockerfile"
+              tags: |
+                $(tag)
+                latest
+
+  - stage: Deploy
+    dependsOn: Build
+    condition: succeeded()
+    displayName: "Deploy to Server"
+    jobs:
+      - job: Deploy
+        displayName: Deploy
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - task: SSH@0
+            displayName: 'Deploy using Docker Compose'
+            inputs:
+              sshEndpoint: 'ServerConnection'
+              runOptions: 'inline'
+              inline: |
+                #!/bin/bash
+                echo "Deploying to server..."
+
+                cd $(composeDir)
+                echo "Current directory: $(pwd)"
+                
+                # Login to Docker Hub
+                echo "$(dockerHubPassword)" | docker login -u "$(dockerHubUsername)" --password-stdin
+                
+                # Stop and remove existing containers
+                docker-compose down
+                
+                # Pull the latest images
+                docker-compose pull
+                
+                # Start the new containers
+                docker-compose up -d
+                
+                # Display container logs
+                docker-compose logs
+              failOnStdErr: false
+
+      - job: CleanUpImages
+        dependsOn: Deploy
+        condition: succeeded()
+        displayName: "Clean Up Dangling Images"
+        pool:
+          vmImage: "ubuntu-latest"
+        steps:
+          - task: SSH@0
+            displayName: 'Prune dangling images'
+            inputs:
+              sshEndpoint: "ServerConnection"
+              runOptions: "inline"
+              inline: |
+                #!/bin/bash
+                echo "Cleaning up dangling images..."
+                docker image prune -f
+              failOnStdErr: false
+
+      - job: Verification
+        dependsOn: CleanUpImages
+        condition: succeeded()
+        displayName: Verification
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - script: echo "Deployment successful"
