@@ -29,7 +29,10 @@ public static class ServiceContainer
         {
             options.AddPolicy("WebUI",
                 builder => builder
-                    .WithOrigins("https://localhost:7159")
+                    .WithOrigins(
+                        "http://172.105.109.209:7159", 
+                        "https://localhost:7159"
+                        )
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials());
