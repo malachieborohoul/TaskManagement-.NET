@@ -112,16 +112,14 @@ public static class Config
 
                 },
 
-                RedirectUris =
-                {
-                    "http://172.105.109.209:7159/authentication/login-callback"
-,
-                    "https://localhost:7159/authentication/login-callback"
-                },
-                PostLogoutRedirectUris = { "http://172.105.109.209:7159/authentication/logout-callback", "https://localhost:7159/authentication/logout-callback"  },
-                Enabled = true,
+                RedirectUris = {"http://172.105.109.209:7159/authentication/login-callback" },
+               // RedirectUris = {"http://172.105.109.209:7159/authentication/login-callback","https://localhost:7159/authentication/login-callback" },
+                PostLogoutRedirectUris = { "http://172.105.109.209:7159/authentication/logout-callback"  },
+               // PostLogoutRedirectUris = { "http://172.105.109.209:7159/authentication/logout-callback", "https://localhost:7159/authentication/logout-callback"  },
+               Enabled = true,
 
-                AllowedCorsOrigins = {"http://172.105.109.209:7159", "https://localhost:7159" },
+                AllowedCorsOrigins = {"http://172.105.109.209:7159" },
+                //AllowedCorsOrigins = {"http://172.105.109.209:7159", "https://localhost:7159" },
             }
         };
 }
