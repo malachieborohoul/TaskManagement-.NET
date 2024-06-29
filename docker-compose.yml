@@ -2,9 +2,11 @@
 services:
   
   taskmanagement.webui:
-    image: devopsalc/taskmanagement.webui:latest
+    image: taskmanagement.webui
     container_name: taskmanagement.webui
-   
+    build:
+      context: .
+      dockerfile: webui.Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTPS_PORTS=80
@@ -20,9 +22,11 @@ services:
     depends_on:
       - taskmanagement.api
   taskmanagement.api:
-    image:  devopsalc/taskmanagement.api:latest
+    image:  taskmanagement.api
     container_name: taskmanagement.api
-  
+    build:
+      context: .
+      dockerfile: duende.Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=5241
@@ -42,8 +46,11 @@ services:
     
         
   duendeserver:
-    image: devopsalc/duendeserver:latest 
+    image: duendeserver 
     container_name: duendeserver
+    build:
+      context: .
+      dockerfile: duende.Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTPS_PORTS=5001

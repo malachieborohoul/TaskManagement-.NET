@@ -120,6 +120,7 @@ internal static class HostingExtensions
 
     public static WebApplication ConfigurePipeline(this WebApplication app)
     {
+        SeedData.EnsureSeedData(app);
         app.UseSerilogRequestLogging();
 
         if (app.Environment.IsDevelopment())
@@ -138,3 +139,4 @@ internal static class HostingExtensions
         return app;
     }
 }
+

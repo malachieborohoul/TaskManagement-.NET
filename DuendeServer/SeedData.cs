@@ -6,17 +6,22 @@ using Serilog;
 
 namespace DuendeServer
 {
-    public class SeedData
+    public class SeedData(ILogger<SeedData> logger)
     {
+        
         public static void EnsureSeedData(WebApplication app)
         {
             using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
+                Log.Debug("Applying database migrations...");
+
                 scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
 
                 var context = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
                 context.Database.Migrate();
                 EnsureSeedData(context);
+                Log.Debug("Database migrations applied successfully.");
+
             }
         }
 
