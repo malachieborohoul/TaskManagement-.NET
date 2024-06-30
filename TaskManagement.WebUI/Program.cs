@@ -50,7 +50,8 @@ builder.Services.AddMudServices();
 
 builder.Services. AddHttpClient(Extension.Constant.HttpClientName, client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7260/"); }).AddHttpMessageHandler<Extension.AntiforgeryHandler>();
+   // client.BaseAddress = new Uri("https://localhost:7260/"); }).AddHttpMessageHandler<Extension.AntiforgeryHandler>();
+client.BaseAddress = new Uri("https://172.105.109.209:7260/"); }).AddHttpMessageHandler<Extension.AntiforgeryHandler>();
 
 builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient(Extension.Constant.HttpClientName));
 
