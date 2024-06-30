@@ -31,7 +31,7 @@ public static class ServiceContainer
                 builder => builder
                     .WithOrigins(
                         "http://172.105.109.209:7159", 
-                        "https://localhost:7159"
+                        "http://localhost:7159"
                         )
                     .AllowAnyHeader()
                     .AllowAnyMethod()
