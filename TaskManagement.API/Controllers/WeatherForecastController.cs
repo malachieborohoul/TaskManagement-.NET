@@ -10,7 +10,7 @@ namespace TaskManagement.API.Controllers
     [Route("[controller]")]
 
     [ApiController]
-    [ Authorize(Policy = "AdminPolicy", AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[ Authorize(Policy = "AdminPolicy", AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
