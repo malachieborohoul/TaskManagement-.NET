@@ -48,11 +48,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.Authority = builder.Configuration["ServiceUrls:IdentityAPI"];
+        options.Authority = "https://172.105.109.209:5001";
         options.TokenValidationParameters = new TokenValidationParameters()
         {
             ValidateAudience = false,
-            ValidIssuer = builder.Configuration["ServiceUrls:IdentityAPI"],
+            ValidIssuer = "https://172.105.109.209:5001",
             NameClaimType = "name",
             RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
         };
