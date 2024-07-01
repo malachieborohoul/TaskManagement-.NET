@@ -30,6 +30,7 @@ public static class ServiceContainer
             options.AddPolicy("WebUI",
                 builder => builder
                     .WithOrigins(
+                        "http://task-management.us.to",
                         "http://172.105.109.209:7159", 
                         "http://localhost:7159"
                         )
