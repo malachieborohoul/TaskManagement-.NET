@@ -232,20 +232,20 @@
     {
         try
         {
-           /* 
-            if (string.IsNullOrEmpty(CreateTaskModel.Title) && selectedUsers.IsNullOrEmpty() )
+           
+            if (string.IsNullOrEmpty(CreateTaskModel.Title) && (selectedUsers == null || selectedUsers.Count == 0) )
             {
                 _errorMessageTitle = "Title Task is empty";
                 _errorMessageAssign = "Select team members";
 
-            }*/
-           /*
+            }
+           
             else if (string.IsNullOrEmpty(CreateTaskModel.Title))
             {
                 _errorMessageTitle = "Title Task is empty";
             }
             
-            else if (selectedUsers.IsNullOrEmpty())
+            else if (selectedUsers == null || selectedUsers.Count == 0)
             {
                 _errorMessageAssign = "Select team members";
             }
@@ -278,7 +278,7 @@
                
                 }
                
-            }*/
+            }
              
             
            
