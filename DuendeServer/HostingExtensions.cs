@@ -126,7 +126,6 @@ internal static class HostingExtensions
         if (app.Environment.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-            app.UseHttpsRedirection();
 
         }
 
