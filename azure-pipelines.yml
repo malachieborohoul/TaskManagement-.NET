@@ -2,7 +2,7 @@
 # Build and deploy a .NET Core project using Docker.
 
 trigger:
-  - duende
+  - duendeserver
 
 resources:
   - repo: self
